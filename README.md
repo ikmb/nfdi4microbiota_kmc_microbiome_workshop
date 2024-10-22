@@ -41,8 +41,31 @@ Create additionally a directory called **R_objects**, which contains:
 * full_phyloseq_object.RData
 * rare8000_phyloseq_object.RData
 
+## Option 1: Using Jupyter Notebooks with the R Kernel
+
 ## Install conda environment
 
+First, make sure you have Conda installed. 
 You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
 Just install the environment with the following command: 
-> conda env create --file kmc_16s_environment.yml --prefix kmc_workshop 
+> conda env create --file kmc_16s_environment.yml --prefix kmc_workshop
+> Once the environment is created, activate it
+> `conda activate kmc_workshop`
+
+## Launch Jupyter Notebook
+If Jupyter is not already installed, you can install it within the environment:
+`conda install jupyter`
+Start Jupyter with the R kernel
+`jupyter notebook`
+
+## Option 2: Using RStudio
+
+Ensure that Conda is installed and active (same as step 1 above).
+
+## Link Conda Environment with RStudio:
+
+In RStudio, go to Tools > Global Options > R and select the R Version associated with the Conda environment. 
+
+## Run Your R Code
+You can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.
+
