@@ -9,7 +9,7 @@ Create a directory with the name **inputs**, here following files are required:
 * common_significant_features.txt
 * feature-table-gmbc1.tsv
 * metadata_gmbc_bn10_complete_fixed.tsv
-* metagenome
+* metagenome (looks like we should have two metagenome(a bit confusing))
 * MSM79H87_R_profile.tbl
 * taxonomy_gmbc1_form.csv
 * tree-gmbc1.nwk
@@ -44,5 +44,5 @@ Create additionally a directory called **R_objects**, which contains:
 ## Install conda environment
 
 You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
-Just install the environment with following command: 
+Just install the environment with the following command: 
 > conda env create --file kmc_16s_environment.yml --prefix kmc_workshop 
