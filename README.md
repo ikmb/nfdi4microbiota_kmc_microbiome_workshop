@@ -20,7 +20,7 @@ Ensure the following files are inside the `inputs` directory:
 - MSM79H87_R_profile.tbl
 
 **Metagenome Directory** (`inputs/metagenome/`):
-- full_MSM79H87_profile.tbl
+Following files need to be downloaded & unzipped before you start with the metagenome tutorial:
 - genome.1.bt2
 - genome.2.bt2
 - genome.3.bt2
@@ -28,16 +28,17 @@ Ensure the following files are inside the `inputs` directory:
 - genome.fa
 - genome.rev.1.bt2
 - genome.rev.2.bt2
-- GMbCv3.GTDBr220.genus.sylph_tpm.out
+> Note: You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
 - gtdb-r220-c200-dbv1.syldb
+> Note: The used database can be downloaded from the [official Sylph Repository](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
 - gtdb_taxonomy.tsv
-- MSM79H87_R_R1_clean.fastq.gz
-- MSM79H87_R_R2_clean.fastq.gz
-- MSM79H87_R_single_clean.fastq.gz
-- test_input_MSM79H87_R1.fastq.gz
-- test_input_MSM79H87_R2.fastq.gz
+> Note: This file you can get by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
-**BBMap Directory** (`inputs/metagenome/bbmap/`)
+- A dummy metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)
+> Note: Download links for the metagenome files: [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz) [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+
+**BBMap Directory** (`inputs/metagenome/bbmap/`):
+> Note: You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources)
 - nextera.fa.gz
 - phix174_ill.ref.fa.gz
 - phix_adapters.fa.gz
