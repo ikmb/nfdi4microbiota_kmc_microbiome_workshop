@@ -2,8 +2,8 @@
 
 This repository contains all jupyter notebooks of the two day workshop held in September 2024.
 
-## Missing input files
-For running the tutorials you will need files of the GMbC 16S dataset that are currently not publicly available.
+## Input files
+To run the tutorials, you will need files from the GMbC 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset.
 
 Create a directory with the name **inputs**, here following files are required:
 * common_significant_features.txt
@@ -69,6 +69,10 @@ In RStudio, go to Tools > Global Options > R and select the R Version associated
 ## Run Your R Code
 You can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.
 
+# The Importance of FAIR Principles in Microbiome Research
+The **FAIR Principles (Findability, Accessibility, Interoperability, and Reusability)** are essential for ensuring that scientific data can be effectively shared, reused, and integrated across different research projects. These principles enhance transparency, reproducibility, and long-term usability in microbiome research.
+
+The data used in this workshop were generated and collected in accordance with FAIR principles, ensuring standardized, well-documented, and reusable datasets. While the content of this GitHub repository does not explicitly focus on implementing FAIR principles, they are at the core of [NFDI4Microbiota's mission](https://nfdi4microbiota.de/). We strongly encourage participants to integrate these principles into their individual research projects to improve data quality and foster collaboration.
 
 # Questions & Discussion 💬
 If you have any questions about the workshop materials or need further clarification, please use the "Issues" tab on this GitHub repository. This is the easiest and most efficient way to facilitate Q&A between instructors and participants after the workshop.
