@@ -75,12 +75,12 @@ If you have any questions about the workshop materials or need further clarifica
 
 By posting your questions in the Issues section, you allow others to see previously asked questions, share insights, and contribute to discussions. Instructors will also monitor the issues and provide answers as needed.
 
-📌 How to Ask a Question:
+## 📌 How to Ask a Question:
+- Go to the **"Issues"** tab at the top of this repository.  
+- Click on **"New Issue"**.  
+- Provide a clear title and description of your question.  
+- Submit the issue, and an instructor will respond.  
 
-*Go to the "Issues" tab at the top of this repository.
-*Click on "New Issue".
-*Provide a clear title and description of your question.
-*Submit the issue, and an instructor will respond.
 
 We encourage you to use this space to discuss topics from the workshop, troubleshoot code, and collaborate with others! 🚀
 
