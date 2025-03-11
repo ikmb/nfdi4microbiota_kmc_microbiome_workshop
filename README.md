@@ -16,10 +16,8 @@ Ensure the following files are inside the `inputs` directory:
 - taxonomy_gmbc1_form.csv
 - tree-gmbc1.nwk
   
-**Metagenome Files**
-- MSM79H87_R_profile.tbl
 
-**Metagenome Directory** (`inputs/metagenome/`):
+**Metagenome Files** (`inputs/metagenome/`):  
 Following files need to be downloaded & unzipped before you start with the metagenome tutorial:
 - genome.1.bt2
 - genome.2.bt2
@@ -34,10 +32,10 @@ Following files need to be downloaded & unzipped before you start with the metag
 - gtdb_taxonomy.tsv
 > Note: This file you can get by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
-- A dummy metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)
+- A metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)
 > Note: Download links for the metagenome files: [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz) [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
 
-**BBMap Directory** (`inputs/metagenome/bbmap/`):
+**BBMap Files** (`inputs/metagenome/bbmap/`):
 > Note: You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources)
 - nextera.fa.gz
 - phix174_ill.ref.fa.gz
