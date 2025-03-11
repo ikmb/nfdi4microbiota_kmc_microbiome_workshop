@@ -1,0 +1,23 @@
+---
+title: "Resources"
+---
+
+# Workshop Resources
+
+## Software Tools
+
+-   [QIIME2](https://qiime2.org/) - Microbiome analysis platform
+-   [Phyloseq](https://joey711.github.io/phyloseq/) - R package for microbiome analysis
+-   [mothur](https://mothur.org/) - Software for microbiome analysis
+
+## Datasets
+
+-   Workshop sample data (will be provided during the sessions)
+-   [Earth Microbiome Project](https://earthmicrobiome.org/data/) - Reference datasets
+-   [Human Microbiome Project](https://hmpdacc.org/) - Human microbiome reference data
+
+## Additional Learning Resources
+
+-   [Microbiome Analysis Tutorial Collection](https://microbiome.github.io/tutorials/)
+-   [Happy Belly Bioinformatics](https://astrobiomike.github.io/)
+-   [Bioconductor Workflows](https://bioconductor.org/packages/release/workflows/)

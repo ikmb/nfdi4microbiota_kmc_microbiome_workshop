@@ -1,0 +1,34 @@
+---
+title: "Kiel Microbiome Center workshop"
+---
+
+This site hosts the [teaching material](about.qmd) from the KMC workshop hosted in September 2024. The introduces basic microbiome analysis and is aimed for participants with little or no experience.
+
+![KMC workshop participants from around the world met in Kiel in 2024.](img/group_outside.jpg)
+
+## Workshop overview
+
+The workshop material is hosted its [Github repository](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop). You can start exploring the workshop material [here](about.qmd).
+
+## Organizers
+
+This workshop was organized by the researchers from different institutions from Kiel, Germany: [IKMB](https://www.ikmb.uni-kiel.de/), [CAU](https://www.uni-kiel.de/de/) and [UKSH](https://www.uksh.de/). It was financed by the [NFDI4Microbiota](https://nfdi4microbiota.de/) and [miTarget](https://www.mitarget.org/).
+
+## Support
+
+::::: columns
+::: {.column .text-center width="50%"}
+[![](img/nfdi4microbiota_Logo_new.png){alt="NFDI4Microbiota Logo"}](https://nfdi4microbiota.de/)
+:::
+
+
+## TO DO
+
+ - REVIEW links (ALL, files)
+ - reorganize github (including readme)
+
+
+::: {.column .text-center width="50%"}
+[![](img/logo_miTarget_2023-extd.png){alt="miTarget Logo"}](https://www.mitarget.org/)
+:::
+:::::

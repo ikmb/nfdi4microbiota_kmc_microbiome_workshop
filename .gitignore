@@ -1,2 +1,12 @@
 R_objects/*
 .DS_Store
+/.quarto/
+
+
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+/_site/
+

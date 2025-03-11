@@ -1,0 +1,125 @@
+---
+title: "The Kiel Microbiome Center workshop"
+---
+
+# Overview
+
+The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.
+
+## Talks
+
+Link all files of the talks here, use a logical order:
+
+1.  [Data processing](talks/nfdi4microbiota_DataPreProcessing.pdf)
+2.  [Metagenomics](talks/nfdi4microbiota_DAA_Metagenomics.pdf)
+3.  [Alpha diversity](talks/nfdi4microbiota_Alpha_diversity.pdf)
+4.  [Beta diversity](talks/nfdi4microbiota_Beta_diversity.pdf)
+
+## Practical material
+
+1.  [Introduction to R](scripts/1_intro_to_r.ipynb)
+2.  [Alpha diversity analysis](scripts/2_Alpha_diversity.ipynb)
+3.  [Beta diversity analysis](scripts/3_Beta_diversity.ipynb)
+4.  [Differential abundance analysis](scripts/4_Differential_abundance.ipynb)
+5.  [Metagenome outlook](scripts/5_Metagenome_outook.ipynb)
+
+Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.
+
+# Prerequisites
+
+## Input files
+
+To run the tutorials, you will need files from the `inputs` directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample [SRR5935872](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
+
+Ensure the following files are inside the `inputs` directory:
+
+### 16S Data Files
+
+-   common_significant_features.txt
+-   feature-table-gmbc1.tsv
+-   metadata_gmbc_bn10_complete_fixed.tsv
+-   taxonomy_gmbc1_form.csv
+-   tree-gmbc1.nwk
+
+### Metagenome Files:
+
+Following files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start with the metagenome tutorial:
+
+-   genome.1.bt2
+-   genome.2.bt2
+-   genome.3.bt2
+-   genome.4.bt2
+-   genome.fa
+-   genome.rev.1.bt2
+-   genome.rev.2.bt2
+
+> Note: You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
+
+-   gtdb-r220-c200-dbv1.syldb
+
+> Note: The used database can be downloaded from the [official Sylph Repository](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
+
+-   gtdb_taxonomy.tsv
+
+> Note: This file you can get by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
+
+-   A metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)
+
+> Note: Download links for the metagenome files: [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz) [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+
+**BBMap Files**:
+
+Download the files at (`inputs/metagenome/bbmap/`).
+
+> Note: You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources) - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz
+
+Create additionally a directory called `R_objects`, which will contain:
+
+-   full_phyloseq_object.RData
+-   rare8000_phyloseq_object.RData
+
+# Running the R commands
+
+## Option 1: Using Jupyter Notebooks with the R Kernel
+
+### Install conda environment
+
+First, make sure you have Conda installed. You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
+
+Just install the environment with the following command:
+
+``` bash
+conda env create --file kmc_16s_environment.yml --prefix kmc_workshop
+```
+
+Once the environment is created, activate it:
+
+``` bash
+conda activate kmc_workshop
+```
+
+### Launch Jupyter Notebook
+
+If Jupyter is not already installed, you can install it within the environment:
+
+``` bash
+conda install jupyter
+```
+
+Start Jupyter with the R kernel:
+
+``` bash
+jupyter notebook
+```
+
+## Option 2: Using RStudio
+
+Ensure that Conda is installed and active (same as step 1 above).
+
+#### Link Conda Environment with RStudio:
+
+In RStudio, go to Tools \> Global Options \> R and select the R Version associated with the Conda environment.
+
+#### Run Your R Code
+
+You can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.

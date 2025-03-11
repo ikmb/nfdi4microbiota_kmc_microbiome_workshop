@@ -1,0 +1,46 @@
+project:
+  type: website
+website:
+  title: "Kiel Microbiome Center workshop"
+  site-url: "https://ikmb.github.io/nfdi4microbiota_kmc_microbiome_workshop"
+  repo-url: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
+  repo-actions: [issue]
+  page-footer:
+    left: "Founded by NFDI4Microbiota and miTarget"
+    right:
+      - icon: github
+        href: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: Home
+        href: index.qmd
+      - text: "The workshop"
+        href: the_workshop.qmd
+      - text: "FAIR Principles"
+        href: fair_principles.qmd 
+      - text: "Questions & Answers"
+        href: questions.qmd
+      - href: resources.qmd
+        text: Resources
+  sidebar:
+    style: docked
+    contents:
+      - section: "The workshop"
+        contents:
+          - the_workshop.qmd
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    theme: lux
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+
+editor: visual
