@@ -1,43 +1,48 @@
 # KMC 2024 Microbiome Workshop
 
-This repository contains all jupyter notebooks of the two day workshop held in September 2024.
+This repository contains all jupyter notebooks of the two-day workshop held in September 2024.
 
 ## Input files
-To run the tutorials, you will need files from the GMbC 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset.
+To run the tutorials, you will need files from the `inputs` directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset.
+For metagenome analysis, we use one publicly available HMP sample as an example:
+HMP Sample [SRR5935872](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
 
-Create a directory with the name **inputs**, here following files are required:
-* common_significant_features.txt
-* feature-table-gmbc1.tsv
-* metadata_gmbc_bn10_complete_fixed.tsv
-* metagenome (looks like we should have two metagenome(a bit confusing))
-* MSM79H87_R_profile.tbl
-* taxonomy_gmbc1_form.csv
-* tree-gmbc1.nwk
+Ensure the following files are inside the `inputs` directory:
 
-* metagenome [directory]:
+**16S Data Files**
+- common_significant_features.txt
+- feature-table-gmbc1.tsv
+- metadata_gmbc_bn10_complete_fixed.tsv
+- taxonomy_gmbc1_form.csv
+- tree-gmbc1.nwk
+  
+**Metagenome Files**
+- MSM79H87_R_profile.tbl
 
-  * full_MSM79H87_profile.tbl
-  * genome.1.bt2
-  * genome.2.bt2
-  * genome.3.bt2
-  * genome.4.bt2
-  * genome.fa
-  * genome.rev.1.bt2
-  * genome.rev.2.bt2
-  * GMbCv3.GTDBr220.genus.sylph_tpm.out
-  * gtdb-r220-c200-dbv1.syldb
-  * gtdb_taxonomy.tsv
-  * MSM79H87_R_R1_clean.fastq.gz
-  * MSM79H87_R_R2_clean.fastq.gz
-  * MSM79H87_R_single_clean.fastq.gz
-  * test_input_MSM79H87_R1.fastq.gz
-  * test_input_MSM79H87_R2.fastq.gz
-  * bbmap [directory]:
-    * nextera.fa.gz
-    * phix174_ill.ref.fa.gz
-    * phix_adapters.fa.gz
+**Metagenome Directory** (`inputs/metagenome/`):
+- full_MSM79H87_profile.tbl
+- genome.1.bt2
+- genome.2.bt2
+- genome.3.bt2
+- genome.4.bt2
+- genome.fa
+- genome.rev.1.bt2
+- genome.rev.2.bt2
+- GMbCv3.GTDBr220.genus.sylph_tpm.out
+- gtdb-r220-c200-dbv1.syldb
+- gtdb_taxonomy.tsv
+- MSM79H87_R_R1_clean.fastq.gz
+- MSM79H87_R_R2_clean.fastq.gz
+- MSM79H87_R_single_clean.fastq.gz
+- test_input_MSM79H87_R1.fastq.gz
+- test_input_MSM79H87_R2.fastq.gz
 
-Create additionally a directory called **R_objects**, which contains:
+**BBMap Directory** (`inputs/metagenome/bbmap/`)
+- nextera.fa.gz
+- phix174_ill.ref.fa.gz
+- phix_adapters.fa.gz
+
+Create additionally a directory called `R_objects`, which will contain:
 * full_phyloseq_object.RData
 * rare8000_phyloseq_object.RData
 
