@@ -158,72 +158,42 @@
     "href": "the_workshop.html",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
-    "text": "The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.\n\n\nLink all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity\n\n\n\n\n\nIntroduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.\n\n\nLink all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity\n\n\n\n\n\nIntroduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up."
   },
   {
     "objectID": "the_workshop.html#talks",
     "href": "the_workshop.html#talks",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
-    "text": "Link all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "Link all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity"
   },
   {
     "objectID": "the_workshop.html#practical-material",
     "href": "the_workshop.html#practical-material",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
-    "text": "Introduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "Introduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up."
   },
   {
     "objectID": "the_workshop.html#input-files",
     "href": "the_workshop.html#input-files",
     "title": "The Kiel Microbiome Center workshop",
     "section": "Input files",
-    "text": "Input files\nTo run the tutorials, you will need files from the inputs directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample SRR5935872\nEnsure the following files are inside the inputs directory:\n\n16S Data Files\n\ncommon_significant_features.txt\nfeature-table-gmbc1.tsv\nmetadata_gmbc_bn10_complete_fixed.tsv\ntaxonomy_gmbc1_form.csv\ntree-gmbc1.nwk\n\n\n\nMetagenome Files:\nFollowing files need to be downloaded at (inputs/metagenome/) & unzipped before you start with the metagenome tutorial:\n\ngenome.1.bt2\ngenome.2.bt2\ngenome.3.bt2\ngenome.4.bt2\ngenome.fa\ngenome.rev.1.bt2\ngenome.rev.2.bt2\n\n\nNote: You can download the needed Human/GRC38 genome files from e.g. here\n\n\ngtdb-r220-c200-dbv1.syldb\n\n\nNote: The used database can be downloaded from the official Sylph Repository\n\n\ngtdb_taxonomy.tsv\n\n\nNote: This file you can get by clicking this link\n\n\nA metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)\n\n\nNote: Download links for the metagenome files: ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz\n\nBBMap Files:\nDownload the files at (inputs/metagenome/bbmap/).\n\nNote: You can download the needed files from the BBMap Repository - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz\n\nCreate additionally a directory called R_objects, which will contain:\n\nfull_phyloseq_object.RData\nrare8000_phyloseq_object.RData",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "Input files\nTo run the tutorials, you will need files from the inputs directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample SRR5935872\nEnsure the following files are inside the inputs directory:\n\n16S Data Files\n\ncommon_significant_features.txt\nfeature-table-gmbc1.tsv\nmetadata_gmbc_bn10_complete_fixed.tsv\ntaxonomy_gmbc1_form.csv\ntree-gmbc1.nwk\n\n\n\nMetagenome Files:\nFollowing files need to be downloaded at (inputs/metagenome/) & unzipped before you start with the metagenome tutorial:\n\ngenome.1.bt2\ngenome.2.bt2\ngenome.3.bt2\ngenome.4.bt2\ngenome.fa\ngenome.rev.1.bt2\ngenome.rev.2.bt2\n\n\nNote: You can download the needed Human/GRC38 genome files from e.g. here\n\n\ngtdb-r220-c200-dbv1.syldb\n\n\nNote: The used database can be downloaded from the official Sylph Repository\n\n\ngtdb_taxonomy.tsv\n\n\nNote: This file you can get by clicking this link\n\n\nA metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)\n\n\nNote: Download links for the metagenome files: ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz\n\nBBMap Files:\nDownload the files at (inputs/metagenome/bbmap/).\n\nNote: You can download the needed files from the BBMap Repository - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz\n\nCreate additionally a directory called R_objects, which will contain:\n\nfull_phyloseq_object.RData\nrare8000_phyloseq_object.RData"
   },
   {
     "objectID": "the_workshop.html#option-1-using-jupyter-notebooks-with-the-r-kernel",
     "href": "the_workshop.html#option-1-using-jupyter-notebooks-with-the-r-kernel",
     "title": "The Kiel Microbiome Center workshop",
     "section": "Option 1: Using Jupyter Notebooks with the R Kernel",
-    "text": "Option 1: Using Jupyter Notebooks with the R Kernel\n\nInstall conda environment\nFirst, make sure you have Conda installed. You can install all required packages and tools with conda.\nJust install the environment with the following command:\nconda env create --file kmc_16s_environment.yml --prefix kmc_workshop\nOnce the environment is created, activate it:\nconda activate kmc_workshop\n\n\nLaunch Jupyter Notebook\nIf Jupyter is not already installed, you can install it within the environment:\nconda install jupyter\nStart Jupyter with the R kernel:\njupyter notebook",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "Option 1: Using Jupyter Notebooks with the R Kernel\n\nInstall conda environment\nFirst, make sure you have Conda installed. You can install all required packages and tools with conda.\nJust install the environment with the following command:\nconda env create --file kmc_16s_environment.yml --prefix kmc_workshop\nOnce the environment is created, activate it:\nconda activate kmc_workshop\n\n\nLaunch Jupyter Notebook\nIf Jupyter is not already installed, you can install it within the environment:\nconda install jupyter\nStart Jupyter with the R kernel:\njupyter notebook"
   },
   {
     "objectID": "the_workshop.html#option-2-using-rstudio",
     "href": "the_workshop.html#option-2-using-rstudio",
     "title": "The Kiel Microbiome Center workshop",
     "section": "Option 2: Using RStudio",
-    "text": "Option 2: Using RStudio\nEnsure that Conda is installed and active (same as step 1 above).\n\nLink Conda Environment with RStudio:\nIn RStudio, go to Tools &gt; Global Options &gt; R and select the R Version associated with the Conda environment.\n\n\nRun Your R Code\nYou can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.",
-    "crumbs": [
-      "Home",
-      "The workshop",
-      "The Kiel Microbiome Center workshop"
-    ]
+    "text": "Option 2: Using RStudio\nEnsure that Conda is installed and active (same as step 1 above).\n\nLink Conda Environment with RStudio:\nIn RStudio, go to Tools &gt; Global Options &gt; R and select the R Version associated with the Conda environment.\n\n\nRun Your R Code\nYou can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment."
   },
   {
     "objectID": "resources.html",
@@ -258,7 +228,7 @@
     "href": "index.html",
     "title": "Kiel Microbiome Center workshop",
     "section": "",
-    "text": "This site hosts the teaching material from the KMC workshop hosted in September 2024. The introduces basic microbiome analysis and is aimed for participants with little or no experience."
+    "text": "This site hosts the teaching material from the KMC workshop hosted in September 2024. The workshop introduces basic microbiome analysis and is aimed for participants with little or no experience."
   },
   {
     "objectID": "index.html#workshop-overview",
@@ -275,18 +245,18 @@
     "text": "Organizers\nThis workshop was organized by the researchers from different institutions from Kiel, Germany: IKMB, CAU and UKSH. It was financed by the NFDI4Microbiota and miTarget."
   },
   {
-    "objectID": "index.html#support",
-    "href": "index.html#support",
-    "title": "Kiel Microbiome Center workshop",
-    "section": "Support",
-    "text": "Support\n\n\n\n\nTO DO\n\nREVIEW links (ALL, files)\nreorganize github (including readme)"
-  },
-  {
     "objectID": "index.html#to-do",
     "href": "index.html#to-do",
     "title": "Kiel Microbiome Center workshop",
     "section": "TO DO",
-    "text": "TO DO\n\nREVIEW links (ALL, files)\nreorganize github (including readme)"
+    "text": "TO DO\n\nREVIEW links (ALL, files)\nreorganize github (including readme)\nRemove side bar\nreview resource"
+  },
+  {
+    "objectID": "index.html#support",
+    "href": "index.html#support",
+    "title": "Kiel Microbiome Center workshop",
+    "section": "Support",
+    "text": "Support"
   },
   {
     "objectID": "questions.html",
