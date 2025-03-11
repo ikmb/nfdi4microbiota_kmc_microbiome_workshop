@@ -24,13 +24,6 @@ website:
         href: questions.qmd
       - href: resources.qmd
         text: Resources
-  sidebar:
-    style: docked
-    contents:
-      - section: "The workshop"
-        contents:
-          - the_workshop.qmd
-
 execute:
   freeze: auto
 
