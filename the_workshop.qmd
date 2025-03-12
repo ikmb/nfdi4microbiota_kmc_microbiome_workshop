@@ -4,9 +4,9 @@ title: "The Kiel Microbiome Center workshop"
 
 # Overview
 
-Here you can find the teaching and practical materials of the workshop.
+Here you can find the teaching and practical materials from the workshop.
 
-## Concepts of microbiome ecology and data analysis
+## Concepts in microbiome ecology and data analysis
 
 Link all files of the talks here, use a logical order:
 
@@ -23,7 +23,7 @@ Link all files of the talks here, use a logical order:
 4.  [Differential abundance analysis](scripts/4_Differential_abundance.ipynb)
 5.  [Metagenome outlook](scripts/5_Metagenome_outook.ipynb)
 
-Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.
+Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions on how to set it all up.
 
 # Setting up the tutorial
 
@@ -35,7 +35,7 @@ To run the tutorial, it is assumed that you are working on a mac or a linux-base
 
 ### 16S Data Files
 
-To run the tutorials, you will need files from the `inputs` folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:
+To run the tutorials, you will need files from the `inputs` folder with 16S dataset. This dataset has been reduced in size and randomly shuffled compared to the original dataset. The files you need are:
 
 -   common_significant_features.txt
 -   feature-table-gmbc1.tsv
@@ -51,7 +51,7 @@ For metagenome analysis, you will need to download the files from public reposit
 
 - [SRR5935872.fasta.gz](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
 
-The files files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start with the metagenome tutorial.
+The files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start the metagenome tutorial.
 
 You can unzip them with the following command:
 
@@ -76,7 +76,7 @@ The used database can be downloaded from the [official Sylph Repository]
 
 - gtdb_taxonomy.tsv
 
-> Note: This file you can get by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
+> Note: You can get this file by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
 #### Sample metagenome
 
@@ -115,7 +115,7 @@ Where these files comes from???
 
 ### Install conda environment
 
-First, make sure you have Conda installed. You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:
+First, make sure you have conda installed. You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:
 
 ``` bash
 conda env create --file kmc_16s_environment.yml --prefix kmc_workshop
@@ -143,7 +143,7 @@ jupyter notebook
 
 ## Option 2: Using RStudio
 
-Ensure that Conda is installed and active (same as step 1 above).
+Ensure that conda is installed and active (same as step 1 above).
 
 #### Link Conda Environment with RStudio:
 
