@@ -158,18 +158,18 @@
     "href": "the_workshop.html",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
-    "text": "The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.\n\n\nLink all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity\n\n\n\n\n\nIntroduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up."
+    "text": "Here you can find the teaching and practical materials of the workshop.\n\n\nLink all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity\n\n\n\n\n\nIntroduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up."
   },
   {
-    "objectID": "the_workshop.html#talks",
-    "href": "the_workshop.html#talks",
+    "objectID": "the_workshop.html#concepts-of-microbiome-ecology-and-data-analysis",
+    "href": "the_workshop.html#concepts-of-microbiome-ecology-and-data-analysis",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
     "text": "Link all files of the talks here, use a logical order:\n\nData processing\nMetagenomics\nAlpha diversity\nBeta diversity"
   },
   {
-    "objectID": "the_workshop.html#practical-material",
-    "href": "the_workshop.html#practical-material",
+    "objectID": "the_workshop.html#hands-on-material",
+    "href": "the_workshop.html#hands-on-material",
     "title": "The Kiel Microbiome Center workshop",
     "section": "",
     "text": "Introduction to R\nAlpha diversity analysis\nBeta diversity analysis\nDifferential abundance analysis\nMetagenome outlook\n\nCommands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up."
@@ -179,14 +179,14 @@
     "href": "the_workshop.html#input-files",
     "title": "The Kiel Microbiome Center workshop",
     "section": "Input files",
-    "text": "Input files\nTo run the tutorials, you will need files from the inputs directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample SRR5935872\nEnsure the following files are inside the inputs directory:\n\n16S Data Files\n\ncommon_significant_features.txt\nfeature-table-gmbc1.tsv\nmetadata_gmbc_bn10_complete_fixed.tsv\ntaxonomy_gmbc1_form.csv\ntree-gmbc1.nwk\n\n\n\nMetagenome Files:\nFollowing files need to be downloaded at (inputs/metagenome/) & unzipped before you start with the metagenome tutorial:\n\ngenome.1.bt2\ngenome.2.bt2\ngenome.3.bt2\ngenome.4.bt2\ngenome.fa\ngenome.rev.1.bt2\ngenome.rev.2.bt2\n\n\nNote: You can download the needed Human/GRC38 genome files from e.g. here\n\n\ngtdb-r220-c200-dbv1.syldb\n\n\nNote: The used database can be downloaded from the official Sylph Repository\n\n\ngtdb_taxonomy.tsv\n\n\nNote: This file you can get by clicking this link\n\n\nA metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)\n\n\nNote: Download links for the metagenome files: ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz\n\nBBMap Files:\nDownload the files at (inputs/metagenome/bbmap/).\n\nNote: You can download the needed files from the BBMap Repository - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz\n\nCreate additionally a directory called R_objects, which will contain:\n\nfull_phyloseq_object.RData\nrare8000_phyloseq_object.RData"
+    "text": "Input files\n\n16S Data Files\nTo run the tutorials, you will need files from the inputs folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:\n\ncommon_significant_features.txt\nfeature-table-gmbc1.tsv\nmetadata_gmbc_bn10_complete_fixed.tsv\ntaxonomy_gmbc1_form.csv\ntree-gmbc1.nwk\n\n\n\nMetagenome Files:\nFor metagenome analysis, you will need to download the files from public repositories and place them in the inputs folder.\n\nHMP Sample\n\nSRR5935872.fasta.gz\n\nThe files files need to be downloaded at (inputs/metagenome/) & unzipped before you start with the metagenome tutorial.\nYou can unzip them with the following command:\n\n\nHuman/GRC38 genome files\n\ngenome.1.bt2\ngenome.2.bt2\ngenome.3.bt2\ngenome.4.bt2\ngenome.fa\ngenome.rev.1.bt2\ngenome.rev.2.bt2\n\nYou can download the needed Human/GRC38 genome files from e.g. here\n\n\nSylph database\n\ngtdb-r220-c200-dbv1.syldb\n\nThe used database can be downloaded from the [official Sylph Repository]\n\ngtdb_taxonomy.tsv\n\n\nNote: This file you can get by clicking this link\n\n\n\nSample metagenome\nAre these the same as in HMP samples???\nShould they be in inputs/metagenome?\nThese files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.\n\nSRR5935872_1.fastq.gz\nSRR5935872_2.fastq.gz\n\n\n\nBBMap Files\nDownload the files at (inputs/metagenome/bbmap/).\n\nnextera.fa.gz\nphix174_ill.ref.fa.gz\nphix_adapters.fa.gz\n\nYou can download the needed files from the BBMap Repository.\n\n\n\nCreate additionally a directory called R_objects, which will contain:\n\nfull_phyloseq_object.RData\nrare8000_phyloseq_object.RData\n\nWhere these files comes from???"
   },
   {
     "objectID": "the_workshop.html#option-1-using-jupyter-notebooks-with-the-r-kernel",
     "href": "the_workshop.html#option-1-using-jupyter-notebooks-with-the-r-kernel",
     "title": "The Kiel Microbiome Center workshop",
     "section": "Option 1: Using Jupyter Notebooks with the R Kernel",
-    "text": "Option 1: Using Jupyter Notebooks with the R Kernel\n\nInstall conda environment\nFirst, make sure you have Conda installed. You can install all required packages and tools with conda.\nJust install the environment with the following command:\nconda env create --file kmc_16s_environment.yml --prefix kmc_workshop\nOnce the environment is created, activate it:\nconda activate kmc_workshop\n\n\nLaunch Jupyter Notebook\nIf Jupyter is not already installed, you can install it within the environment:\nconda install jupyter\nStart Jupyter with the R kernel:\njupyter notebook"
+    "text": "Option 1: Using Jupyter Notebooks with the R Kernel\n\nInstall conda environment\nFirst, make sure you have Conda installed. You can install all required packages and tools with conda. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:\nconda env create --file kmc_16s_environment.yml --prefix kmc_workshop\nOnce the environment is created, activate it:\nconda activate kmc_workshop\n\n\nLaunch Jupyter Notebook\nIf Jupyter is not already installed, you can install it within the environment:\nconda install jupyter\nStart Jupyter with the R kernel:\njupyter notebook"
   },
   {
     "objectID": "the_workshop.html#option-2-using-rstudio",
@@ -228,21 +228,21 @@
     "href": "index.html",
     "title": "Kiel Microbiome Center workshop",
     "section": "",
-    "text": "This site hosts the teaching material from the KMC workshop hosted in September 2024. The workshop introduces basic microbiome analysis and is aimed for participants with little or no experience."
+    "text": "This site hosts the teaching material from the Kiel Microbiome Center (KMC) workshop hosted in September 25-26th, 2024. The workshop introduces concepts of microbiome data analysis, and is aimed for participants with little or no experience in bioinformatics."
   },
   {
     "objectID": "index.html#workshop-overview",
     "href": "index.html#workshop-overview",
     "title": "Kiel Microbiome Center workshop",
     "section": "Workshop overview",
-    "text": "Workshop overview\nThe workshop material is hosted its Github repository. You can start exploring the workshop material here."
+    "text": "Workshop overview\nThe workshop material is hosted on its dedicated Github repository. You can start exploring the material here](about.qmd)."
   },
   {
     "objectID": "index.html#organizers",
     "href": "index.html#organizers",
     "title": "Kiel Microbiome Center workshop",
     "section": "Organizers",
-    "text": "Organizers\nThis workshop was organized by the researchers from different institutions from Kiel, Germany: IKMB, CAU and UKSH. It was financed by the NFDI4Microbiota and miTarget."
+    "text": "Organizers\nThis workshop was organized by Mathilde Poyet, Mathieu Groussin, and David Ellinghaus from Kiel University, Germany. The workshop was instructed by Ana Schaan, Olga Brovkina, Emmanuel Quaye, and Eike Wacker, with help from Malte Rühlemann. The workshop was supported by the NFDI4Microbiota, miTarget and Kiel Life Science."
   },
   {
     "objectID": "index.html#to-do",

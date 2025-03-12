@@ -160,10 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#talks" id="toc-talks" class="nav-link" data-scroll-target="#talks">Talks</a></li>
-  <li><a href="#practical-material" id="toc-practical-material" class="nav-link" data-scroll-target="#practical-material">Practical material</a></li>
+  <li><a href="#concepts-of-microbiome-ecology-and-data-analysis" id="toc-concepts-of-microbiome-ecology-and-data-analysis" class="nav-link" data-scroll-target="#concepts-of-microbiome-ecology-and-data-analysis">Concepts of microbiome ecology and data analysis</a></li>
+  <li><a href="#hands-on-material" id="toc-hands-on-material" class="nav-link" data-scroll-target="#hands-on-material">Hands-on material</a></li>
   </ul></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <li><a href="#setting-up-the-tutorial" id="toc-setting-up-the-tutorial" class="nav-link" data-scroll-target="#setting-up-the-tutorial">Setting up the tutorial</a>
   <ul class="collapse">
   <li><a href="#input-files" id="toc-input-files" class="nav-link" data-scroll-target="#input-files">Input files</a>
   <ul class="collapse">
@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#option-2-using-rstudio" id="toc-option-2-using-rstudio" class="nav-link" data-scroll-target="#option-2-using-rstudio">Option 2: Using RStudio</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/edit/main/the_workshop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -207,9 +207,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.</p>
-<section id="talks" class="level2">
-<h2 class="anchored" data-anchor-id="talks">Talks</h2>
+<p>Here you can find the teaching and practical materials of the workshop.</p>
+<section id="concepts-of-microbiome-ecology-and-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-of-microbiome-ecology-and-data-analysis">Concepts of microbiome ecology and data analysis</h2>
 <p>Link all files of the talks here, use a logical order:</p>
 <ol type="1">
 <li><a href="talks/nfdi4microbiota_DataPreProcessing.pdf">Data processing</a></li>
@@ -218,8 +218,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="talks/nfdi4microbiota_Beta_diversity.pdf">Beta diversity</a></li>
 </ol>
 </section>
-<section id="practical-material" class="level2">
-<h2 class="anchored" data-anchor-id="practical-material">Practical material</h2>
+<section id="hands-on-material" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-material">Hands-on material</h2>
 <ol type="1">
 <li><a href="./scripts/1_intro_to_r.html">Introduction to R</a></li>
 <li><a href="./scripts/2_Alpha_diversity.html">Alpha diversity analysis</a></li>
@@ -230,14 +230,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.</p>
 </section>
 </section>
-<section id="prerequisites" class="level1">
-<h1>Prerequisites</h1>
+<section id="setting-up-the-tutorial" class="level1">
+<h1>Setting up the tutorial</h1>
+<p>Download the whole <a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/archive/refs/heads/main.zip">project directory</a> to your computer. Unzip the folder. Scripts are in <a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/scripts"><code>scripts</code> folder</a> and inputs are in the <a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs"><code>inputs</code> folder</a>.</p>
+<p>To run the tutorial, it is assumed that you are working on a mac or a linux-based computer.</p>
 <section id="input-files" class="level2">
 <h2 class="anchored" data-anchor-id="input-files">Input files</h2>
-<p>To run the tutorials, you will need files from the <code>inputs</code> directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata">SRR5935872</a></p>
-<p>Ensure the following files are inside the <code>inputs</code> directory:</p>
 <section id="s-data-files" class="level3">
 <h3 class="anchored" data-anchor-id="s-data-files">16S Data Files</h3>
+<p>To run the tutorials, you will need files from the <code>inputs</code> folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:</p>
 <ul>
 <li>common_significant_features.txt</li>
 <li>feature-table-gmbc1.tsv</li>
@@ -248,7 +249,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="metagenome-files" class="level3">
 <h3 class="anchored" data-anchor-id="metagenome-files">Metagenome Files:</h3>
-<p>Following files need to be downloaded at (<code>inputs/metagenome/</code>) &amp; unzipped before you start with the metagenome tutorial:</p>
+<p>For metagenome analysis, you will need to download the files from public repositories and place them in the <code>inputs</code> folder.</p>
+<section id="hmp-sample" class="level4">
+<h4 class="anchored" data-anchor-id="hmp-sample">HMP Sample</h4>
+<ul>
+<li><a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata">SRR5935872.fasta.gz</a></li>
+</ul>
+<p>The files files need to be downloaded at (<code>inputs/metagenome/</code>) &amp; unzipped before you start with the metagenome tutorial.</p>
+<p>You can unzip them with the following command:</p>
+</section>
+<section id="humangrc38-genome-files" class="level4">
+<h4 class="anchored" data-anchor-id="humangrc38-genome-files">Human/GRC38 genome files</h4>
 <ul>
 <li>genome.1.bt2</li>
 <li>genome.2.bt2</li>
@@ -258,37 +269,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>genome.rev.1.bt2</li>
 <li>genome.rev.2.bt2</li>
 </ul>
-<blockquote class="blockquote">
-<p>Note: You can download the needed Human/GRC38 genome files from e.g.&nbsp;<a href="https://benlangmead.github.io/aws-indexes/bowtie">here</a></p>
-</blockquote>
+<p>You can download the needed Human/GRC38 genome files from e.g.&nbsp;<a href="https://benlangmead.github.io/aws-indexes/bowtie">here</a></p>
+</section>
+<section id="sylph-database" class="level4">
+<h4 class="anchored" data-anchor-id="sylph-database">Sylph database</h4>
 <ul>
-<li>gtdb-r220-c200-dbv1.syldb</li>
+<li><a href="https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases">gtdb-r220-c200-dbv1.syldb</a></li>
 </ul>
-<blockquote class="blockquote">
-<p>Note: The used database can be downloaded from the <a href="https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases">official Sylph Repository</a></p>
-</blockquote>
+<p>The used database can be downloaded from the [official Sylph Repository]</p>
 <ul>
 <li>gtdb_taxonomy.tsv</li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: This file you can get by clicking this <a href="https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz">link</a></p>
 </blockquote>
+</section>
+<section id="sample-metagenome" class="level4">
+<h4 class="anchored" data-anchor-id="sample-metagenome">Sample metagenome</h4>
+<p>Are these the same as in HMP samples???</p>
+<p>Should they be in inputs/metagenome?</p>
+<p>These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.</p>
 <ul>
-<li>A metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)</li>
+<li><p><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz">SRR5935872_1.fastq.gz</a></p></li>
+<li><p><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz">SRR5935872_2.fastq.gz</a></p></li>
 </ul>
-<blockquote class="blockquote">
-<p>Note: Download links for the metagenome files: <a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz">ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz</a> <a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz">ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz</a></p>
-</blockquote>
-<p><strong>BBMap Files</strong>:</p>
+</section>
+<section id="bbmap-files" class="level4">
+<h4 class="anchored" data-anchor-id="bbmap-files">BBMap Files</h4>
 <p>Download the files at (<code>inputs/metagenome/bbmap/</code>).</p>
-<blockquote class="blockquote">
-<p>Note: You can download the needed files from the <a href="https://github.com/BioInfoTools/BBMap/tree/master/resources">BBMap Repository</a> - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz</p>
-</blockquote>
+<ul>
+<li>nextera.fa.gz</li>
+<li>phix174_ill.ref.fa.gz</li>
+<li>phix_adapters.fa.gz</li>
+</ul>
+<p>You can download the needed files from the <a href="https://github.com/BioInfoTools/BBMap/tree/master/resources">BBMap Repository</a>.</p>
+</section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
 <p>Create additionally a directory called <code>R_objects</code>, which will contain:</p>
 <ul>
 <li>full_phyloseq_object.RData</li>
 <li>rare8000_phyloseq_object.RData</li>
 </ul>
+<p>Where these files comes from???</p>
+</section>
 </section>
 </section>
 </section>
@@ -298,8 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="option-1-using-jupyter-notebooks-with-the-r-kernel">Option 1: Using Jupyter Notebooks with the R Kernel</h2>
 <section id="install-conda-environment" class="level3">
 <h3 class="anchored" data-anchor-id="install-conda-environment">Install conda environment</h3>
-<p>First, make sure you have Conda installed. You can install all required packages and tools with <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html">conda</a>.</p>
-<p>Just install the environment with the following command:</p>
+<p>First, make sure you have Conda installed. You can install all required packages and tools with <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html">conda</a>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> kmc_16s_environment.yml <span class="at">--prefix</span> kmc_workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once the environment is created, activate it:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate kmc_workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -805,9 +828,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Overview</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Here you can find the teaching and practical materials of the workshop.</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Talks</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Concepts of microbiome ecology and data analysis</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>Link all files of the talks here, use a logical order:</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -816,7 +839,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="co">[</span><span class="ot">Alpha diversity</span><span class="co">](talks/nfdi4microbiota_Alpha_diversity.pdf)</span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="co">[</span><span class="ot">Beta diversity</span><span class="co">](talks/nfdi4microbiota_Beta_diversity.pdf)</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical material</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hands-on material</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="co">[</span><span class="ot">Introduction to R</span><span class="co">](scripts/1_intro_to_r.ipynb)</span></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="co">[</span><span class="ot">Alpha diversity analysis</span><span class="co">](scripts/2_Alpha_diversity.ipynb)</span></span>
@@ -826,114 +849,143 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prerequisites</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Setting up the tutorial</span></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Input files</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>Download the whole <span class="co">[</span><span class="ot">project directory</span><span class="co">](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/archive/refs/heads/main.zip)</span> to your computer. Unzip the folder. Scripts are in <span class="co">[</span><span class="ot">`scripts` folder</span><span class="co">](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/scripts)</span> and inputs are in the <span class="co">[</span><span class="ot">`inputs` folder</span><span class="co">](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs)</span>.</span>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>To run the tutorials, you will need files from the <span class="in">`inputs`</span> directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample <span class="co">[</span><span class="ot">SRR5935872</span><span class="co">](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata)</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>To run the tutorial, it is assumed that you are working on a mac or a linux-based computer.</span>
 <span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>Ensure the following files are inside the <span class="in">`inputs`</span> directory:</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Input files</span></span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### 16S Data Files</span></span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>common_significant_features.txt</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>feature-table-gmbc1.tsv</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>metadata_gmbc_bn10_complete_fixed.tsv</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>taxonomy_gmbc1_form.csv</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>tree-gmbc1.nwk</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metagenome Files:</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>To run the tutorials, you will need files from the <span class="in">`inputs`</span> folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>common_significant_features.txt</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>feature-table-gmbc1.tsv</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>metadata_gmbc_bn10_complete_fixed.tsv</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>taxonomy_gmbc1_form.csv</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>tree-gmbc1.nwk</span>
 <span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>Following files need to be downloaded at (<span class="in">`inputs/metagenome/`</span>) &amp; unzipped before you start with the metagenome tutorial:</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metagenome Files:</span></span>
 <span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.1.bt2</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.2.bt2</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.3.bt2</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.4.bt2</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.fa</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.rev.1.bt2</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.rev.2.bt2</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>For metagenome analysis, you will need to download the files from public repositories and place them in the <span class="in">`inputs`</span> folder.</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="fu">#### HMP Sample</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">SRR5935872.fasta.gz</span><span class="co">](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata)</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>The files files need to be downloaded at (<span class="in">`inputs/metagenome/`</span>) &amp; unzipped before you start with the metagenome tutorial.</span>
 <span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: You can download the needed Human/GRC38 genome files from e.g. </span><span class="co">[</span><span class="ot">here</span><span class="co">](https://benlangmead.github.io/aws-indexes/bowtie)</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>You can unzip them with the following command:</span>
 <span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>gtdb-r220-c200-dbv1.syldb</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Human/GRC38 genome files</span></span>
 <span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: The used database can be downloaded from the </span><span class="co">[</span><span class="ot">official Sylph Repository</span><span class="co">](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>gtdb_taxonomy.tsv</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: This file you can get by clicking this </span><span class="co">[</span><span class="ot">link</span><span class="co">](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.1.bt2</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.2.bt2</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.3.bt2</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.4.bt2</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.fa</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.rev.1.bt2</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>genome.rev.2.bt2</span>
 <span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: Download links for the metagenome files: </span><span class="co">[</span><span class="ot">ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz</span><span class="co">](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)</span><span class="at"> </span><span class="co">[</span><span class="ot">ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz</span><span class="co">](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>You can download the needed Human/GRC38 genome files from e.g. <span class="co">[</span><span class="ot">here</span><span class="co">](https://benlangmead.github.io/aws-indexes/bowtie)</span></span>
 <span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>**BBMap Files**:</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>Download the files at (<span class="in">`inputs/metagenome/bbmap/`</span>).</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: You can download the needed files from the </span><span class="co">[</span><span class="ot">BBMap Repository</span><span class="co">](https://github.com/BioInfoTools/BBMap/tree/master/resources)</span><span class="at"> - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>Create additionally a directory called <span class="in">`R_objects`</span>, which will contain:</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>full_phyloseq_object.RData</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>rare8000_phyloseq_object.RData</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sylph database</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">gtdb-r220-c200-dbv1.syldb</span><span class="co">](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>The used database can be downloaded from the <span class="co">[</span><span class="ot">official Sylph Repository</span><span class="co">]</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gtdb_taxonomy.tsv</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: This file you can get by clicking this </span><span class="co">[</span><span class="ot">link</span><span class="co">](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)</span></span>
 <span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="fu"># Running the R commands</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sample metagenome</span></span>
 <span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Option 1: Using Jupyter Notebooks with the R Kernel</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>Are these the same as in HMP samples???</span>
 <span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install conda environment</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>Should they be in inputs/metagenome?</span>
 <span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>First, make sure you have Conda installed. You can install all required packages and tools with <span class="co">[</span><span class="ot">conda</span><span class="co">](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)</span>.</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.</span>
 <span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>Just install the environment with the following command:</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">SRR5935872_1.fastq.gz</span><span class="co">](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)</span></span>
 <span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> kmc_16s_environment.yml <span class="at">--prefix</span> kmc_workshop</span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">SRR5935872_2.fastq.gz</span><span class="co">](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="fu">#### BBMap Files</span></span>
 <span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>Once the environment is created, activate it:</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>Download the files at (<span class="in">`inputs/metagenome/bbmap/`</span>).</span>
 <span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate kmc_workshop</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>nextera.fa.gz</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>phix174_ill.ref.fa.gz </span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>phix_adapters.fa.gz</span>
 <span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launch Jupyter Notebook</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>You can download the needed files from the <span class="co">[</span><span class="ot">BBMap Repository</span><span class="co">](https://github.com/BioInfoTools/BBMap/tree/master/resources)</span>.</span>
 <span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>If Jupyter is not already installed, you can install it within the environment:</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>####</span>
 <span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>Start Jupyter with the R kernel:</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook</span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Option 2: Using RStudio</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>Ensure that Conda is installed and active (same as step 1 above).</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Link Conda Environment with RStudio:</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>In RStudio, go to Tools <span class="sc">\&gt;</span> Global Options <span class="sc">\&gt;</span> R and select the R Version associated with the Conda environment.</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Run Your R Code</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>You can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>Create additionally a directory called <span class="in">`R_objects`</span>, which will contain:</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>full_phyloseq_object.RData</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>rare8000_phyloseq_object.RData</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>Where these files comes from???</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="fu"># Running the R commands</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Option 1: Using Jupyter Notebooks with the R Kernel</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install conda environment</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>First, make sure you have Conda installed. You can install all required packages and tools with <span class="co">[</span><span class="ot">conda</span><span class="co">](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)</span>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> kmc_16s_environment.yml <span class="at">--prefix</span> kmc_workshop</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>Once the environment is created, activate it:</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate kmc_workshop</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launch Jupyter Notebook</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>If Jupyter is not already installed, you can install it within the environment:</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>Start Jupyter with the R kernel:</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Option 2: Using RStudio</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>Ensure that Conda is installed and active (same as step 1 above).</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Link Conda Environment with RStudio:</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>In RStudio, go to Tools <span class="sc">\&gt;</span> Global Options <span class="sc">\&gt;</span> R and select the R Version associated with the Conda environment.</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Run Your R Code</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>You can now open your R scripts or RMarkdown notebooks in RStudio and run the code, just as we did in the Jupyter environment.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Founded by NFDI4Microbiota and miTarget</p>
+<p>Funded by NFDI4Microbiota and miTarget.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/edit/main/the_workshop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -941,6 +993,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <i class="bi bi-github" role="img">
 </i> 
     </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://opensource.org/license/mit/">
+<p>MIT License</p>
+</a>
   </li>  
 </ul>
     </div>
