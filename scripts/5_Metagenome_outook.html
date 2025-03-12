@@ -208,65 +208,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To get to know the necessary QC steps, we will download a publicly available metagenome. We have already prepared this, but you could also download it with the following command if it is not available.</p>
 <p>It is necessary that we leave the Jupyter notebook and get to know the terminal of a Linux computer. JupyterHub also offers you this. Open a new tab while clicking on the jupterhub logo in the top left. In the JupyterHub, the terminal can be opened in the dashboard (where you can see all files structured,), click on the button at the top right labeled “New” and then select “Terminal” in the dropdown menu at the bottom.</p>
 <p>In the terminal activate the conda environment, in which we installed all the required tools for the next steps:</p>
-<div id="c444b00f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="c444b00f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>conda activate metagenome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#paste the following line into the terminal without the #-sign</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#conda activate metagenome</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>If this has worked, the now active conda environment should be named before your username@biomedinf in the terminal window. Conda is a tool that allows you to create a so-called virtual environment so that tools and their dependencies do not interfere with other programs on the machine. That way we can generate reproducible results.</p>
 <p>Now we will create a new folder and go into it so that we can start the actual metagenome processing:</p>
-<div id="aaf94f79" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="aaf94f79" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome <span class="sc">&amp;&amp;</span> cd <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#again paste the following into the terminal withou the #-sign</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#mkdir ~/kmc_workshop/metagenome &amp;&amp; cd ~/kmc_workshop/metagenome</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>A real metagenome data can be quite huge and therefor need lots of time and computational capacities to be processed.</p>
 <p>So we fill this directory with our dummy metagenome. Now we can actually work with it:</p>
-<div id="4e9749fa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="4e9749fa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ln <span class="sc">-</span>s <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>SRR5935872_2.fastq.gz <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_R2.fastq.gz <span class="sc">&amp;&amp;</span> ln <span class="sc">-</span>s <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>SRR5935872_1.fastq.gz <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_R1.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#again paste the following into the terminal withou the #-sign</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ln -s ~/kmc_workshop/inputs/metagenome/SRR5935872_2.fastq.gz ~/kmc_workshop/metagenome/MSM79H87_R2.fastq.gz &amp;&amp; ln -s ~/kmc_workshop/inputs/metagenome/SRR5935872_1.fastq.gz ~/kmc_workshop/metagenome/MSM79H87_R1.fastq.gz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now we assess the quality once before we start with the QC, we do this with the tool fastqc, which can generate an html output for each fastq file.</p>
-<div id="da992ea1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="da992ea1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fastqc <span class="sc">--</span>quiet <span class="sc">--</span>threads <span class="dv">2</span> MSM79H87_R1.fastq.gz MSM79H87_R2.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#again paste the following into the terminal withou the #-sign</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#fastqc --quiet --threads 2 MSM79H87_R1.fastq.gz MSM79H87_R2.fastq.gz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>You will find the html-output for each fastq file in the directory as we are: ~/kmc_workshop/metagenome</p>
 <p>First of all, the individual reads are examined for their sequencing quality. Particularly at the edges, the quality may not be good enough in some cases. For this we can use programs that automatically trim away these poorly sequenced bases. Additionally, the tool also checks which reads are actually paired and if there are some reads that are unpaired. Unpaired reads are separated into their own file.</p>
-<div id="74a5ca5e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="74a5ca5e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bbduk.sh stats<span class="ot">=</span>MSM79H87.bbduk_adapter_stats threads<span class="ot">=</span><span class="dv">2</span> <span class="cf">in</span><span class="ot">=</span>MSM79H87_R1.fastq.gz in2<span class="ot">=</span>MSM79H87_R2.fastq.gz out1<span class="ot">=</span>MSM79H87_R1_trimmed.fastq.gz out2<span class="ot">=</span>MSM79H87_R2_trimmed.fastq.gz outs<span class="ot">=</span>MSM79H87_unpaired_trimmed.fastq.gz ref<span class="ot">=</span><span class="er">~/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>bbmap<span class="sc">/</span>nextera.fa.gz ktrim<span class="ot">=</span>r k<span class="ot">=</span><span class="dv">23</span> mink<span class="ot">=</span><span class="dv">11</span> hdist<span class="ot">=</span><span class="dv">1</span> minlength<span class="ot">=</span><span class="dv">50</span> tpe tbo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#again paste the following into the terminal withou the #-sign</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bbduk.sh stats=MSM79H87.bbduk_adapter_stats threads=2 in=MSM79H87_R1.fastq.gz in2=MSM79H87_R2.fastq.gz out1=MSM79H87_R1_trimmed.fastq.gz out2=MSM79H87_R2_trimmed.fastq.gz outs=MSM79H87_unpaired_trimmed.fastq.gz ref=~/kmc_workshop/inputs/metagenome/bbmap/nextera.fa.gz ktrim=r k=23 mink=11 hdist=1 minlength=50 tpe tbo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Our new outputs now have a ‘trimmed’ in the name, these are now further qced by removing not wanted reads in our files. These could be artifacts and so-called PhiX reads, that can be present during sequencing. Phix reads are internal controls during sequencing that should actually be removed during data export, but can still be found in some data. These should be removed in any case. We do this step twice, once for the paired reads, and one time for the sequences that are not paired.</p>
-<div id="e6ebc5fe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="e6ebc5fe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bbduk.sh stats<span class="ot">=</span>MSM79H87.bbduk.artifacts.stats threads<span class="ot">=</span><span class="dv">2</span> <span class="cf">in</span><span class="ot">=</span>MSM79H87_R1_trimmed.fastq.gz in2<span class="ot">=</span>MSM79H87_R2_trimmed.fastq.gz k<span class="ot">=</span><span class="dv">31</span> ref<span class="ot">=</span>artifacts,phix ordered cardinality out1<span class="ot">=</span>MSM79H87_R1_cleanwithhost.fastq.gz out2<span class="ot">=</span>MSM79H87_R2_cleanwithhost.fastq.gz minlength<span class="ot">=</span><span class="dv">50</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#you know what to do</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>bbduk.sh threads<span class="ot">=</span><span class="dv">2</span> <span class="cf">in</span><span class="ot">=</span>MSM79H87_unpaired_trimmed.fastq.gz  k<span class="ot">=</span><span class="dv">31</span> ref<span class="ot">=</span>artifacts,phix ordered cardinality out1<span class="ot">=</span>MSM79H87_unpaired_cleanwithhost.fastq.gz minlength<span class="ot">=</span><span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bbduk.sh stats=MSM79H87.bbduk.artifacts.stats threads=2 in=MSM79H87_R1_trimmed.fastq.gz in2=MSM79H87_R2_trimmed.fastq.gz k=31 ref=artifacts,phix ordered cardinality out1=MSM79H87_R1_cleanwithhost.fastq.gz out2=MSM79H87_R2_cleanwithhost.fastq.gz minlength=50</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#bbduk.sh threads=2 in=MSM79H87_unpaired_trimmed.fastq.gz  k=31 ref=artifacts,phix ordered cardinality out1=MSM79H87_unpaired_cleanwithhost.fastq.gz minlength=50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Of course, stool samples also contain cells from the host, and therefore also their DNA. We try to remove this before sequencing so that we don’t sequence something that we have to remove directly from our data. This is an important step as metagenome data with human reads inside can be traced back to their origin. This could cause some (legal) trouble if you want to publish your metagenomes at some point.</p>
 <p>To remove those, we use an aligner tool called Bowtie2. We align a human reference genome to our data and keep only reads that don’t align. Everything else will be discarded.</p>
-<div id="196699e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="196699e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bowtie2 <span class="sc">-</span>x <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>genome <span class="sc">-</span><span class="dv">1</span> MSM79H87_R1_cleanwithhost.fastq.gz <span class="sc">-</span><span class="dv">2</span> MSM79H87_R2_cleanwithhost.fastq.gz <span class="sc">-</span>U MSM79H87_unpaired_cleanwithhost.fastq.gz <span class="sc">-</span>S <span class="sc">/</span>dev<span class="sc">/</span>null <span class="sc">--</span>no<span class="sc">-</span>unal <span class="sc">-</span>p <span class="dv">2</span> <span class="sc">--</span>un<span class="sc">-</span>gz MSM79H87_unpaired_clean.fastq.gz <span class="sc">--</span>un<span class="sc">-</span>conc<span class="sc">-</span>gz MSM79H87_R%_clean.fastq.gz <span class="dv">2</span><span class="sc">&gt;</span> MSM79H87_bowtie2_log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bowtie2 -x ~/kmc_workshop/inputs/metagenome/genome -1 MSM79H87_R1_cleanwithhost.fastq.gz -2 MSM79H87_R2_cleanwithhost.fastq.gz -U MSM79H87_unpaired_cleanwithhost.fastq.gz -S /dev/null --no-unal -p 2 --un-gz MSM79H87_unpaired_clean.fastq.gz --un-conc-gz MSM79H87_R%_clean.fastq.gz 2&gt; MSM79H87_bowtie2_log.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We have now completed the most important steps of a qc. We can now use fastqc to inspect our finished reads more closely. This works as done before, just with different input files.</p>
-<div id="eb5724a4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="eb5724a4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fastqc <span class="sc">--</span>quiet<span class="sc">--</span>threads <span class="dv">2</span> MSM79H87_R1_clean.fastq.gz MSM79H87_R2_clean.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fastqc --quiet--threads 2 MSM79H87_R1_clean.fastq.gz MSM79H87_R2_clean.fastq.gz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Do you notice a difference between the fastqc reports from prior and after QC?</p>
@@ -276,24 +288,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="abundance-estimation">Abundance estimation</h2>
 <p>As already mentioned, metagenomes are also useful for determining taxonomic abundances. There are a large number of programs with which this can be estimated. For example, there are MetaPhlAn, Kraken2, Salmon and many more that can do this. For this, you will always need a reference database that contains the markers. Therefore, you are always limited to the fact that you cannot find a thing if it is not stored in the database.</p>
 <p>We will use a rather new released tool for this, it’s called Sylph. Sylph is an extremely fast and memory efficient program for profiling and searching metagenomic samples against databases. You can find the preprint for how it actually works <a href="https://www.biorxiv.org/content/10.1101/2023.11.20.567879v1.full">here</a>. For us important is just, that it needs two steps that we need to perform and that we have prepared a database to query against. We use in this case a well-maintained database, that is called GENOME TAXONOMY DATABASE (GTDB). Sylph transforms the database of reference genomes and the metagenomes into subsampled k-mers which are then compares against.</p>
-<div id="d479ba82" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="d479ba82" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sylph sketch <span class="sc">-</span><span class="dv">1</span> MSM79H87_R1_clean.fastq.gz <span class="sc">-</span><span class="dv">2</span> MSM79H87_R2_clean.fastq.gz <span class="sc">-</span>t <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sylph sketch -1 MSM79H87_R1_clean.fastq.gz -2 MSM79H87_R2_clean.fastq.gz -t 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In the first step the metagenomes are so-called sketched, this results in “bags of k-mers”. From this the tool then can later quickly estimate the average nucleotide identity (ANI) against the genomes in the database, which happens in the second step:</p>
-<div id="88dbee6c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="88dbee6c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sylph profile <span class="sc">-</span>u <span class="sc">--</span>read<span class="sc">-</span>seq<span class="sc">-</span>id <span class="fl">99.1</span> <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>gtdb<span class="sc">-</span>r220<span class="sc">-</span>c200<span class="sc">-</span>dbv1.syldb MSM79H87_R1_clean.fastq.gz.paired.sylsp <span class="sc">-</span>o  MSM79H87_sylph_profile.tbl <span class="sc">-</span>t <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sylph profile -u --read-seq-id 99.1 ~/kmc_workshop/inputs/metagenome/gtdb-r220-c200-dbv1.syldb MSM79H87_R1_clean.fastq.gz.paired.sylsp -o  MSM79H87_sylph_profile.tbl -t 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The output is called ‘MSM79H87_sylph_profile.tbl’ and you can inspect it. Mind as we only have dummy data, this output is also just a dummy. You inspect the sylph profile for the full metagenome sample, that we prepared for you, with:</p>
-<div id="819ca9ab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
+<div id="819ca9ab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>less <span class="sc">/</span>dpool<span class="sc">/</span>bioinformatics_rawdata<span class="sc">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_sylph_profile.tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#less /dpool/bioinformatics_rawdata/kmc_workshop/metagenome/MSM79H87_sylph_profile.tbl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>You can scroll with the arrow keys and exit the file with the ‘q’ key on your keyboard.</p>
@@ -325,73 +337,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The GTDB taxonomic table is part of the GTDB release, that you can download here: https://ecogenomics.github.io/GTDBTk/installing/index.html</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gtdb_taxa <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"~/kmc_workshop/inputs/metagenome/gtdb_taxonomy.tsv"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"genome_id"</span>,<span class="st">"taxa_name"</span>),<span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">genome_id=</span><span class="fu">gsub</span>(<span class="st">"^[A-Z]+_"</span>,<span class="st">""</span>,genome_id))</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gtdb_taxa)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>sylph_withtaxa <span class="ot">&lt;-</span> sylph <span class="sc">%&gt;%</span> </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">genome_id=</span>Genome_file,<span class="at">Sample=</span>Sample_file, <span class="at">Abundance=</span>Taxonomic_abundance) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sample=</span><span class="fu">gsub</span>(<span class="st">"_R_R1_clean.fastq.gz"</span>,<span class="st">""</span>,Sample), </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">genome_id=</span><span class="fu">gsub</span>(<span class="st">"_genomic.fna.gz"</span>,<span class="st">""</span>,<span class="fu">basename</span>(genome_id))) <span class="sc">%&gt;%</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(gtdb_taxa, <span class="at">by=</span><span class="st">"genome_id"</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sylph_withtaxa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gtdb_taxa <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"~/kmc_workshop/inputs/metagenome/gtdb_taxonomy.tsv"</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"genome_id"</span>,<span class="st">"taxa_name"</span>),<span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">genome_id=</span><span class="fu">gsub</span>(<span class="st">"^[A-Z]+_"</span>,<span class="st">""</span>,genome_id))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gtdb_taxa)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>sylph_withtaxa <span class="ot">&lt;-</span> sylph <span class="sc">%&gt;%</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">genome_id=</span>Genome_file,<span class="at">Sample=</span>Sample_file, <span class="at">Abundance=</span>Taxonomic_abundance) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sample=</span><span class="fu">gsub</span>(<span class="st">"_R_R1_clean.fastq.gz"</span>,<span class="st">""</span>,Sample), </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">genome_id=</span><span class="fu">gsub</span>(<span class="st">"_genomic.fna.gz"</span>,<span class="st">""</span>,<span class="fu">basename</span>(genome_id))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(gtdb_taxa, <span class="at">by=</span><span class="st">"genome_id"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sylph_withtaxa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="5e20f554" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>abundance_df <span class="ot">&lt;-</span> sylph_withtaxa <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Taxa =</span> taxa_name, Abundance, Sample) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Taxa=</span>taxa_name, Abundance, Sample) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sample, Taxa) <span class="sc">%&gt;%</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Abundance =</span> <span class="fu">sum</span>(Abundance))</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>abundance_matrix <span class="ot">&lt;-</span> abundance_df <span class="sc">%&gt;%</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Sample, </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(Abundance),</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"Taxa"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abundance_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Sample, <span class="at">values_from =</span> <span class="fu">c</span>(Abundance), <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"Taxa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abundance_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>From the taxa_names column in our sylph_withtaxa object we can now create a taxonomic rank matrix by splitting the strings in this column by the delimiter and putting the splitted parts into an empty matrix.</p>
 <div id="4cbf671f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>taxsplit <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(<span class="fu">rownames</span>(abundance_matrix), <span class="at">split=</span><span class="st">";"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA</span>, </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="fu">max</span>(<span class="fu">sapply</span>(taxsplit, length)), </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="fu">length</span>(taxsplit))</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(taxunitmatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Kingdom"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Phylum"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Class"</span>,</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Order"</span>, </span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Family"</span>,</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Genus"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Species"</span>, </span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Strain"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(taxunitmatrix)]</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(taxunitmatrix) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(abundance_matrix)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(taxunitmatrix)){</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    taxunitmatrix[i, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(taxsplit[[i]])] <span class="ot">&lt;-</span> taxsplit[[i]]</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[a-z]__"</span>, <span class="st">""</span>, taxunitmatrix)</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(taxunitmatrix) <span class="ot">&lt;-</span> taxunitmatrix[,<span class="st">"Species"</span>]</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(abundance_matrix) <span class="ot">&lt;-</span> taxunitmatrix[,<span class="st">"Species"</span>]</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abundance_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>taxsplit <span class="ot">=</span> <span class="fu">strsplit</span>(<span class="fu">rownames</span>(abundance_matrix), <span class="at">split=</span><span class="st">";"</span>, <span class="at">fixed=</span><span class="cn">TRUE</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="ot">=</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">ncol=</span><span class="fu">max</span>(<span class="fu">sapply</span>(taxsplit, length)), <span class="at">nrow=</span><span class="fu">length</span>(taxsplit))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(taxunitmatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Kingdom"</span>, <span class="st">"Phylum"</span>, <span class="st">"Class"</span>, <span class="st">"Order"</span>, <span class="st">"Family"</span>, <span class="st">"Genus"</span>, <span class="st">"Species"</span>, <span class="st">"Strain"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(taxunitmatrix)]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(taxunitmatrix) <span class="ot">=</span> <span class="fu">rownames</span>(abundance_matrix)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(taxunitmatrix)){</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    taxunitmatrix[i, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(taxsplit[[i]])] <span class="ot">&lt;-</span> taxsplit[[i]]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">"[a-z]__"</span>, <span class="st">""</span>, taxunitmatrix)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(taxunitmatrix) <span class="ot">&lt;-</span> taxunitmatrix[,<span class="st">"Species"</span>]</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(abundance_matrix) <span class="ot">&lt;-</span> taxunitmatrix[,<span class="st">"Species"</span>]</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abundance_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We also need a metadata table for our samples. This could be created as follows:</p>
