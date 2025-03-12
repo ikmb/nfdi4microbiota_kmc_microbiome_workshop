@@ -2,9 +2,7 @@
 title: "Resources"
 ---
 
-# Workshop Resources
-
 -   [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/) - Book for learning R from basics. Includes plotting and a statistics session.
 -   [Happy Belly Bioinformatics](https://astrobiomike.github.io/) - Useful overview resource for bioinformatics beginners covering Unix, R, amplicon analysis and genomics.
 -   [Phyloseq](https://joey711.github.io/phyloseq/) - R package for microbiome analysis.
--   [R for Data Science](https://r4ds.hadley.nz/) - Book teaching how to use R for data science. 
+-   [R for Data Science](https://r4ds.hadley.nz/) - Book teaching how to use R for data science.

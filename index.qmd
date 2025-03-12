@@ -2,14 +2,13 @@
 title: "Kiel Microbiome Center workshop"
 ---
 
-
 This site hosts the [teaching material](the_workshop.qmd) from the Kiel Microbiome Center (KMC) workshop hosted in September 25-26th, 2024. The workshop introduces concepts in microbiome data analysis and is intended for participants with little or no experience in bioinformatics.
 
 ![KMC workshop participants from around the world met in Kiel in 2024.](img/group_outside.jpg)
 
 ## Workshop overview
 
-The workshop material is hosted on its dedicated [Github repository](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop). You can start exploring the material here](about.qmd).
+The workshop material is hosted on its dedicated [Github repository](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop). You can start exploring the material here\](about.qmd).
 
 ## Organizers
 

@@ -49,7 +49,7 @@ For metagenome analysis, you will need to download the files from public reposit
 
 #### HMP Sample
 
-- [SRR5935872.fasta.gz](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
+-   [SRR5935872.fasta.gz](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
 
 The files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start the metagenome tutorial.
 
@@ -67,14 +67,13 @@ You can unzip them with the following command:
 
 You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
 
-
 #### Sylph database
 
 -   [gtdb-r220-c200-dbv1.syldb](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
 
-The used database can be downloaded from the [official Sylph Repository]
+The used database can be downloaded from the \[official Sylph Repository\]
 
-- gtdb_taxonomy.tsv
+-   gtdb_taxonomy.tsv
 
 > Note: You can get this file by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
@@ -86,21 +85,21 @@ Should they be in inputs/metagenome?
 
 These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.
 
-- [SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)
+-   [SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)
 
-- [SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+-   [SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
 
 #### BBMap Files
 
 Download the files at (`inputs/metagenome/bbmap/`).
 
-- nextera.fa.gz
-- phix174_ill.ref.fa.gz 
-- phix_adapters.fa.gz
+-   nextera.fa.gz
+-   phix174_ill.ref.fa.gz
+-   phix_adapters.fa.gz
 
 You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources).
 
-####
+#### 
 
 Create additionally a directory called `R_objects`, which will contain:
 
@@ -131,13 +130,13 @@ conda activate kmc_workshop
 
 If Jupyter is not already installed, you can install it within the environment:
 
-```bash
+``` bash
 conda install jupyter
 ```
 
 Start Jupyter with the R kernel:
 
-```bash
+``` bash
 jupyter notebook
 ```
 

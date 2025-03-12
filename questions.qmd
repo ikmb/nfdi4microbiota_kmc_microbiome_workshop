@@ -8,8 +8,8 @@ By posting your questions in the Issues section, you allow others to see previou
 
 ## 📌 How to Ask a Question:
 
--   Go to the **"Report an Issue"** on the left panel.\
--   Provide a clear title and description of your question.\
+-   Go to the **"Report an Issue"** on the right panel.
+-   Provide a clear title and description of your question.
 -   Submit the issue, and an instructor will respond.
 
 We encourage you to use this space to discuss topics from the workshop, troubleshoot code, and collaborate with others! 🚀
