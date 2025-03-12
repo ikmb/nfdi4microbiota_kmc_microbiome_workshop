@@ -7,6 +7,7 @@ website:
   repo-actions: [edit, issue]
   page-footer:
     left: "Funded by NFDI4Microbiota and miTarget."
+    center: "Made with quarto."
     right:
       - icon: github
         href: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
@@ -34,8 +35,9 @@ format:
     theme: lux
     css: styles.css
     toc: true
-    code-fold: true
-    code-tools: true
+    code-fold: show
+    code-tools:
+      source: repo
     highlight-style: github
 
 editor: visual

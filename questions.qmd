@@ -4,7 +4,7 @@ title: "Questions & Discussion 💬"
 
 If you have any questions about the workshop materials or need further clarification, please use the "**Report an Issue**" tab on the right panel of this page. This is the easiest and most efficient way to facilitate Q&A between instructors and participants after the workshop.
 
-By posting your questions in the Issues section, you allow others to see previously asked questions, share insights, and contribute to discussions. Instructors will also monitor the issues and provide answers as needed.
+By posting your questions in the Github Issues section, you allow others to see previously asked questions, share insights, and contribute to discussions. Instructors will also monitor the issues and provide answers as needed.
 
 ## 📌 How to Ask a Question:
 
