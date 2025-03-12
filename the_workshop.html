@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#concepts-of-microbiome-ecology-and-data-analysis" id="toc-concepts-of-microbiome-ecology-and-data-analysis" class="nav-link" data-scroll-target="#concepts-of-microbiome-ecology-and-data-analysis">Concepts of microbiome ecology and data analysis</a></li>
+  <li><a href="#concepts-in-microbiome-ecology-and-data-analysis" id="toc-concepts-in-microbiome-ecology-and-data-analysis" class="nav-link" data-scroll-target="#concepts-in-microbiome-ecology-and-data-analysis">Concepts in microbiome ecology and data analysis</a></li>
   <li><a href="#hands-on-material" id="toc-hands-on-material" class="nav-link" data-scroll-target="#hands-on-material">Hands-on material</a></li>
   </ul></li>
   <li><a href="#setting-up-the-tutorial" id="toc-setting-up-the-tutorial" class="nav-link" data-scroll-target="#setting-up-the-tutorial">Setting up the tutorial</a>
@@ -207,9 +207,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>Here you can find the teaching and practical materials of the workshop.</p>
-<section id="concepts-of-microbiome-ecology-and-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="concepts-of-microbiome-ecology-and-data-analysis">Concepts of microbiome ecology and data analysis</h2>
+<p>Here you can find the teaching and practical materials from the workshop.</p>
+<section id="concepts-in-microbiome-ecology-and-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-in-microbiome-ecology-and-data-analysis">Concepts in microbiome ecology and data analysis</h2>
 <p>Link all files of the talks here, use a logical order:</p>
 <ol type="1">
 <li><a href="talks/nfdi4microbiota_DataPreProcessing.pdf">Data processing</a></li>
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="./scripts/4_Differential_abundance.html">Differential abundance analysis</a></li>
 <li><a href="./scripts/5_Metagenome_outook.html">Metagenome outlook</a></li>
 </ol>
-<p>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.</p>
+<p>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions on how to set it all up.</p>
 </section>
 </section>
 <section id="setting-up-the-tutorial" class="level1">
@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="input-files">Input files</h2>
 <section id="s-data-files" class="level3">
 <h3 class="anchored" data-anchor-id="s-data-files">16S Data Files</h3>
-<p>To run the tutorials, you will need files from the <code>inputs</code> folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:</p>
+<p>To run the tutorials, you will need files from the <code>inputs</code> folder with 16S dataset. This dataset has been reduced in size and randomly shuffled compared to the original dataset. The files you need are:</p>
 <ul>
 <li>common_significant_features.txt</li>
 <li>feature-table-gmbc1.tsv</li>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata">SRR5935872.fasta.gz</a></li>
 </ul>
-<p>The files files need to be downloaded at (<code>inputs/metagenome/</code>) &amp; unzipped before you start with the metagenome tutorial.</p>
+<p>The files need to be downloaded at (<code>inputs/metagenome/</code>) &amp; unzipped before you start the metagenome tutorial.</p>
 <p>You can unzip them with the following command:</p>
 </section>
 <section id="humangrc38-genome-files" class="level4">
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>gtdb_taxonomy.tsv</li>
 </ul>
 <blockquote class="blockquote">
-<p>Note: This file you can get by clicking this <a href="https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz">link</a></p>
+<p>Note: You can get this file by clicking this <a href="https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz">link</a></p>
 </blockquote>
 </section>
 <section id="sample-metagenome" class="level4">
@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="option-1-using-jupyter-notebooks-with-the-r-kernel">Option 1: Using Jupyter Notebooks with the R Kernel</h2>
 <section id="install-conda-environment" class="level3">
 <h3 class="anchored" data-anchor-id="install-conda-environment">Install conda environment</h3>
-<p>First, make sure you have Conda installed. You can install all required packages and tools with <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html">conda</a>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</p>
+<p>First, make sure you have conda installed. You can install all required packages and tools with <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html">conda</a>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> kmc_16s_environment.yml <span class="at">--prefix</span> kmc_workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once the environment is created, activate it:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate kmc_workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="option-2-using-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="option-2-using-rstudio">Option 2: Using RStudio</h2>
-<p>Ensure that Conda is installed and active (same as step 1 above).</p>
+<p>Ensure that conda is installed and active (same as step 1 above).</p>
 <section id="link-conda-environment-with-rstudio" class="level4">
 <h4 class="anchored" data-anchor-id="link-conda-environment-with-rstudio">Link Conda Environment with RStudio:</h4>
 <p>In RStudio, go to Tools &gt; Global Options &gt; R and select the R Version associated with the Conda environment.</p>
@@ -828,9 +828,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Overview</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Here you can find the teaching and practical materials of the workshop.</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Here you can find the teaching and practical materials from the workshop.</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Concepts of microbiome ecology and data analysis</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Concepts in microbiome ecology and data analysis</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>Link all files of the talks here, use a logical order:</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -847,7 +847,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="co">[</span><span class="ot">Differential abundance analysis</span><span class="co">](scripts/4_Differential_abundance.ipynb)</span></span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span><span class="co">[</span><span class="ot">Metagenome outlook</span><span class="co">](scripts/5_Metagenome_outook.ipynb)</span></span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions on how to set it all up.</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Setting up the tutorial</span></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
@@ -859,7 +859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### 16S Data Files</span></span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>To run the tutorials, you will need files from the <span class="in">`inputs`</span> folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>To run the tutorials, you will need files from the <span class="in">`inputs`</span> folder with 16S dataset. This dataset has been reduced in size and randomly shuffled compared to the original dataset. The files you need are:</span>
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>common_significant_features.txt</span>
 <span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>feature-table-gmbc1.tsv</span>
@@ -875,7 +875,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">SRR5935872.fasta.gz</span><span class="co">](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata)</span></span>
 <span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>The files files need to be downloaded at (<span class="in">`inputs/metagenome/`</span>) &amp; unzipped before you start with the metagenome tutorial.</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>The files need to be downloaded at (<span class="in">`inputs/metagenome/`</span>) &amp; unzipped before you start the metagenome tutorial.</span>
 <span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>You can unzip them with the following command:</span>
 <span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -900,7 +900,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gtdb_taxonomy.tsv</span>
 <span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: This file you can get by clicking this </span><span class="co">[</span><span class="ot">link</span><span class="co">](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: You can get this file by clicking this </span><span class="co">[</span><span class="ot">link</span><span class="co">](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)</span></span>
 <span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sample metagenome</span></span>
 <span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
@@ -939,7 +939,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install conda environment</span></span>
 <span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>First, make sure you have Conda installed. You can install all required packages and tools with <span class="co">[</span><span class="ot">conda</span><span class="co">](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)</span>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>First, make sure you have conda installed. You can install all required packages and tools with <span class="co">[</span><span class="ot">conda</span><span class="co">](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)</span>. Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:</span>
 <span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
 <span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> kmc_16s_environment.yml <span class="at">--prefix</span> kmc_workshop</span>
@@ -967,7 +967,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Option 2: Using RStudio</span></span>
 <span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>Ensure that Conda is installed and active (same as step 1 above).</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>Ensure that conda is installed and active (same as step 1 above).</span>
 <span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Link Conda Environment with RStudio:</span></span>
 <span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
