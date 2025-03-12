@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Olga Brovkina (o.brovkina@ikmb.uni-kiel.de)">
 
 <title>Analysis of Beta-Diversity – Kiel Microbiome Center workshop</title>
 <style>
@@ -180,13 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Analysis of Beta-Diversity</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Analysis of Beta-Diversity</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/3_Beta_diversity.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Olga Brovkina (o.brovkina@ikmb.uni-kiel.de) </p>
+          </div>
+  </div>
     
   
     
@@ -197,13 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>By Olga Brovkina (o.brovkina@ikmb.uni-kiel.de)<br>
-This document provides an analysis of beta-diversity using a distance matrix and metadata.</p>
+<p>This document provides an analysis of beta-diversity using a distance matrix and metadata.</p>
 <section id="load-required-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-required-libraries">Load Required Libraries</h2>
 <p>We will work with two specific microbiome packages <code>phyloseq</code> ans <code>vegan</code>. The <code>tidyverse</code> package is common R package</p>
 <div id="6e169d98" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(vegan)))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(ggplot2)))</span>
@@ -215,7 +221,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="load-phyloseq-object-from-previous-step">Load phyloseq object from previous step</h2>
 <p>We will use rarefied samples for this analysis</p>
 <div id="25755f7f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"~/kmc_workshop/R_objects/subset_rare_phyloseq_object.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -225,7 +231,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="perform-pcoa-ordination-using-bray-curtis-distance">Perform PCoA ordination using Bray-Curtis distance</h2>
 <p>ps.rare argument specifies the phyloseq object that contains your microbiome data. method = “PCoA”: This specifies that Principal Coordinates Analysis (PCoA) is the ordination method to be used. distance = “bray”: This indicates that the Bray-Curtis dissimilarity is the distance metric used for the PCoA.</p>
 <div id="0272e23f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bray <span class="ot">&lt;-</span> <span class="fu">ordinate</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">physeq =</span> ps.rare, </span>
@@ -235,25 +241,25 @@ This document provides an analysis of beta-diversity using a distance matrix and
 </details>
 </div>
 <div id="5bd19e1f" class="cell" data-solution2="hidden" data-solution2_first="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#What other distances and methods are avialable in vegan package in `ordination` function? Try below other approach</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="d1a0a952" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(ordinate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="8af092fd" class="cell" data-solution2="hidden" data-solution2_first="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore variables in your sample_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="9689570e" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_data</span>(ps.rare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -263,7 +269,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="creating-pcoa-ordination-plot-based-on-bray-curtis-distance">Creating PCoA ordination plot based on Bray-Curtis distance</h2>
 <p>We colored scatters by country and shaped by lifestyle. You can choose other variables from the sample_data(ps.rare)</p>
 <div id="6ac5267c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ordination</span>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">physeq =</span> ps.rare,                                 </span>
@@ -277,7 +283,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 </details>
 </div>
 <div id="81c4ee7e" class="cell" data-solution="shown" data-solution2="hidden" data-solution2_first="true" data-solution_first="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Here you can try other variables for colors and shape. Which type variables can not be used for shapes? </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -285,7 +291,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <p>continuous</p>
 <p>you can also save the plot. Saving plot as pdf will provide you with the best resolution. Sometimes it is woth to save the plot as png/jpg object, e.g.&nbsp;for presentation</p>
 <div id="3596ac2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">plot_ordination</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">physeq =</span> ps.rare,                                 </span>
@@ -306,7 +312,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="perform-pcoa-ordination-using-weighted-unifrac-distance">Perform PCoA ordination using Weighted UniFrac distance</h2>
 <p>This approach incorporates the relative abundances of taxa, providing a more nuanced measure of community differences that takes into account both phylogenetic relationships and species abundances.</p>
 <div id="d1846b5d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wuni <span class="ot">&lt;-</span> <span class="fu">ordinate</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">physeq =</span> ps.rare, </span>
@@ -319,7 +325,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <section id="creating-pcoa-ordination-plot-based-on-weighted-unifrac-distance" class="level2">
 <h2 class="anchored" data-anchor-id="creating-pcoa-ordination-plot-based-on-weighted-unifrac-distance">Creating PCoA ordination plot based on Weighted UniFrac distance</h2>
 <div id="393453e7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ordination</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">physeq =</span> ps.rare,                                 </span>
@@ -337,7 +343,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="creating-weighted-unifrac-distance-object">Creating Weighted UniFrac distance object</h2>
 <p>to analyse how environmental variables influence the variation in community data we need distances, not ordination!</p>
 <div id="fac0564c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>uni_distance <span class="ot">&lt;-</span> phyloseq<span class="sc">::</span><span class="fu">distance</span>(ps.rare, <span class="at">method =</span> <span class="st">"wunifrac"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -346,13 +352,13 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <section id="prepare-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="prepare-metadata">Prepare metadata</h2>
 <div id="0a25817a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>meta_encoded <span class="ot">&lt;-</span> <span class="fu">sample_data</span>(ps.rare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="1aa8cce6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>meta_encoded <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(meta_encoded)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">colnames</span>(meta_encoded)) {</span>
@@ -364,20 +370,20 @@ This document provides an analysis of beta-diversity using a distance matrix and
 </div>
 <p>Check if there are any remaining missing values</p>
 <div id="d5173c4e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(meta_encoded, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="b39c15a1" class="cell" data-solution="hidden" data-solution2="hidden" data-solution2_first="true" data-solution_first="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Capscale analysis is sensitive to missing values</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#In what situtaion will you drop the columns from the table with metadata and in what situations will you drop the rows (samples)?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="f3ac2e56" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#situation where you drop the samples: 1.If a particular variable in the metadata is crucial for your research (e.g., age, gender, or a key clinical measurement), and some samples have missing values for that variable, you might choose to drop those samples. 2.If certain samples are outliers that could significantly skew your results </span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#situation where you drop variable from meta_data: 1. the you need to preserve as much samples as possible; 2.If a variable is not essential to your research question or if it is highly correlated with another variable; 3. In cases where a variable has very little variation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -387,7 +393,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <section id="perform-constrained-ordination-using-capscale" class="level1">
 <h1>Perform constrained ordination using capscale</h1>
 <div id="dc8393ad" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>rda_model <span class="ot">&lt;-</span> <span class="fu">capscale</span>(uni_distance <span class="sc">~</span> ., <span class="at">data =</span> meta_encoded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -397,14 +403,14 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h1>Stepwise Selection with capscale</h1>
 <p>We want to know which environmental variables are most important for explaining the variation in your data We will start with an intercept-only model as the lower scope</p>
 <div id="56c8c6c3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lower_model <span class="ot">&lt;-</span> <span class="fu">capscale</span>(uni_distance <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> meta_encoded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Perform stepwise model selection</p>
 <div id="3cb9f943" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>stepwise_model <span class="ot">&lt;-</span> <span class="fu">ordiR2step</span>(lower_model, <span class="at">scope =</span> <span class="fu">formula</span>(rda_model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -412,7 +418,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <section id="plot-the-biplot-based-on-rda_model" class="level2">
 <h2 class="anchored" data-anchor-id="plot-the-biplot-based-on-rda_model">Plot the biplot based on rda_model</h2>
 <div id="0f484383" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rda_model, <span class="at">scaling =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -422,7 +428,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 <h2 class="anchored" data-anchor-id="perform-adonis">Perform adonis</h2>
 <p>adonis takes a <code>dist</code> object as an input</p>
 <div id="803119d7" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>adonis_result <span class="ot">&lt;-</span> <span class="fu">adonis2</span>(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> uni_distance <span class="sc">~</span> country <span class="sc">+</span> lifestyle, </span>
@@ -431,13 +437,13 @@ This document provides an analysis of beta-diversity using a distance matrix and
 </details>
 </div>
 <div id="d9a27d52" class="cell" data-solution="hidden" data-solution2="hidden" data-solution2_first="true" data-solution_first="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What will happen if we include both lifestyle and urbanism in our formula?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="e7940f3a" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>adonis_result <span class="ot">&lt;-</span> <span class="fu">adonis2</span>(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> uni_distance <span class="sc">~</span> country <span class="sc">+</span> lifestyle <span class="sc">+</span>urbanism, </span>
@@ -448,7 +454,7 @@ This document provides an analysis of beta-diversity using a distance matrix and
 </div>
 <p>Let’s incorporate adonis result into the final ordination plot We extract p-values from ADONIS result and define significance level for asterisks</p>
 <div id="54cc595b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract p-values from ADONIS result</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>p_values <span class="ot">&lt;-</span> adonis_result<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span></span>
@@ -954,8 +960,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Funded by NFDI4Microbiota and miTarget.</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/3_Beta_diversity.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<p>Made with quarto.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/3_Beta_diversity.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

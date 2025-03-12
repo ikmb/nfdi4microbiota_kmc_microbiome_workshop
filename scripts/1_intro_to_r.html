@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ana Schaan (aschaan@ikmb.uni-kiel.de) and Malte Rühlemann (m.ruehlemann@ikmb.uni-kiel.de)">
 
-<title>Packages and functions in R – Kiel Microbiome Center workshop</title>
+<title>Introduction to R – Kiel Microbiome Center workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +159,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r">R</a>
+  <li><a href="#packages-and-functions-in-r" id="toc-packages-and-functions-in-r" class="nav-link active" data-scroll-target="#packages-and-functions-in-r">Packages and functions in R</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a>
   <ul class="collapse">
   <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting help</a></li>
   </ul></li>
@@ -206,13 +208,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Packages and functions in R</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Introduction to R</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/1_intro_to_r.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ana Schaan (aschaan@ikmb.uni-kiel.de) and Malte Rühlemann (m.ruehlemann@ikmb.uni-kiel.de) </p>
+          </div>
+  </div>
     
   
     
@@ -223,14 +231,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="packages-and-functions-in-r" class="level1">
+<h1>Packages and functions in R</h1>
 <p>This is how you load packages into R. Packages contain a series of functions and data developed by R community. We will be working with tidyverse. Normally, you load all the packages needed at the beginning of your code.</p>
 <p>Packages are collections of functions that are often written and collected for a specific purpose. <a href="https://www.bioconductor.org/">Bioconductor</a> is a place where many packages aimed at the analysis of biological data are archived and provided for installation. For this part of the tutorial which aims at introducing you to R using <a href="https://www.tidyverse.org/">tidyverse</a>, we will load named <code>tidyverse</code> pacakge.</p>
-<div id="d7ebfe14" class="cell">
-<details class="code-fold">
+<div id="d7ebfe14" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
 <section id="r" class="level1">
 <h1>R</h1>
 <p>R is a software language for statistical analyses. There is tons of excellent quality info out there. So, we will focus on the practical aspects of it.</p>
@@ -253,8 +264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>numeric: real number</li>
 </ul>
-<div id="1715b06d" class="cell">
-<details class="code-fold">
+<div id="1715b06d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -262,8 +273,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>character: chain of characters, text</li>
 </ul>
-<div id="24c60564" class="cell">
-<details class="code-fold">
+<div id="24c60564" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">"1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -271,8 +282,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>logical: TRUE, FALSE</li>
 </ul>
-<div id="8cd0fd4b" class="cell">
-<details class="code-fold">
+<div id="8cd0fd4b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -281,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>special values: NA (missing value), NULL (“empty object”), Inf, -Inf (infinity), NaN (not a number)</li>
 </ul>
-<div id="abc6b655" class="cell">
-<details class="code-fold">
+<div id="abc6b655" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -290,8 +301,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="assignments" class="level2">
 <h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
 <p>It is practical to store objects and values into named objects. You assign names to values using <code>&lt;-</code> as <code>name_of_object &lt;- value</code> or <code>=</code> as <code>name_of_object = value</code>.</p>
-<div id="f4b2994e" class="cell">
-<details class="code-fold">
+<div id="f4b2994e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span>
@@ -306,8 +317,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions">Functions</h2>
 <p>Functions contain operations that will be applied to objects. Functions have arguments which normally are of two kinds: 1. the <strong>data</strong> to which the operations will be applied on. 2. the <strong>details</strong> of the operations (so-called “arguments”).</p>
-<div id="a0d224fd" class="cell">
-<details class="code-fold">
+<div id="a0d224fd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"This is a text"</span></span>
@@ -326,15 +337,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-types-and-arithmetic" class="level1">
 <h1>Data types and arithmetic</h1>
 <p>You can do easy maths-tasks in R:</p>
-<div id="587eab92" class="cell">
-<details class="code-fold">
+<div id="587eab92" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>…and you can do the same in R using data stored in objects:</p>
-<div id="ac22d244" class="cell">
-<details class="code-fold">
+<div id="ac22d244" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">6</span></span>
@@ -345,8 +356,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
 <p>Vectors in R are collections of the same object types (numeric, character/string, logical) within an object</p>
-<div id="632b55c0" class="cell">
-<details class="code-fold">
+<div id="632b55c0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#this is a comment within the code.</span></span>
@@ -366,8 +377,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="factor-categorical-data-that-takes-a-fixed-set-of-values" class="level2">
 <h2 class="anchored" data-anchor-id="factor-categorical-data-that-takes-a-fixed-set-of-values">Factor: categorical data that takes a fixed set of values</h2>
 <p>Similar to vectors, but are designed to represent categorical data that can take a fixed set of possible values. Factors are built on top of integers, and have a levels attribute:</p>
-<div id="89778bbb" class="cell">
-<details class="code-fold">
+<div id="89778bbb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="dv">1</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"wt"</span>, <span class="st">"wt"</span>, <span class="st">"mut"</span>, <span class="st">"mut"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"wt"</span>, <span class="st">"mut"</span>))</span>
@@ -377,8 +388,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="component-wise-operations" class="level2">
 <h2 class="anchored" data-anchor-id="component-wise-operations">Component-wise operations</h2>
-<div id="a1988a1e" class="cell">
-<details class="code-fold">
+<div id="a1988a1e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span> , <span class="dv">9</span> )</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -400,72 +411,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="summaries-subscripting-and-useful-vector-functions" class="level1">
 <h1>Summaries, subscripting and useful vector functions</h1>
 <p>Let’s suppose we’ve collected some data from an experiment and stored them in an object <code>x</code>. Some simple summary statistics of these data can be produced:</p>
-<div id="summary_1" class="cell">
-<details class="code-fold">
+<div id="summary_1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">8.2</span>, <span class="fl">3.1</span>, <span class="fl">5.6</span>, <span class="fl">8.2</span>, <span class="fl">9.3</span>, <span class="fl">6.5</span>, <span class="fl">7.0</span>, <span class="fl">9.3</span>, <span class="fl">1.2</span>, <span class="fl">14.5</span>, <span class="fl">6.2</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e5317a8f" class="cell">
-<details class="code-fold">
+<div id="e5317a8f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="f427192c" class="cell">
-<details class="code-fold">
+<div id="f427192c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>You can pick one or more elements of a vector by using the <code>[]</code> and the <code>index</code> of the element.</p>
 <p>It is easy to get the first element by indicating its index (1).</p>
-<div id="fb32a8e5" class="cell">
-<details class="code-fold">
+<div id="fb32a8e5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>You can substract one element of the vector as well using <code>-</code>. For instance, get all elements except the 3rd.</p>
-<div id="0551a9fa" class="cell">
-<details class="code-fold">
+<div id="0551a9fa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>And you can use a vector of indexes to select one of more elements.</p>
-<div id="339553b8" class="cell">
-<details class="code-fold">
+<div id="339553b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">8</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="ce9bb4ce" class="cell">
-<details class="code-fold">
+<div id="ce9bb4ce" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Subscripting is very useful. For instance, using the experimental data about, let’s suppose that we subsequently learn that the first 6 data points correspond to measurements made in one experiment, and the second six on another experiment. This might suggest summarizing the two sets of data separately, so we would need to extract from <code>x</code> the two relevant subvectors. This is achieved by subscripting.</p>
-<div id="subscr" class="cell">
-<details class="code-fold">
+<div id="subscr" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="0bfc9418" class="cell">
-<details class="code-fold">
+<div id="0bfc9418" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x[<span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The function <code>head</code> provides a preview of the vector.</p>
-<div id="82378000" class="cell">
-<details class="code-fold">
+<div id="82378000" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -475,8 +486,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>sort</code>: sort in increasing order</li>
 <li><code>order</code>: orders the indexes is such a way that the elements of the vector are sorted, i.e <code>sort(v) =  v[order(v)]</code></li>
 </ul>
-<div id="sort-rank" class="cell">
-<details class="code-fold">
+<div id="sort-rank" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">3.5</span>, <span class="fl">2.7</span>, <span class="fl">6.3</span>, <span class="fl">6.3</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,14 +496,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>order</code>: orders the indexes is such a way that the elements of the vector are sorted, i.e <code>sort(v) =  v[order(v)]</code></li>
 </ul>
-<div id="aff37546" class="cell">
-<details class="code-fold">
+<div id="aff37546" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b365c27c" class="cell">
-<details class="code-fold">
+<div id="b365c27c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">order</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -500,8 +511,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>rank</code>: gives the ranks of the elements of a vector, different options for handling <em>ties</em> are available.</li>
 </ul>
-<div id="3e3da7e3" class="cell">
-<details class="code-fold">
+<div id="3e3da7e3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rank</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -515,8 +526,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="creating-matrices" class="level3">
 <h3 class="anchored" data-anchor-id="creating-matrices">Creating matrices</h3>
 <p>Create the columns and then glue them together with the command <code>cbind</code>. For example:</p>
-<div id="cbind-ex" class="cell">
-<details class="code-fold">
+<div id="cbind-ex" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span> , <span class="dv">9</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">3</span> , <span class="dv">4</span>)</span>
@@ -526,8 +537,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>We can also use the function <code>matrix()</code> directly to create a matrix.</p>
-<div id="matrix_direct" class="cell">
-<details class="code-fold">
+<div id="matrix_direct" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -537,21 +548,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="matrices-operations" class="level3">
 <h3 class="anchored" data-anchor-id="matrices-operations">Matrices operations</h3>
 <p>R will try to interpret operations on matrices in a natural way. For example, with z as above, and y defined below we get:</p>
-<div id="matrix-op" class="cell">
-<details class="code-fold">
+<div id="matrix-op" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="matrix-op-1" class="cell">
-<details class="code-fold">
+<div id="matrix-op-1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>y <span class="sc">+</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="matrix-op-2" class="cell">
-<details class="code-fold">
+<div id="matrix-op-2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>y <span class="sc">*</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -561,8 +572,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="subsetting" class="level3">
 <h3 class="anchored" data-anchor-id="subsetting">Subsetting</h3>
 <p>As before, the <code>[ ]</code> notation is used to subscript. The following examples illustrate this:</p>
-<div id="matrix-op-4" class="cell">
-<details class="code-fold">
+<div id="matrix-op-4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">1</span>, <span class="dv">1</span>]</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>z[, <span class="dv">2</span>]</span>
@@ -580,8 +591,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://www.tidyverse.org/">Tidyverse</a> is a collection of R packages for data science. In tidyverse, the package <code>r CRANpkg("tibble")</code> improves the conventional R <code>data.frame</code> class. A tibble is a <code>data.frame</code> which a lot of tweaks and more sensible defaults that make your life easier.</p>
 <p>Let’s illustrate this by loading the GMbC metadata for each individual stored in a file in tab–separated-format (tsv). We load it using the function <code>read_tsv</code>, which is used to import a data file in <em>tab separated format — tsv</em> into R. In a .tsv–file the data are stored row–wise, and the entries in each row are separated by commas.</p>
 <p>The function <code>read_tsv</code> is from the <code>r CRANpkg("readr")</code> package and will give us a tibble as the result.</p>
-<div id="load-patients" class="cell">
-<details class="code-fold">
+<div id="load-patients" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"~/kmc_workshop/inputs/metadata_gmbc_bn10_complete_fixed.tsv"</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#metadata &lt;- read.table("metadata_gmbc_bn10_complete_fixed.tsv", stringsAsFactors = F)</span></span>
@@ -598,8 +609,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="accessing-data-in-data-frames">Accessing data in data frames</h2>
 <p>Now that we have imported the data set, you might be wondering how to actually access the data. For this the functions <code>filter</code> and <code>select</code> from the <code>r CRANpkg("dplyr")</code> package of the <code>r CRANpkg("tidyverse")</code> are useful. <code>filter</code> will select certain rows (observations), while <code>select</code> will subset the columns (variables of the data).</p>
 <p>In the following command, we get all the patients that are taller than 190cm and select their height and the country they were sampled in, as well as their Id:</p>
-<div id="subset_data" class="cell">
-<details class="code-fold">
+<div id="subset_data" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pat_tall <span class="ot">&lt;-</span> <span class="fu">filter</span>(metadata, height_cm <span class="sc">&gt;</span> <span class="dv">190</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(pat_tall, SampleID,  height_cm, country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -618,15 +629,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>The function <code>filter</code> allows us to combine multiple conditions easily, if you specify multiple of them, they will automatically concatenated via a <code>&amp;</code>.</p>
 <p>For example, we can easily get tall individuals from Ghana via:</p>
-<div id="light_and_small_patients" class="cell">
-<details class="code-fold">
+<div id="light_and_small_patients" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(metadata, height_cm <span class="sc">&gt;</span> <span class="dv">190</span>, country <span class="sc">==</span> <span class="st">"Ghana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can also retrieve tall individuals OR individuals from Ghana via</p>
-<div id="light_or_small_patients" class="cell">
-<details class="code-fold">
+<div id="light_or_small_patients" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(metadata, (height_cm <span class="sc">&gt;</span> <span class="dv">190</span>) <span class="sc">|</span> (country <span class="sc">==</span> <span class="st">"tall"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -637,8 +648,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Using available tidyverse functions, we can also create new columns in our data frames.</p>
 <p>Let’s try to calculate the Body-Mass-Index (BMI), defined as BMI = Weight (kg) / Height (m).</p>
 <p>As the metdata carries the height in cm, we first need to transform this to meters in a new column. Then we used the new column and the weight column to calculated the BMI:</p>
-<div id="transform_example" class="cell">
-<details class="code-fold">
+<div id="transform_example" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>metadata_new <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">height_m =</span> height_cm <span class="sc">/</span> <span class="dv">100</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>metadata_new <span class="ot">=</span> <span class="fu">mutate</span>(metadata_new, <span class="at">BMI =</span> weight_kg <span class="sc">/</span> height_m<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -652,8 +663,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Combine sequences of actions with pipes</h1>
 <p>Use <code>%&gt;%</code> (pipe) to emphasize a sequence of actions, rather than the object that the actions are being performed on. Pipe is a function from <code>r CRANpkg("magrittr")</code>. New versions of R (&gt; 4.1) have a native pipe: <code>|&gt;</code>. Pipes are useful to skip the need of naming intermediate files.</p>
 <p>Pipes redirects the object placed before the pipe to the function placed after the pipe.</p>
-<div id="533a02a6" class="cell">
-<details class="code-fold">
+<div id="533a02a6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span> <span class="co">#object here is a data.frame</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">height_m =</span> height_cm <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="co"># The object data frame is placed where you indicate it with an ".".</span></span>
@@ -676,8 +687,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Ggplots are build up by combining the plot elements. For instance, first you build the plot are, then you select the geometrics and their aesthetics. See example below.</p>
 <p>Build plot frames.</p>
-<div id="f223db43" class="cell">
-<details class="code-fold">
+<div id="f223db43" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bmi_selected, <span class="fu">aes</span>(<span class="at">x =</span> height_m, <span class="at">y =</span> weight_kg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -685,8 +696,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="scatterplot" class="level2">
 <h2 class="anchored" data-anchor-id="scatterplot">Scatterplot</h2>
 <p>Add plot geometrics. In this case we are plotting a scatter plot, which is a done by plotting points (geometric <code>geom_point</code>). Note that we are using an <code>+</code> to add the geometrics to the plot area.</p>
-<div id="ad091098" class="cell">
-<details class="code-fold">
+<div id="ad091098" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bmi_selected, <span class="fu">aes</span>(<span class="at">x =</span> height_m, <span class="at">y =</span> weight_kg)) <span class="sc">+</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -696,8 +707,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="scatterplot-with-additional-data" class="level2">
 <h2 class="anchored" data-anchor-id="scatterplot-with-additional-data">Scatterplot with additional data</h2>
 <p>Now that we have a basic plot to outlined, we can work on geometric aesthetics.</p>
-<div id="6ae3cae9" class="cell">
-<details class="code-fold">
+<div id="6ae3cae9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make the size proportional to the age</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bmi_selected, <span class="fu">aes</span>(<span class="at">x =</span> height_m, <span class="at">y =</span> weight_kg)) <span class="sc">+</span></span>
@@ -713,8 +724,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="histograms" class="level2">
 <h2 class="anchored" data-anchor-id="histograms">Histograms</h2>
 <p>Another kind of plot: histogram. Similarly, first the plot frame is build, followed by the geometric.</p>
-<div id="a8e73d25" class="cell">
-<details class="code-fold">
+<div id="a8e73d25" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> <span class="co"># note that we are using pipe to redirect the data frame to the function ggplot</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> weight_kg)) <span class="sc">+</span></span>
@@ -725,8 +736,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="boxplots" class="level2">
 <h2 class="anchored" data-anchor-id="boxplots">Boxplots</h2>
 <p>Another kind of plot: Box plots.</p>
-<div id="00456ff5" class="cell">
-<details class="code-fold">
+<div id="00456ff5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
@@ -737,8 +748,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="combining-geometrics" class="level2">
 <h2 class="anchored" data-anchor-id="combining-geometrics">Combining geometrics</h2>
 <p>Different geometric can be combined, for instance boxplot and points.</p>
-<div id="3dd7b031" class="cell">
-<details class="code-fold">
+<div id="3dd7b031" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
@@ -747,8 +758,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Different geometrics offer different visualization of the same data.</p>
-<div id="f2836507" class="cell">
-<details class="code-fold">
+<div id="f2836507" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> </span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
@@ -760,8 +771,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="changing-plot-colors-and-other-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="changing-plot-colors-and-other-parameters">Changing plot colors and other parameters</h2>
 <p>Plot appearance can also be done without being dependent on a specific variable. For instance, color all points blue or add transparancy to all of points. These modifications are done out of the <code>aes()</code> functions, but withing the geometric functions (<code>geom_*</code>)</p>
-<div id="1ccf1b3a" class="cell">
-<details class="code-fold">
+<div id="1ccf1b3a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> </span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
@@ -771,8 +782,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Any aspects of the plot can be modified. For instance, we are making the plot more informative by adding labels to the axes.</p>
-<div id="b504b79b" class="cell">
-<details class="code-fold">
+<div id="b504b79b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>bmi_selected <span class="sc">%&gt;%</span> </span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
@@ -785,8 +796,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>You can do much much more with ggplot2. Some good ideas ideas are found on the tutorial by <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">Zev Ross and Cédric Scherer</a> and the Book <a href="https://socviz.co/"><code>Data Visualization</code> by Keiran Healy</a>.</p>
 <p>Here is an example of a plot that shows the distribution of samples along the first two lifestyle principal components, colored by the variable “subsistence”, which is a broad categorization of lifestyles. Large shapes show the centroids of group means of the samples in each “urbanism” category</p>
-<div id="b413ba39" class="cell">
-<details class="code-fold">
+<div id="b413ba39" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="sc">%&gt;%</span> </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Dim1_lifestyle, <span class="at">y=</span>Dim2_lifestyle)) <span class="sc">+</span></span>
@@ -815,8 +826,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="session-information" class="level1">
 <h1>Session information</h1>
-<div id="d9c1f6fd" class="cell">
-<details class="code-fold">
+<div id="d9c1f6fd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1301,8 +1312,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Funded by NFDI4Microbiota and miTarget.</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/1_intro_to_r.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<p>Made with quarto.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/1_intro_to_r.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

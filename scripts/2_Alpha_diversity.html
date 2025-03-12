@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ana Schaan (aschaan@ikmb.uni-kiel.de)">
 
-<title>KMC Bioinformatics Workshop - Day 1 – Kiel Microbiome Center workshop</title>
+<title>Alpha diversity analysis: Measuring within-sample microbial diversity – Kiel Microbiome Center workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +159,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#alpha-diversity-analysis-measuring-within-sample-microbial-diversity" id="toc-alpha-diversity-analysis-measuring-within-sample-microbial-diversity" class="nav-link active" data-scroll-target="#alpha-diversity-analysis-measuring-within-sample-microbial-diversity"><strong>Alpha diversity analysis: Measuring within-sample microbial diversity</strong></a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a>
+  <ul class="collapse">
+  <li><a href="#loading-essential-libraries" id="toc-loading-essential-libraries" class="nav-link" data-scroll-target="#loading-essential-libraries">Loading essential libraries</a></li>
+  <li><a href="#set-working-directory-and-import-the-files-we-will-use-for-downstream-analyses" id="toc-set-working-directory-and-import-the-files-we-will-use-for-downstream-analyses" class="nav-link" data-scroll-target="#set-working-directory-and-import-the-files-we-will-use-for-downstream-analyses">Set working directory and import the files we will use for downstream analyses</a></li>
+  <li><a href="#subset-samples" id="toc-subset-samples" class="nav-link" data-scroll-target="#subset-samples">Subset samples</a></li>
+  <li><a href="#import-and-integrate-data-into-the-phyloseq-package" id="toc-import-and-integrate-data-into-the-phyloseq-package" class="nav-link" data-scroll-target="#import-and-integrate-data-into-the-phyloseq-package">Import and integrate data into the phyloseq package</a></li>
+  </ul></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data exploration</a>
+  <ul class="collapse">
+  <li><a href="#explore-the-phyloseq-object" id="toc-explore-the-phyloseq-object" class="nav-link" data-scroll-target="#explore-the-phyloseq-object">Explore the phyloseq object</a></li>
+  <li><a href="#distribution-of-reads-per-asv" id="toc-distribution-of-reads-per-asv" class="nav-link" data-scroll-target="#distribution-of-reads-per-asv">Distribution of Reads per ASV</a></li>
+  </ul></li>
+  <li><a href="#alpha-diversity-analysis" id="toc-alpha-diversity-analysis" class="nav-link" data-scroll-target="#alpha-diversity-analysis">Alpha Diversity Analysis</a>
+  <ul class="collapse">
+  <li><a href="#manual-calculation-of-alpha-diversity-metrics" id="toc-manual-calculation-of-alpha-diversity-metrics" class="nav-link" data-scroll-target="#manual-calculation-of-alpha-diversity-metrics">Manual Calculation of Alpha Diversity Metrics</a></li>
+  <li><a href="#number-of-observed-asv-or-observed-richness" id="toc-number-of-observed-asv-or-observed-richness" class="nav-link" data-scroll-target="#number-of-observed-asv-or-observed-richness">Number of Observed ASV (or Observed Richness)</a></li>
+  <li><a href="#shannon-diversity" id="toc-shannon-diversity" class="nav-link" data-scroll-target="#shannon-diversity">Shannon Diversity</a></li>
+  <li><a href="#chao1" id="toc-chao1" class="nav-link" data-scroll-target="#chao1">Chao1</a></li>
+  </ul></li>
+  <li><a href="#alpha-diversity-calculations-using-phyloseq" id="toc-alpha-diversity-calculations-using-phyloseq" class="nav-link" data-scroll-target="#alpha-diversity-calculations-using-phyloseq">Alpha Diversity Calculations using phyloseq</a></li>
+  <li><a href="#visualizations-using-ggplot2" id="toc-visualizations-using-ggplot2" class="nav-link" data-scroll-target="#visualizations-using-ggplot2">Visualizations using ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#ask-try-with-other-variables" id="toc-ask-try-with-other-variables" class="nav-link" data-scroll-target="#ask-try-with-other-variables">ASK: Try with other variables!</a></li>
+  </ul></li>
+  <li><a href="#rarefaction-in-alpha-diversity-analysis" id="toc-rarefaction-in-alpha-diversity-analysis" class="nav-link" data-scroll-target="#rarefaction-in-alpha-diversity-analysis">Rarefaction in alpha diversity analysis</a>
+  <ul class="collapse">
+  <li><a href="#choosing-the-sample-depth-cutoff" id="toc-choosing-the-sample-depth-cutoff" class="nav-link" data-scroll-target="#choosing-the-sample-depth-cutoff">Choosing the Sample Depth Cutoff</a></li>
+  <li><a href="#task-try-rarefying-your-data-to-a-lower-depth.-how-does-that-affect-the-amount-of-otus-you-have-to-work-with" id="toc-task-try-rarefying-your-data-to-a-lower-depth.-how-does-that-affect-the-amount-of-otus-you-have-to-work-with" class="nav-link" data-scroll-target="#task-try-rarefying-your-data-to-a-lower-depth.-how-does-that-affect-the-amount-of-otus-you-have-to-work-with">TASK: Try rarefying your data to a lower depth. How does that affect the amount of OTUs you have to work with?</a></li>
+  </ul></li>
+  <li><a href="#statistical-analysis-of-alpha-diversity" id="toc-statistical-analysis-of-alpha-diversity" class="nav-link" data-scroll-target="#statistical-analysis-of-alpha-diversity">Statistical Analysis of Alpha Diversity</a>
+  <ul class="collapse">
+  <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests">Post-hoc tests</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#task-if-you-have-time-to-spare-how-about-trying-to-plot-a-violin-plot-that-compares-observed-richness-between-urbanism-levels-with-countries-as-facets" id="toc-task-if-you-have-time-to-spare-how-about-trying-to-plot-a-violin-plot-that-compares-observed-richness-between-urbanism-levels-with-countries-as-facets" class="nav-link" data-scroll-target="#task-if-you-have-time-to-spare-how-about-trying-to-plot-a-violin-plot-that-compares-observed-richness-between-urbanism-levels-with-countries-as-facets">TASK: If you have time to spare, how about trying to plot a <em>violin</em> plot that compares <em>Observed Richness</em> between <em>urbanism</em> levels with <em>countries</em> as facets?</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/2_Alpha_diversity.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -167,13 +202,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><strong>KMC Bioinformatics Workshop - Day 1</strong></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Alpha diversity analysis: Measuring within-sample microbial diversity</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/2_Alpha_diversity.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ana Schaan (aschaan@ikmb.uni-kiel.de) </p>
+          </div>
+  </div>
     
   
     
@@ -184,15 +225,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Kiel, September 25 2024<br>
-Ana Schaan (aschaan@ikmb.uni-kiel.de)</p>
-<section id="alpha-diversity-analysis-measuring-within-sample-microbial-diversity" class="level3">
-<h3 class="anchored" data-anchor-id="alpha-diversity-analysis-measuring-within-sample-microbial-diversity"><strong>Alpha diversity analysis: Measuring within-sample microbial diversity</strong></h3>
+<section id="preparation" class="level1">
+<h1>Preparation</h1>
 <p>This section focuses on understanding and analyzing alpha diversity, which reflects the diversity within individual microbial communities.<br>
 We will learn how to calculate different alpha diversity metrics using the <code>phyloseq</code> package and visualize the results using the <code>ggplot2</code> package. We will also explore statistical approaches to compare alpha diversity across different groups of samples, giving you practical insights into microbiome data interpretation.</p>
-<p><strong>Loading essential libraries:</strong></p>
+<section id="loading-essential-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="loading-essential-libraries">Loading essential libraries</h2>
 <div id="6a662df7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 'phyloseq' -- An R package for reproducible interactive analysis and graphics of microbiome census data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
@@ -208,9 +248,11 @@ We will learn how to calculate different alpha diversity metrics using the <code
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Set working directory and import the files we will use for downstream analyses:</strong></p>
+</section>
+<section id="set-working-directory-and-import-the-files-we-will-use-for-downstream-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="set-working-directory-and-import-the-files-we-will-use-for-downstream-analyses">Set working directory and import the files we will use for downstream analyses</h2>
 <div id="c8dd5f6f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/kmc_workshop"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"~/kmc_workshop/inputs/"</span>)</span>
@@ -234,27 +276,30 @@ We will learn how to calculate different alpha diversity metrics using the <code
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>metadataTable <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">paste0</span>(path,<span class="st">"metadata_gmbc_bn10_complete_fixed.tsv"</span>), <span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">row.names=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Subset samples</strong></p>
+</section>
+<section id="subset-samples" class="level2">
+<h2 class="anchored" data-anchor-id="subset-samples">Subset samples</h2>
 <p>We will subset the dataset to make our workshop more dynamic and individualized! Let’s list the countries with the urbanism information using the <code>count</code> function in R. Choose any <strong>two</strong> countries from the list below that would like to work with during the next analysis steps. Don’t worry, you can always come back and change your selection if you’d like.</p>
 <div id="70fc0d53" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>metadataTable <span class="sc">%&gt;%</span> <span class="fu">count</span>(country, urbanism)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="7e3fdafe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose the two countries you'd like to work with and subset the metadata table</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>subset_metadata <span class="ot">&lt;-</span> <span class="fu">subset</span>(metadataTable, country <span class="sc">==</span> <span class="st">"Ghana"</span> <span class="sc">|</span> country <span class="sc">==</span> <span class="st">"Rwanda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Import and integrate data into the phyloseq package:</strong><br>
-<br>
-We will combine our datatypes into a single <code>phyloseq</code> object, which allows us to store the microbiome data and access all of the package’s functions</p>
+</section>
+<section id="import-and-integrate-data-into-the-phyloseq-package" class="level2">
+<h2 class="anchored" data-anchor-id="import-and-integrate-data-into-the-phyloseq-package">Import and integrate data into the phyloseq package</h2>
+<p>We will combine our datatypes into a single <code>phyloseq</code> object, which allows us to store the microbiome data and access all of the package’s functions</p>
 <div id="568625d8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Component 1: the OTU/ASV table </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>features <span class="ot">&lt;-</span> <span class="fu">otu_table</span>(featureTable, <span class="at">taxa_are_rows =</span> <span class="cn">TRUE</span>)</span>
@@ -283,9 +328,14 @@ We will combine our datatypes into a single <code>phyloseq</code> object, which 
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># To use this object again, just run: load("phyloseq_object.RData")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Explore the phyloseq object</strong></p>
+</section>
+</section>
+<section id="data-exploration" class="level1">
+<h1>Data exploration</h1>
+<section id="explore-the-phyloseq-object" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-phyloseq-object">Explore the phyloseq object</h2>
 <div id="43b758f7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nsamples</span>(ps) <span class="co"># Number of samples</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ntaxa</span>(ps) <span class="co"># Number of ASVs</span></span>
@@ -294,11 +344,12 @@ We will combine our datatypes into a single <code>phyloseq</code> object, which 
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_sums</span>(ps) <span class="co"># How many reads per sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Distribution of Reads per ASV</strong><br>
-<br>
-Let’s take a look at the structure of our data using <code>ggplot2</code></p>
+</section>
+<section id="distribution-of-reads-per-asv" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-reads-per-asv">Distribution of Reads per ASV</h2>
+<p>Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <div id="2b65b32e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a summary table with total read count per ASV</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataTable <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">tax_table</span>(ps), <span class="at">TotalCounts =</span> <span class="fu">taxa_sums</span>(ps), <span class="at">ASV =</span> <span class="fu">taxa_names</span>(ps))</span>
@@ -318,11 +369,15 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <li><p>Dominant Taxa: The smaller number of ASVs with high read counts represent the core microbial community.</p></li>
 <li><p>Implications for Analysis: The distribution of reads per ASV is important to interpret diversity metrics and when considering normalization or filtering. For example, we might need to decide whether to include or exclude rare taxa in downstream analyses, as they can influence the results of alpha and beta diversity calculations.</p></li>
 </ul>
-<section id="manual-calculation-of-alpha-diversity-metrics" class="level4">
-<h4 class="anchored" data-anchor-id="manual-calculation-of-alpha-diversity-metrics"><strong>Manual Calculation of Alpha Diversity Metrics</strong></h4>
+</section>
+</section>
+<section id="alpha-diversity-analysis" class="level1">
+<h1>Alpha Diversity Analysis</h1>
+<section id="manual-calculation-of-alpha-diversity-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="manual-calculation-of-alpha-diversity-metrics">Manual Calculation of Alpha Diversity Metrics</h2>
 <p>Next, let’s manually calculate a few key alpha diversity metrics for a single sample. This will give you a sense of what each metric represents. By calculating the metrics manually, you will get a closer look at what is taken into account in each formula, which will later be compared to the automatically generated values using the <code>phyloseq</code> package.</p>
 <div id="1165a00f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly select a sample from your subsetted Feature table data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>subset_samples <span class="ot">&lt;-</span> featureTable[, <span class="fu">colnames</span>(featureTable) <span class="sc">%in%</span> <span class="fu">rownames</span>(subset_metadata)]</span>
@@ -337,28 +392,34 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>proportions <span class="ot">&lt;-</span> subset_samples[, random_sample] <span class="sc">/</span> total_reads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Number of Observed ASV (or Observed Richness)</strong></p>
+</section>
+<section id="number-of-observed-asv-or-observed-richness" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-observed-asv-or-observed-richness">Number of Observed ASV (or Observed Richness)</h2>
 <p>This metric is as straightforward as it sounds: simply the count of unique ASVs present in your sample. We calculate it by summing the ASVs that have a read count greater than zero.</p>
 <div id="4cde6386" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>observed_richness_manual <span class="ot">&lt;-</span> <span class="fu">sum</span>(subset_samples[, random_sample] <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>observed_richness_manual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Shannon Diversity</strong></p>
+</section>
+<section id="shannon-diversity" class="level2">
+<h2 class="anchored" data-anchor-id="shannon-diversity">Shannon Diversity</h2>
 <p>Shannon diversity accounts for both the abundance and evenness of the ASVs in the sample. We calculate it by summing the proportion of reads * log(proportion) for each ASV.</p>
 <div id="bb84a684" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shannon_manual <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(proportions[proportions <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="sc">*</span> <span class="fu">log</span>(proportions[proportions <span class="sc">&gt;</span> <span class="dv">0</span>]))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>shannon_manual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Chao1</strong></p>
+</section>
+<section id="chao1" class="level2">
+<h2 class="anchored" data-anchor-id="chao1">Chao1</h2>
 <p>Chao1 accounts for unseen species by considering singletons (ASVs with only one read) and doubletons (ASVs with two reads). It considers an estimate of the number of species we were not able to detect in our sequencing efforts. If we observe species with very few reads, it is likely that other rare species are present but have not been detected. It does not account for evenness.</p>
 <div id="2669ef77" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>singleton <span class="ot">&lt;-</span> <span class="fu">sum</span>(subset_samples[, random_sample] <span class="sc">==</span> <span class="dv">1</span>) <span class="co"># Number of singletons</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>doubleton <span class="ot">&lt;-</span> <span class="fu">sum</span>(subset_samples[, random_sample] <span class="sc">==</span> <span class="dv">2</span>) <span class="co"># Number of doubletons</span></span>
@@ -368,10 +429,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </details>
 </div>
 </section>
-<section id="alpha-diversity-calculations-using-phyloseq" class="level4">
-<h4 class="anchored" data-anchor-id="alpha-diversity-calculations-using-phyloseq"><strong>Alpha Diversity Calculations using phyloseq</strong></h4>
+</section>
+<section id="alpha-diversity-calculations-using-phyloseq" class="level1">
+<h1>Alpha Diversity Calculations using phyloseq</h1>
 <div id="7989c18f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate richness metrics available in `phyloseq` package using our ps object</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>alpha_diversity <span class="ot">&lt;-</span> <span class="fu">estimate_richness</span>(ps)</span>
@@ -388,11 +450,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </details>
 </div>
 </section>
-<section id="visualizations-using-ggplot2" class="level4">
-<h4 class="anchored" data-anchor-id="visualizations-using-ggplot2"><strong>Visualizations using ggplot2</strong></h4>
+<section id="visualizations-using-ggplot2" class="level1">
+<h1>Visualizations using ggplot2</h1>
 <p>In the following steps, we will implement the <code>ggplot2</code> package to create and explore various visualization options. We will integrate our metadata to our alpha diversity results to provide context to our results and explore how diversity metrics are distributed across sample groups.</p>
 <div id="54b7e28f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert our sample_data to a data frame</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">sample_data</span>(ps)</span>
@@ -406,7 +468,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>First, we will plot how Shannon diversity is distributed across Lifestyle groups. Using <strong>boxplots</strong> is the most common visualization for comparing alpha diversity across <strong>categorical variables</strong>. Feel free to explore the other metrics and categorical sample groups to obtain further insights.</p>
 <div id="5291c4e8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In this plot, Lifestyle categories will be plotted on the X axis and Shannon diversity index values on the Y axis.</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -424,7 +486,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>Another option is using <strong>violin plots</strong>, which show the distribution shape in a different way.</p>
 <div id="a53a108a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p_Shannon_country <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(alpha_div_meta, <span class="fu">aes</span>(<span class="at">x =</span> locality, <span class="at">y =</span> Shannon, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
@@ -441,7 +503,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>We can also explore relationships between alpha diversity and <strong>continuous</strong> metadata variables, such as age, and latitude. Let’s see this using a <strong>scatter plot</strong>.</p>
 <div id="d33e0980" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot of Shannon diversity vs. age</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -460,7 +522,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>In <code>ggplot2</code> we also have the option of using <strong>facets</strong> to compare diversity across a combination of variables, such as urbanism and sex.</p>
 <div id="2b73edb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Faceted boxplots of Shannon diversity vs Age and Urbanism</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -478,10 +540,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"~/kmc_workshop/results/alphadiv_shannon_ageUrbanism_facets.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>TASK: Try with other variables!</strong></p>
+<section id="ask-try-with-other-variables" class="level2">
+<h2 class="anchored" data-anchor-id="ask-try-with-other-variables">ASK: Try with other variables!</h2>
 <p>Now that you know how to create plots, apply similar steps to create a boxplot for the Simpson index across countries.</p>
-<div id="ecf8f5e7" class="cell" data-solution2="hidden">
-<details class="code-fold">
+<div id="ecf8f5e7" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p_Simpson_lifestyle <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(alpha_div_meta, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> Simpson, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
@@ -494,20 +557,21 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>p_Simpson_lifestyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="57b37b6f" class="cell">
-<details class="code-fold">
+<div id="57b37b6f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="rarefaction-in-alpha-diversity-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="rarefaction-in-alpha-diversity-analysis"><strong>Rarefaction in alpha diversity analysis</strong></h4>
+</section>
+<section id="rarefaction-in-alpha-diversity-analysis" class="level1">
+<h1>Rarefaction in alpha diversity analysis</h1>
 <p>In our exploration of alpha diversity, it is essential to consider whether we should rarefy our data. Rarefaction is a technique used to ensure that diversity estimates are comparable across samples with different levels of sampling depth (number of reads).</p>
 <p>It is likely that diversity increases according to the number of reads each sample has. Let’s take a look below.</p>
 <div id="08ddf6cc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will plot the number of ASVs per sample vs Shannon diversity indexes</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alpha_div_meta, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">sample_sums</span>(ps), <span class="at">y =</span> Shannon)) <span class="sc">+</span></span>
@@ -530,7 +594,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <p>The plot demonstrates that deeper sequencing results in higher diversity estimates, which can be a source of bias. To ensure that diversity comparisons between samples are not influenced by differences in sequencing depth, we can apply rarefaction. This standardizes the number of reads across samples, allowing for more accurate and comparable diversity estimates.</p>
 <p>To decide how we will standardize, we can plot a <strong>rarefaction curve</strong> using the <code>vegan</code> package. A rarefaction curve plots the number of observed ASVs against the number of reads sampled. It shows how species richness accumulates as more reads are added.</p>
 <div id="6ac8faaf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the `rarecurve` function, we will plot a rarefaction curve.</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rarecurve</span>(<span class="fu">t</span>(subset_samples), <span class="at">step =</span> <span class="dv">200</span>, <span class="at">cex =</span> <span class="fl">0.6</span>)</span>
@@ -539,10 +603,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rarecurve</span>(<span class="fu">t</span>(subset_samples), <span class="at">step =</span> <span class="dv">200</span>, <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Choosing the Sample Depth Cutoff</strong></p>
+<section id="choosing-the-sample-depth-cutoff" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-the-sample-depth-cutoff">Choosing the Sample Depth Cutoff</h2>
 <p>When rarefying, select a cutoff that balances keeping as many samples as possible while standardizing sequencing depth across all samples. Today we’ll use a cutoff of <strong>8000</strong> sequences per sample, ensuring enough samples are retained for downstream analysis.</p>
 <div id="6690081e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the rarefy_even_depth function from the phyloseq package</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -557,7 +622,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>Using our rarefied phyloseq object, let’s recalculate and re-plot the alpha diversity measurements.</p>
 <div id="737c8a45" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate richness metrics available in `phyloseq` package using our ps object</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>alpha_diversity_rare <span class="ot">&lt;-</span> <span class="fu">estimate_richness</span>(ps.rare)</span>
@@ -575,7 +640,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>Let’s visualize our results and compare with non-rarefied data. We will plot both figures side by side using the <code>cowplot</code> package.</p>
 <div id="c9d4c371" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In this plot, Urbanism categories will be plotted on the X axis and Shannon diversity index values on the Y axis. We will use</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -591,9 +656,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"~/kmc_workshop/results/alphadiv_shannon_lifestyle_boxplot_rare.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>TASK: Try rarefying your data to a lower depth. How does that affect the amount of OTUs you have to work with?</strong></p>
-<div id="40d88c85" class="cell" data-solution2="hidden">
-<details class="code-fold">
+</section>
+<section id="task-try-rarefying-your-data-to-a-lower-depth.-how-does-that-affect-the-amount-of-otus-you-have-to-work-with" class="level2">
+<h2 class="anchored" data-anchor-id="task-try-rarefying-your-data-to-a-lower-depth.-how-does-that-affect-the-amount-of-otus-you-have-to-work-with">TASK: Try rarefying your data to a lower depth. How does that affect the amount of OTUs you have to work with?</h2>
+<div id="40d88c85" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the rarefy_even_depth function from the phyloseq package</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -603,20 +670,21 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>ps.rare2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e1ce17dd" class="cell">
-<details class="code-fold">
+<div id="e1ce17dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="statistical-analysis-of-alpha-diversity" class="level4">
-<h4 class="anchored" data-anchor-id="statistical-analysis-of-alpha-diversity"><strong>Statistical Analysis of Alpha Diversity</strong></h4>
+</section>
+<section id="statistical-analysis-of-alpha-diversity" class="level1">
+<h1>Statistical Analysis of Alpha Diversity</h1>
 <p>Now that we have visualized the alpha diversity metrics using both rarefied and non-rarefied data, it’s time to move on to statistical analyses. This step will help us determine whether the differences in alpha diversity between different groups are statistically significant.</p>
 <p>We will: 1. <strong>Test for Normality:</strong> Assess the distribution of alpha diversity metrics to determine whether parametric or non-parametric tests are appropriate. 2. <strong>Apply Statistical Tests:</strong> Based on the normality test results, we will apply either parametric tests (t-tests, ANOVA) or non-parametric tests (Wilcoxon, Kruskal-Wallis) to compare alpha diversity across groups. 3. <strong>Visualize Group Comparisons:</strong> Generate plots with statistical annotations to visually interpret the differences between groups.</p>
 <div id="d463f0ac" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's assess whether the alpha diversity data we will plot follows a normal distribution (which will influence whether to use a parametric or non-parametric test)</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -626,7 +694,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>If data is normally distributed (p-value &gt; 0.05)</p>
 <div id="b393b82d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For 2 groups, use a t-test.</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Shannon <span class="sc">~</span> urbanism, <span class="at">data =</span> alpha_div_meta)</span>
@@ -638,7 +706,7 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 </div>
 <p>If data is NOT normally distributed (p-value &lt; 0.05)</p>
 <div id="e47bddef" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For 2 groups, use a Wilcoxon rank-sum test (also known as the Mann-Whitney U test)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Shannon <span class="sc">~</span> urbanism, <span class="at">data =</span> alpha_div_meta)</span>
@@ -647,10 +715,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Shannon <span class="sc">~</span> country, <span class="at">data =</span> alpha_div_meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Post-hoc tests</strong></p>
+<section id="post-hoc-tests" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-tests">Post-hoc tests</h2>
 <p>If ANOVA or Kruskal-Wallis tests show significant differences, we can use post-hoc tests to determine which groups differ from each other.</p>
 <div id="96904981" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For ANOVA, use Tukey’s Honest Significant Differences (Tukey HSD) for post-hoc analysis.</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -663,10 +732,12 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(alpha_div_meta<span class="sc">$</span>Shannon, alpha_div_meta<span class="sc">$</span>country, <span class="at">p.adjust.method =</span> <span class="st">"BH"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Visualization</strong></p>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
 <p>Using the stat_compare_means function of the <code>ggpubr</code> package, we can add p values to our plots</p>
 <div id="c990fc47" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the method and the label arguments, we can select the tests to be performed and how they will be displayed</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -682,9 +753,11 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"~/kmc_workshop/results/shannon_urbanism_rare_pvalue.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>TASK: If you have time to spare, how about trying to plot a <em>violin</em> plot that compares <em>Observed Richness</em> between <em>urbanism</em> levels with <em>countries</em> as facets?</strong></p>
-<div id="35a86c51" class="cell" data-solution2="hidden">
-<details class="code-fold">
+</section>
+<section id="task-if-you-have-time-to-spare-how-about-trying-to-plot-a-violin-plot-that-compares-observed-richness-between-urbanism-levels-with-countries-as-facets" class="level2">
+<h2 class="anchored" data-anchor-id="task-if-you-have-time-to-spare-how-about-trying-to-plot-a-violin-plot-that-compares-observed-richness-between-urbanism-levels-with-countries-as-facets">TASK: If you have time to spare, how about trying to plot a <em>violin</em> plot that compares <em>Observed Richness</em> between <em>urbanism</em> levels with <em>countries</em> as facets?</h2>
+<div id="35a86c51" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alpha_div_rare_meta, <span class="fu">aes</span>(<span class="at">x =</span> urbanism, <span class="at">y =</span> Observed, <span class="at">fill =</span> urbanism)) <span class="sc">+</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span> </span>
@@ -697,8 +770,8 @@ Let’s take a look at the structure of our data using <code>ggplot2</code></p>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))  <span class="co"># Adjust x-axis text for better readability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9d0a55a7" class="cell">
-<details class="code-fold">
+<div id="9d0a55a7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1185,8 +1258,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Funded by NFDI4Microbiota and miTarget.</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/2_Alpha_diversity.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<p>Made with quarto.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/2_Alpha_diversity.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

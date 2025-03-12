@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de)">
 
 <title>Outlook to metagenomics – Kiel Microbiome Center workshop</title>
 <style>
@@ -173,13 +174,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Outlook to metagenomics</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Outlook to metagenomics</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/5_Metagenome_outook.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de) </p>
+          </div>
+  </div>
     
   
     
@@ -190,7 +197,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>By Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de)</p>
 <p>This tutorial can partly be executed with the kernel ‘kmc_workshop’ directly in the code-cells of this jupyter-notebook.</p>
 <p><strong>For parts of this tutorial, we ask you to use the terminal. Open the terminal via the dashboard (return to it by right-clicking “jupyterhub” in the top left corner, then select “open link in new window”) -&gt; new -&gt; Other: Terminal</strong></p>
 <section id="objective" class="level1">
@@ -209,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>It is necessary that we leave the Jupyter notebook and get to know the terminal of a Linux computer. JupyterHub also offers you this. Open a new tab while clicking on the jupterhub logo in the top left. In the JupyterHub, the terminal can be opened in the dashboard (where you can see all files structured,), click on the button at the top right labeled “New” and then select “Terminal” in the dropdown menu at the bottom.</p>
 <p>In the terminal activate the conda environment, in which we installed all the required tools for the next steps:</p>
 <div id="c444b00f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>conda activate metagenome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -217,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If this has worked, the now active conda environment should be named before your username@biomedinf in the terminal window. Conda is a tool that allows you to create a so-called virtual environment so that tools and their dependencies do not interfere with other programs on the machine. That way we can generate reproducible results.</p>
 <p>Now we will create a new folder and go into it so that we can start the actual metagenome processing:</p>
 <div id="aaf94f79" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome <span class="sc">&amp;&amp;</span> cd <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -225,14 +231,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A real metagenome data can be quite huge and therefor need lots of time and computational capacities to be processed.</p>
 <p>So we fill this directory with our dummy metagenome. Now we can actually work with it:</p>
 <div id="4e9749fa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ln <span class="sc">-</span>s <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>SRR5935872_2.fastq.gz <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_R2.fastq.gz <span class="sc">&amp;&amp;</span> ln <span class="sc">-</span>s <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>SRR5935872_1.fastq.gz <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_R1.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now we assess the quality once before we start with the QC, we do this with the tool fastqc, which can generate an html output for each fastq file.</p>
 <div id="da992ea1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fastqc <span class="sc">--</span>quiet <span class="sc">--</span>threads <span class="dv">2</span> MSM79H87_R1.fastq.gz MSM79H87_R2.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -240,14 +246,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You will find the html-output for each fastq file in the directory as we are: ~/kmc_workshop/metagenome</p>
 <p>First of all, the individual reads are examined for their sequencing quality. Particularly at the edges, the quality may not be good enough in some cases. For this we can use programs that automatically trim away these poorly sequenced bases. Additionally, the tool also checks which reads are actually paired and if there are some reads that are unpaired. Unpaired reads are separated into their own file.</p>
 <div id="74a5ca5e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bbduk.sh stats<span class="ot">=</span>MSM79H87.bbduk_adapter_stats threads<span class="ot">=</span><span class="dv">2</span> <span class="cf">in</span><span class="ot">=</span>MSM79H87_R1.fastq.gz in2<span class="ot">=</span>MSM79H87_R2.fastq.gz out1<span class="ot">=</span>MSM79H87_R1_trimmed.fastq.gz out2<span class="ot">=</span>MSM79H87_R2_trimmed.fastq.gz outs<span class="ot">=</span>MSM79H87_unpaired_trimmed.fastq.gz ref<span class="ot">=</span><span class="er">~/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>bbmap<span class="sc">/</span>nextera.fa.gz ktrim<span class="ot">=</span>r k<span class="ot">=</span><span class="dv">23</span> mink<span class="ot">=</span><span class="dv">11</span> hdist<span class="ot">=</span><span class="dv">1</span> minlength<span class="ot">=</span><span class="dv">50</span> tpe tbo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Our new outputs now have a ‘trimmed’ in the name, these are now further qced by removing not wanted reads in our files. These could be artifacts and so-called PhiX reads, that can be present during sequencing. Phix reads are internal controls during sequencing that should actually be removed during data export, but can still be found in some data. These should be removed in any case. We do this step twice, once for the paired reads, and one time for the sequences that are not paired.</p>
 <div id="e6ebc5fe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bbduk.sh stats<span class="ot">=</span>MSM79H87.bbduk.artifacts.stats threads<span class="ot">=</span><span class="dv">2</span> <span class="cf">in</span><span class="ot">=</span>MSM79H87_R1_trimmed.fastq.gz in2<span class="ot">=</span>MSM79H87_R2_trimmed.fastq.gz k<span class="ot">=</span><span class="dv">31</span> ref<span class="ot">=</span>artifacts,phix ordered cardinality out1<span class="ot">=</span>MSM79H87_R1_cleanwithhost.fastq.gz out2<span class="ot">=</span>MSM79H87_R2_cleanwithhost.fastq.gz minlength<span class="ot">=</span><span class="dv">50</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -257,14 +263,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Of course, stool samples also contain cells from the host, and therefore also their DNA. We try to remove this before sequencing so that we don’t sequence something that we have to remove directly from our data. This is an important step as metagenome data with human reads inside can be traced back to their origin. This could cause some (legal) trouble if you want to publish your metagenomes at some point.</p>
 <p>To remove those, we use an aligner tool called Bowtie2. We align a human reference genome to our data and keep only reads that don’t align. Everything else will be discarded.</p>
 <div id="196699e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bowtie2 <span class="sc">-</span>x <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>genome <span class="sc">-</span><span class="dv">1</span> MSM79H87_R1_cleanwithhost.fastq.gz <span class="sc">-</span><span class="dv">2</span> MSM79H87_R2_cleanwithhost.fastq.gz <span class="sc">-</span>U MSM79H87_unpaired_cleanwithhost.fastq.gz <span class="sc">-</span>S <span class="sc">/</span>dev<span class="sc">/</span>null <span class="sc">--</span>no<span class="sc">-</span>unal <span class="sc">-</span>p <span class="dv">2</span> <span class="sc">--</span>un<span class="sc">-</span>gz MSM79H87_unpaired_clean.fastq.gz <span class="sc">--</span>un<span class="sc">-</span>conc<span class="sc">-</span>gz MSM79H87_R%_clean.fastq.gz <span class="dv">2</span><span class="sc">&gt;</span> MSM79H87_bowtie2_log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We have now completed the most important steps of a qc. We can now use fastqc to inspect our finished reads more closely. This works as done before, just with different input files.</p>
 <div id="eb5724a4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fastqc <span class="sc">--</span>quiet<span class="sc">--</span>threads <span class="dv">2</span> MSM79H87_R1_clean.fastq.gz MSM79H87_R2_clean.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -277,21 +283,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As already mentioned, metagenomes are also useful for determining taxonomic abundances. There are a large number of programs with which this can be estimated. For example, there are MetaPhlAn, Kraken2, Salmon and many more that can do this. For this, you will always need a reference database that contains the markers. Therefore, you are always limited to the fact that you cannot find a thing if it is not stored in the database.</p>
 <p>We will use a rather new released tool for this, it’s called Sylph. Sylph is an extremely fast and memory efficient program for profiling and searching metagenomic samples against databases. You can find the preprint for how it actually works <a href="https://www.biorxiv.org/content/10.1101/2023.11.20.567879v1.full">here</a>. For us important is just, that it needs two steps that we need to perform and that we have prepared a database to query against. We use in this case a well-maintained database, that is called GENOME TAXONOMY DATABASE (GTDB). Sylph transforms the database of reference genomes and the metagenomes into subsampled k-mers which are then compares against.</p>
 <div id="d479ba82" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sylph sketch <span class="sc">-</span><span class="dv">1</span> MSM79H87_R1_clean.fastq.gz <span class="sc">-</span><span class="dv">2</span> MSM79H87_R2_clean.fastq.gz <span class="sc">-</span>t <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In the first step the metagenomes are so-called sketched, this results in “bags of k-mers”. From this the tool then can later quickly estimate the average nucleotide identity (ANI) against the genomes in the database, which happens in the second step:</p>
 <div id="88dbee6c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sylph profile <span class="sc">-</span>u <span class="sc">--</span>read<span class="sc">-</span>seq<span class="sc">-</span>id <span class="fl">99.1</span> <span class="sc">~</span><span class="er">/</span>kmc_workshop<span class="sc">/</span>inputs<span class="sc">/</span>metagenome<span class="sc">/</span>gtdb<span class="sc">-</span>r220<span class="sc">-</span>c200<span class="sc">-</span>dbv1.syldb MSM79H87_R1_clean.fastq.gz.paired.sylsp <span class="sc">-</span>o  MSM79H87_sylph_profile.tbl <span class="sc">-</span>t <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The output is called ‘MSM79H87_sylph_profile.tbl’ and you can inspect it. Mind as we only have dummy data, this output is also just a dummy. You inspect the sylph profile for the full metagenome sample, that we prepared for you, with:</p>
 <div id="819ca9ab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bash&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>less <span class="sc">/</span>dpool<span class="sc">/</span>bioinformatics_rawdata<span class="sc">/</span>kmc_workshop<span class="sc">/</span>metagenome<span class="sc">/</span>MSM79H87_sylph_profile.tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -303,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Finally, you can now build a phyloseq object from such an abundance profile, with which you can use all the methods you have learned before.</p>
 <p>First we load all the libraries that we used earlier:</p>
 <div id="9009a423" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
@@ -314,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>In this case we use the abundance table of the single full metagenome sample from above:</p>
 <div id="adb6a50f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sylph <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"~/kmc_workshop/inputs/metagenome/full_MSM79H87_profile.tbl"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sylph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -322,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We now create an abundance matrix from the sylph abundance table:</p>
 <div id="41c1aa51" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The GTDB taxonomic table is part of the GTDB release, that you can download here: https://ecogenomics.github.io/GTDBTk/installing/index.html</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gtdb_taxa <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
@@ -341,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div id="5e20f554" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>abundance_df <span class="ot">&lt;-</span> sylph_withtaxa <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Taxa =</span> taxa_name, Abundance, Sample) <span class="sc">%&gt;%</span> </span>
@@ -361,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>From the taxa_names column in our sylph_withtaxa object we can now create a taxonomic rank matrix by splitting the strings in this column by the delimiter and putting the splitted parts into an empty matrix.</p>
 <div id="4cbf671f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>taxsplit <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(<span class="fu">rownames</span>(abundance_matrix), <span class="at">split=</span><span class="st">";"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>taxunitmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
@@ -396,7 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We also need a metadata table for our samples. This could be created as follows:</p>
 <div id="e2403520" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">SampleID=</span><span class="st">"MSM79H87"</span>,<span class="at">metadata=</span><span class="st">'some_meta_data'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID=</span>SampleID) <span class="sc">%&gt;%</span> </span>
@@ -406,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now we have everything together to create a phyloseq object with which we can analyze further.</p>
 <div id="34c520c6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>otu_table_ps <span class="ot">&lt;-</span> <span class="fu">otu_table</span>(abundance_matrix, <span class="at">taxa_are_rows =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tax_table_ps <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(taxunitmatrix)</span>
@@ -418,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We take one last look at a stacked bar plot and see that we can now in principle apply everything, we learned earlier onto this phyloseq object containing metagenomic data!</p>
 <div id="4d14b48b" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -432,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>With that we want to close our workshop!</strong></p>
 <p>If you have made it this far, we thank you very much for your attention and hope that you have learned a lot about how to work with microbiome data. If you have any questions after the workshop, feel free to write us an email, the addresses can be found above under the title of the respective notebook</p>
 <div id="27e8933a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -918,8 +924,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Funded by NFDI4Microbiota and miTarget.</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/5_Metagenome_outook.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<p>Made with quarto.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/5_Metagenome_outook.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
