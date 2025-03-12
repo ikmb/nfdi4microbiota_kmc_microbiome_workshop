@@ -4,9 +4,9 @@ title: "The Kiel Microbiome Center workshop"
 
 # Overview
 
-The workshop was hosted in September 2024 in Kiel in two days. It contains talks and practical material, the later based on R language.
+Here you can find the teaching and practical materials of the workshop.
 
-## Talks
+## Concepts of microbiome ecology and data analysis
 
 Link all files of the talks here, use a logical order:
 
@@ -15,7 +15,7 @@ Link all files of the talks here, use a logical order:
 3.  [Alpha diversity](talks/nfdi4microbiota_Alpha_diversity.pdf)
 4.  [Beta diversity](talks/nfdi4microbiota_Beta_diversity.pdf)
 
-## Practical material
+## Hands-on material
 
 1.  [Introduction to R](scripts/1_intro_to_r.ipynb)
 2.  [Alpha diversity analysis](scripts/2_Alpha_diversity.ipynb)
@@ -25,15 +25,17 @@ Link all files of the talks here, use a logical order:
 
 Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructions how to set it all up.
 
-# Prerequisites
+# Setting up the tutorial
+
+Download the whole [project directory](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/archive/refs/heads/main.zip) to your computer. Unzip the folder. Scripts are in [`scripts` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/scripts) and inputs are in the [`inputs` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs).
+
+To run the tutorial, it is assumed that you are working on a mac or a linux-based computer.
 
 ## Input files
 
-To run the tutorials, you will need files from the `inputs` directory with 16S dataset, which have been reduced in size and randomly shuffled compared to the original dataset. For metagenome analysis, we use one publicly available HMP sample as an example: HMP Sample [SRR5935872](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
-
-Ensure the following files are inside the `inputs` directory:
-
 ### 16S Data Files
+
+To run the tutorials, you will need files from the `inputs` folder with 16S dataset. This dataset have been reduced in size and randomly shuffled compared to the original dataset. The files are:
 
 -   common_significant_features.txt
 -   feature-table-gmbc1.tsv
@@ -43,7 +45,17 @@ Ensure the following files are inside the `inputs` directory:
 
 ### Metagenome Files:
 
-Following files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start with the metagenome tutorial:
+For metagenome analysis, you will need to download the files from public repositories and place them in the `inputs` folder.
+
+#### HMP Sample
+
+- [SRR5935872.fasta.gz](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
+
+The files files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start with the metagenome tutorial.
+
+You can unzip them with the following command:
+
+#### Human/GRC38 genome files
 
 -   genome.1.bt2
 -   genome.2.bt2
@@ -53,30 +65,49 @@ Following files need to be downloaded at (`inputs/metagenome/`) & unzipped befor
 -   genome.rev.1.bt2
 -   genome.rev.2.bt2
 
-> Note: You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
+You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
 
--   gtdb-r220-c200-dbv1.syldb
 
-> Note: The used database can be downloaded from the [official Sylph Repository](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
+#### Sylph database
 
--   gtdb_taxonomy.tsv
+-   [gtdb-r220-c200-dbv1.syldb](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
+
+The used database can be downloaded from the [official Sylph Repository]
+
+- gtdb_taxonomy.tsv
 
 > Note: This file you can get by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
--   A metagenome (we used in the tutorial a hmp2 metagenome with the ID MSM79H8)
+#### Sample metagenome
 
-> Note: Download links for the metagenome files: [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz) [ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+Are these the same as in HMP samples???
 
-**BBMap Files**:
+Should they be in inputs/metagenome?
+
+These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.
+
+- [SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)
+
+- [SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+
+#### BBMap Files
 
 Download the files at (`inputs/metagenome/bbmap/`).
 
-> Note: You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources) - nextera.fa.gz - phix174_ill.ref.fa.gz - phix_adapters.fa.gz
+- nextera.fa.gz
+- phix174_ill.ref.fa.gz 
+- phix_adapters.fa.gz
+
+You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources).
+
+####
 
 Create additionally a directory called `R_objects`, which will contain:
 
 -   full_phyloseq_object.RData
 -   rare8000_phyloseq_object.RData
+
+Where these files comes from???
 
 # Running the R commands
 
@@ -84,9 +115,7 @@ Create additionally a directory called `R_objects`, which will contain:
 
 ### Install conda environment
 
-First, make sure you have Conda installed. You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
-
-Just install the environment with the following command:
+First, make sure you have Conda installed. You can install all required packages and tools with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). Once you install conda, you can create a dedicated conda environment for the tutorial with the following command:
 
 ``` bash
 conda env create --file kmc_16s_environment.yml --prefix kmc_workshop
@@ -102,13 +131,13 @@ conda activate kmc_workshop
 
 If Jupyter is not already installed, you can install it within the environment:
 
-``` bash
+```bash
 conda install jupyter
 ```
 
 Start Jupyter with the R kernel:
 
-``` bash
+```bash
 jupyter notebook
 ```
 

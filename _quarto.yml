@@ -4,12 +4,14 @@ website:
   title: "Kiel Microbiome Center workshop"
   site-url: "https://ikmb.github.io/nfdi4microbiota_kmc_microbiome_workshop"
   repo-url: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
-  repo-actions: [issue]
+  repo-actions: [edit, issue]
   page-footer:
-    left: "Founded by NFDI4Microbiota and miTarget"
+    left: "Funded by NFDI4Microbiota and miTarget."
     right:
       - icon: github
         href: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
+      - text: "MIT License"
+        href: "https://opensource.org/license/mit/"
   navbar:
     background: primary
     search: true
@@ -23,7 +25,7 @@ website:
       - text: "Questions & Answers"
         href: questions.qmd
       - href: resources.qmd
-        text: Resources
+        text: Resources      
 execute:
   freeze: auto
 
