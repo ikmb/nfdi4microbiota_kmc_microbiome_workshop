@@ -1,5 +1,5 @@
 ---
-title: "The Importance of FAIR Principles in Microbiome Research"
+title: "The importance of FAIR principles in microbiome research"
 ---
 
 The **FAIR Principles (Findability, Accessibility, Interoperability, and Reusability)** are essential for ensuring that scientific data can be effectively shared, reused, and integrated across different research projects. These principles enhance transparency, reproducibility, and long-term usability in microbiome research.
