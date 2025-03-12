@@ -3,7 +3,7 @@ title: "Kiel Microbiome Center workshop"
 ---
 
 
-This site hosts the [teaching material](the_workshop.qmd) from the Kiel Microbiome Center (KMC) workshop hosted in September 25-26th, 2024. The workshop introduces concepts of microbiome data analysis, and is aimed for participants with little or no experience in bioinformatics.
+This site hosts the [teaching material](the_workshop.qmd) from the Kiel Microbiome Center (KMC) workshop hosted in September 25-26th, 2024. The workshop introduces concepts in microbiome data analysis and is intended for participants with little or no experience in bioinformatics.
 
 ![KMC workshop participants from around the world met in Kiel in 2024.](img/group_outside.jpg)
 
@@ -13,7 +13,7 @@ The workshop material is hosted on its dedicated [Github repository](https://git
 
 ## Organizers
 
-This workshop was organized by Mathilde Poyet, Mathieu Groussin, and David Ellinghaus from Kiel University, Germany. The workshop was instructed by Ana Schaan, Olga Brovkina, Emmanuel Quaye, and Eike Wacker, with help from Malte Rühlemann. The workshop was supported by the [NFDI4Microbiota](https://nfdi4microbiota.de/), [miTarget](https://www.mitarget.org/) and [Kiel Life Science](https://www.uni-kiel.de/de/forschung/forschungsschwerpunkte/kiel-life-science).
+This workshop was organized by Mathilde Poyet, Mathieu Groussin, and David Ellinghaus from Kiel University, Germany. The workshop was taught by Ana Schaan, Olga Brovkina, Emmanuel Quaye, and Eike Wacker, with help from Malte Rühlemann. The workshop was supported by the [NFDI4Microbiota](https://nfdi4microbiota.de/), [miTarget](https://www.mitarget.org/) and [Kiel Life Science](https://www.uni-kiel.de/de/forschung/forschungsschwerpunkte/kiel-life-science).
 
 ## TO DO
 
