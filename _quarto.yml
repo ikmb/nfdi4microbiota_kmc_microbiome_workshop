@@ -1,7 +1,7 @@
 project:
   type: website
 website:
-  title: "Kiel Microbiome Center workshop"
+  title: "KMC workshop"
   site-url: "https://ikmb.github.io/nfdi4microbiota_kmc_microbiome_workshop"
   repo-url: "https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop"
   repo-actions: [edit, issue]

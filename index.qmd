@@ -14,7 +14,6 @@ The workshop material is hosted on its dedicated [Github repository](https://git
 
 This workshop was organized by Mathilde Poyet, Mathieu Groussin, and David Ellinghaus from Kiel University, Germany. The workshop was taught by Ana Schaan, Olga Brovkina, Emmanuel Quaye, and Eike Wacker, with help from Malte Rühlemann. The workshop was supported by the [NFDI4Microbiota](https://nfdi4microbiota.de/), [miTarget](https://www.mitarget.org/) and [Kiel Life Science](https://www.uni-kiel.de/de/forschung/forschungsschwerpunkte/kiel-life-science).
 
-
 ## Support
 
 ::::: columns

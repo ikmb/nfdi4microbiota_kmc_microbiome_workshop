@@ -11,9 +11,9 @@ Here you can find the teaching and practical materials from the workshop.
 Link all files of the talks here, use a logical order:
 
 1.  [Data processing](talks/nfdi4microbiota_DataPreProcessing.pdf)
-2.  [Metagenomics](talks/nfdi4microbiota_DAA_Metagenomics.pdf)
-3.  [Alpha diversity](talks/nfdi4microbiota_Alpha_diversity.pdf)
-4.  [Beta diversity](talks/nfdi4microbiota_Beta_diversity.pdf)
+2.  [Alpha diversity](talks/nfdi4microbiota_Alpha_diversity.pdf)
+3.  [Beta diversity](talks/nfdi4microbiota_Beta_diversity.pdf)
+4.  [Metagenomics](talks/nfdi4microbiota_DAA_Metagenomics.pdf)
 
 ## Hands-on material
 
@@ -49,11 +49,12 @@ For metagenome analysis, you will need to download the files from public reposit
 
 #### HMP Sample
 
--   [SRR5935872.fasta.gz](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR5935872&display=metadata)
+These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.
 
-The files need to be downloaded at (`inputs/metagenome/`) & unzipped before you start the metagenome tutorial.
+-   [SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)
+-   [SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
 
-You can unzip them with the following command:
+The files need to be downloaded at (`inputs/metagenome/`).
 
 #### Human/GRC38 genome files
 
@@ -65,33 +66,27 @@ You can unzip them with the following command:
 -   genome.rev.1.bt2
 -   genome.rev.2.bt2
 
-You can download the needed Human/GRC38 genome files from e.g. [here](https://benlangmead.github.io/aws-indexes/bowtie)
+You can download the needed Human/GRC38 genome files from e.g. [here](https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_decoy_as.zip). Unzip the files at `inputs/metagenome/`.
+
 
 #### Sylph database
 
--   [gtdb-r220-c200-dbv1.syldb](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases)
+Download the file to (`inputs/metagenome/`).
 
-The used database can be downloaded from the \[official Sylph Repository\]
+-   [gtdb-r220-c200-dbv1.syldb](http://faust.compbio.cs.cmu.edu/sylph-stuff/gtdb-r220-c200-dbv1.syldb)
 
--   gtdb_taxonomy.tsv
+The used database can be downloaded from the [official Sylph Repository](https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases). Note that this file has around 13 Gibabytes.
 
-> Note: You can get this file by clicking this [link](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
-#### Sample metagenome
+#### GTDB-Tk taxonomy
 
-Are these the same as in HMP samples???
+Download the file to (`inputs/metagenome/`).
 
-Should they be in inputs/metagenome?
-
-These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.
-
--   [SRR5935872_1.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz)
-
--   [SRR5935872_2.fastq.gz](http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz)
+-  [bac120_metadata_r220.tsv.gz](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
 
 #### BBMap Files
 
-Download the files at (`inputs/metagenome/bbmap/`).
+Download the files to (`inputs/metagenome/bbmap/`).
 
 -   nextera.fa.gz
 -   phix174_ill.ref.fa.gz
@@ -99,14 +94,15 @@ Download the files at (`inputs/metagenome/bbmap/`).
 
 You can download the needed files from the [BBMap Repository](https://github.com/BioInfoTools/BBMap/tree/master/resources).
 
-#### 
+#### Intermediary back-up files for phyloseq
 
-Create additionally a directory called `R_objects`, which will contain:
+These files are intermediary files. You will create these in the tutorial. Many of the tutorial use these objects as input. Therefore, we are providing them here.
+
+!!!!!! TheseCreate additionally a directory called `R_objects`, which will contain:
 
 -   full_phyloseq_object.RData
 -   rare8000_phyloseq_object.RData
 
-Where these files comes from???
 
 # Running the R commands
 
