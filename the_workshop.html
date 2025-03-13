@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Kiel Microbiome Center workshop – Kiel Microbiome Center workshop</title>
+<title>The Kiel Microbiome Center workshop – KMC workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Kiel Microbiome Center workshop</span>
+    <span class="navbar-title">KMC workshop</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -213,9 +213,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Link all files of the talks here, use a logical order:</p>
 <ol type="1">
 <li><a href="talks/nfdi4microbiota_DataPreProcessing.pdf">Data processing</a></li>
-<li><a href="talks/nfdi4microbiota_DAA_Metagenomics.pdf">Metagenomics</a></li>
 <li><a href="talks/nfdi4microbiota_Alpha_diversity.pdf">Alpha diversity</a></li>
 <li><a href="talks/nfdi4microbiota_Beta_diversity.pdf">Beta diversity</a></li>
+<li><a href="talks/nfdi4microbiota_DAA_Metagenomics.pdf">Metagenomics</a></li>
 </ol>
 </section>
 <section id="hands-on-material" class="level2">
@@ -251,11 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For metagenome analysis, you will need to download the files from public repositories and place them in the <code>inputs</code> folder.</p>
 <section id="hmp-sample" class="level4">
 <h4 class="anchored" data-anchor-id="hmp-sample">HMP Sample</h4>
+<p>These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.</p>
 <ul>
-<li><a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5935872&amp;display=metadata">SRR5935872.fasta.gz</a></li>
+<li><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz">SRR5935872_1.fastq.gz</a></li>
+<li><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz">SRR5935872_2.fastq.gz</a></li>
 </ul>
-<p>The files need to be downloaded at (<code>inputs/metagenome/</code>) &amp; unzipped before you start the metagenome tutorial.</p>
-<p>You can unzip them with the following command:</p>
+<p>The files need to be downloaded at (<code>inputs/metagenome/</code>).</p>
 </section>
 <section id="humangrc38-genome-files" class="level4">
 <h4 class="anchored" data-anchor-id="humangrc38-genome-files">Human/GRC38 genome files</h4>
@@ -268,34 +269,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>genome.rev.1.bt2</li>
 <li>genome.rev.2.bt2</li>
 </ul>
-<p>You can download the needed Human/GRC38 genome files from e.g.&nbsp;<a href="https://benlangmead.github.io/aws-indexes/bowtie">here</a></p>
+<p>You can download the needed Human/GRC38 genome files from e.g.&nbsp;<a href="https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_decoy_as.zip">here</a>. Unzip the files at <code>inputs/metagenome/</code>.</p>
 </section>
 <section id="sylph-database" class="level4">
 <h4 class="anchored" data-anchor-id="sylph-database">Sylph database</h4>
+<p>Download the file to (<code>inputs/metagenome/</code>).</p>
 <ul>
-<li><a href="https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases">gtdb-r220-c200-dbv1.syldb</a></li>
+<li><a href="http://faust.compbio.cs.cmu.edu/sylph-stuff/gtdb-r220-c200-dbv1.syldb">gtdb-r220-c200-dbv1.syldb</a></li>
 </ul>
-<p>The used database can be downloaded from the [official Sylph Repository]</p>
-<ul>
-<li>gtdb_taxonomy.tsv</li>
-</ul>
-<blockquote class="blockquote">
-<p>Note: You can get this file by clicking this <a href="https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz">link</a></p>
-</blockquote>
+<p>The used database can be downloaded from the <a href="https://github.com/bluenote-1577/sylph/wiki/Pre%E2%80%90built-databases">official Sylph Repository</a>. Note that this file has around 13 Gibabytes.</p>
 </section>
-<section id="sample-metagenome" class="level4">
-<h4 class="anchored" data-anchor-id="sample-metagenome">Sample metagenome</h4>
-<p>Are these the same as in HMP samples???</p>
-<p>Should they be in inputs/metagenome?</p>
-<p>These files are to be used in the tutorial a hmp2 metagenome with the ID MSM79H8.</p>
+<section id="gtdb-tk-taxonomy" class="level4">
+<h4 class="anchored" data-anchor-id="gtdb-tk-taxonomy">GTDB-Tk taxonomy</h4>
+<p>Download the file to (<code>inputs/metagenome/</code>).</p>
 <ul>
-<li><p><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_1.fastq.gz">SRR5935872_1.fastq.gz</a></p></li>
-<li><p><a href="http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR593/002/SRR5935872/SRR5935872_2.fastq.gz">SRR5935872_2.fastq.gz</a></p></li>
+<li><a href="https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz">bac120_metadata_r220.tsv.gz</a></li>
 </ul>
 </section>
 <section id="bbmap-files" class="level4">
 <h4 class="anchored" data-anchor-id="bbmap-files">BBMap Files</h4>
-<p>Download the files at (<code>inputs/metagenome/bbmap/</code>).</p>
+<p>Download the files to (<code>inputs/metagenome/bbmap/</code>).</p>
 <ul>
 <li>nextera.fa.gz</li>
 <li>phix174_ill.ref.fa.gz</li>
@@ -303,14 +296,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>You can download the needed files from the <a href="https://github.com/BioInfoTools/BBMap/tree/master/resources">BBMap Repository</a>.</p>
 </section>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"></h4>
-<p>Create additionally a directory called <code>R_objects</code>, which will contain:</p>
+<section id="intermediary-back-up-files-for-phyloseq" class="level4">
+<h4 class="anchored" data-anchor-id="intermediary-back-up-files-for-phyloseq">Intermediary back-up files for phyloseq</h4>
+<p>These files are intermediary files. You will create these in the tutorial. Many of the tutorial use these objects as input. Therefore, we are providing them here.</p>
+<p>!!!!!! TheseCreate additionally a directory called <code>R_objects</code>, which will contain:</p>
 <ul>
 <li>full_phyloseq_object.RData</li>
 <li>rare8000_phyloseq_object.RData</li>
 </ul>
-<p>Where these files comes from???</p>
 </section>
 </section>
 </section>
