@@ -38,8 +38,8 @@ To run the tutorial, it is assumed that you are working on a mac or a linux-base
 To run the tutorials, you will need files from the [`inputs` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs) with 16S dataset. This dataset has been reduced in size and randomly shuffled compared to the original dataset. The files you need are:
 
 -   feature-table.tsv
--   metadata_bn10_complete_fixed.tsv
--   taxonomy_form.csv
+-   metadata.tsv
+-   taxonomy.csv
 -   tree.nwk
 
 ### Metagenome Files:
@@ -99,8 +99,8 @@ These files are intermediary files. You will create these in the tutorial. Many 
 
 !!!!!! TheseCreate additionally a directory called `R_objects`, which will contain:
 
--   full_phyloseq_object.RData
--   rare8000_phyloseq_object.RData
+-   subset_phyloseq_object.RData
+-   subset_rare_phyloseq_object.RData
 
 
 # Running the R commands
