@@ -27,7 +27,7 @@ Commands are in R. Scripts are in Jupyter notebook. Below, we provide instructio
 
 # Setting up the tutorial
 
-Download the whole [project directory](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/archive/refs/heads/main.zip) to your computer. Unzip the folder. Scripts are in [`scripts` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/scripts) and inputs are in the [`inputs` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs).
+Download the whole [project directory](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/archive/refs/heads/main.zip) to your computer. Unzip the folder. Scripts are in [`scripts` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/scripts) and inputs are in the [`inputs` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs). Intermediary RData files are in [`R_objects` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/R_objects).
 
 To run the tutorial, it is assumed that you are working on a mac or a linux-based computer.
 
@@ -95,13 +95,10 @@ You can download the needed files from the [BBMap Repository](https://github.com
 
 #### Intermediary back-up files for phyloseq
 
-These files are intermediary files. You will create these in the tutorial. Many of the tutorial use these objects as input. Therefore, we are providing them here.
-
-!!!!!! TheseCreate additionally a directory called `R_objects`, which will contain:
+Intermediary RData files are in the [`R_objects` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/R_objects). These files are intermediary files. You will create these in the tutorial. Many of the tutorial use these objects as input. Therefore, we are providing them here.
 
 -   subset_phyloseq_object.RData
 -   subset_rare_phyloseq_object.RData
-
 
 # Running the R commands
 
