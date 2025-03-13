@@ -1,6 +1,6 @@
-# KMC 2024 Microbiome Workshop
+# Kiel Microbiome Center workshop
 
-This is the repository for the [KMC 2024 Microbiome Workshop](https://kmc2024.github.io/microbiome-workshop/).
+This is the repository for the [KMC 2024 Microbiome Workshop](https://ikmb.github.io/nfdi4microbiota_kmc_microbiome_workshop/).
 
 
 # Development
