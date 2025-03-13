@@ -81,7 +81,7 @@ The used database can be downloaded from the [official Sylph Repository](https:/
 
 Download the file to (`inputs/metagenome/`).
 
--  [bac120_metadata_r220.tsv.gz](https://data.gtdb.ecogenomic.org/releases/release220/220.0/bac120_metadata_r220.tsv.gz)
+-  [bac120_taxonomy_r220.tsv.gz](https://data.ace.uq.edu.au/public/gtdb/data/releases/release220/220.0/bac120_taxonomy_r220.tsv.gz)
 
 #### BBMap Files
 
