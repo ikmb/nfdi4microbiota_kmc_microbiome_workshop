@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de)">
 
-<title>differential_abundance – Kiel Microbiome Center workshop</title>
+<title>Differential abundance analysis – Kiel Microbiome Center workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -189,20 +190,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.dev/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/4_Differential_abundance.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/4_Differential_abundance.ipynb">View Source</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
 
-
-
-
-<div id="dd7d5a66" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Differential abundance analysis"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de)"</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Differential abundance analysis</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/blob/main/scripts/4_Differential_abundance.ipynb">View Source</a></li></ul></div></div>
 </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eike Matthias Wacker (e.wacker@ikmb.uni-kiel.de) </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>This tutorial can be executed with the kernel ‘kmc_workshop’ directly in the code-cells of this jupyter-notebook.</p>
 <section id="objective" class="level1">
 <h1>Objective</h1>
@@ -211,9 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="afbdb1fd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "~/KMC_workshop/scripts"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd("~/KMC_workshop/scripts")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "~/KMC_workshop/scripts"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd("~/KMC_workshop/scripts")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -224,13 +238,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="c626bd07" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbiome)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Maaslin2)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnhancedVolcano)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbiome)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Maaslin2)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnhancedVolcano)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -241,14 +255,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="350d74c5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"~/kmc_workshop/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"~/kmc_workshop/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We load here the full gmbc-phyloseq object, so you can also play with other country combinations if you want, additionally the count data is still “raw”.</p>
 <div id="ca70dbde" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(path,<span class="st">'R_objects/full_phyloseq_object.RData'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(path,<span class="st">'R_objects/full_phyloseq_object.RData'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -257,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cb717515" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The dataset that we are using is called ‘ps’. It should look the same as in the previous tutorial sessions. If this is not the case, please inform one of the supervisors.</p>
@@ -265,10 +279,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="e0ce1d92" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(country) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <blockquote class="blockquote">
@@ -278,27 +292,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="df73b978" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(country, lifestyle) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(country, lifestyle) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In this case, you can execute the function here to restrict the phylseq object to your selected countries. If the object already contains only the country combination of samples, we copy the phyloseq object “ps” as “subset.ps”.</p>
 <div id="bd3ed9bf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- subset_samples(ps, country %in% c("Tanzania", "UnitedStates")) # Execute this, if you need to subset your phyloseq object</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="ot">&lt;-</span> <span class="fu">subset_samples</span>(ps, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Malaysia"</span>, <span class="st">"Finland"</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- ps # Execute this if your object is already a subset.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- subset_samples(ps, country %in% c("Tanzania", "UnitedStates")) # Execute this, if you need to subset your phyloseq object</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="ot">&lt;-</span> <span class="fu">subset_samples</span>(ps, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Malaysia"</span>, <span class="st">"Finland"</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- ps # Execute this if your object is already a subset.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="a3804483" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>subset.ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>subset.ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -310,11 +324,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="bf01bb48" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  subset.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>counts <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>(<span class="at">counts=</span>.) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  subset.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>counts <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>(<span class="at">counts=</span>.) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In our case we would like to have more than 8 thousand counts per samples.</p>
@@ -323,24 +337,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="37445864" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>to.plot <span class="ot">&lt;-</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  counts <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">counts =</span> ., <span class="at">Sample =</span> <span class="fu">names</span>(.))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(to.plot, <span class="fu">aes</span>(<span class="at">x =</span> Sample, <span class="at">y =</span> counts, <span class="at">fill =</span> counts <span class="sc">&gt;</span> <span class="dv">8000</span>)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">8000</span>) <span class="sc">+</span> <span class="co"># add horizontal line </span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"darkgrey"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"purple"</span>)) <span class="sc">+</span> <span class="co"># color low counts purple</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>)) <span class="co"># flip the axis names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>to.plot <span class="ot">&lt;-</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  counts <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">counts =</span> ., <span class="at">Sample =</span> <span class="fu">names</span>(.))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(to.plot, <span class="fu">aes</span>(<span class="at">x =</span> Sample, <span class="at">y =</span> counts, <span class="at">fill =</span> counts <span class="sc">&gt;</span> <span class="dv">8000</span>)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">8000</span>) <span class="sc">+</span> <span class="co"># add horizontal line </span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"darkgrey"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"purple"</span>)) <span class="sc">+</span> <span class="co"># color low counts purple</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>)) <span class="co"># flip the axis names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>To get the sample names with poor quality directly, we can filter the abdundance table directly and then display the row-names. Should we want to remove samples we can do this with the function commented out below:</p>
 <div id="30d623c0" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>bad_quality <span class="ot">&lt;-</span> to.plot[counts <span class="sc">&lt;</span> <span class="dv">8000</span>,] <span class="sc">%&gt;%</span> <span class="fu">rownames</span>()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bad_quality</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- subset_samples(subset.ps, !(sample_names(subset.ps) %in% bad_quality))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bad_quality <span class="ot">&lt;-</span> to.plot[counts <span class="sc">&lt;</span> <span class="dv">8000</span>,] <span class="sc">%&gt;%</span> <span class="fu">rownames</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bad_quality</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subset.ps &lt;- subset_samples(subset.ps, !(sample_names(subset.ps) %in% bad_quality))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="recap-taxonomy" class="level2">
@@ -360,8 +374,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="50492751" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>taxonomic_level <span class="ot">=</span> <span class="st">"Family"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"We are using the taxonomic level"</span>, taxonomic_level, <span class="st">"for our analysis."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>taxonomic_level <span class="ot">=</span> <span class="st">"Family"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"We are using the taxonomic level"</span>, taxonomic_level, <span class="st">"for our analysis."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We will use this variable again and again in the further steps so that the outputs are all comparable with each other. Of course, you always have the option of replacing the variable with a string with a valid taxonomic level name e.g.&nbsp;‘Phylum’, ‘Order’ or ‘Genus’.</p>
@@ -372,11 +386,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="de24333b" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_bar</span>(subset.ps, <span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span>  </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free_x"</span>,<span class="at">space=</span><span class="st">"free"</span>) <span class="sc">+</span><span class="co"># divide the plot into facets </span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># position of the legend in the plot, to remove legend use 'none'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_bar</span>(subset.ps, <span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span>  </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free_x"</span>,<span class="at">space=</span><span class="st">"free"</span>) <span class="sc">+</span><span class="co"># divide the plot into facets </span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># position of the legend in the plot, to remove legend use 'none'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We see that samples have different sequence counts. Each ASV is a subdivision of the plot. Can you already spot phyla that differ between the two groups?</p>
@@ -386,14 +400,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="76bbaaa1" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> <span class="co"># aggregate all ASVs into the level phyloum</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> <span class="co"># make all samples with the same sequencing depth using rarefaction</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bar</span>(<span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span>  </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">space=</span><span class="st">"free"</span>) <span class="sc">+</span> <span class="co"># divide the plot into facets </span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># remove legend from plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> <span class="co"># aggregate all ASVs into the level phyloum</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> <span class="co"># make all samples with the same sequencing depth using rarefaction</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bar</span>(<span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span>  </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">space=</span><span class="st">"free"</span>) <span class="sc">+</span> <span class="co"># divide the plot into facets </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># remove legend from plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>As you can see, we have quite a few different taxa in our plot. The colors differ only marginally when plotting dozents of unique taxa and you can hardly distinguish the taxa.</p>
@@ -401,24 +415,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="6e6e3996" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Original function was deprecated. So we keep a backup here:</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>aggregate_top_taxa2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, top, level) {</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">aggregate_taxa</span>(x, level)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  tops <span class="ot">&lt;-</span> <span class="fu">top_taxa</span>(x, top)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  tax <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(x)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  inds <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">rownames</span>(tax) <span class="sc">%in%</span> tops)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  tax[inds, level] <span class="ot">&lt;-</span> <span class="st">"Other"</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tax_table</span>(x) <span class="ot">&lt;-</span> tax</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(x)[, level]</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tax_table</span>(x) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(tt)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(x, level)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aggregate_top_taxa2</span>(<span class="at">top =</span> <span class="dv">10</span>, <span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> <span class="co"># Here we used the function from the package microbiome to reduce the number of taxa to the top 10. The rest is lumped into the category "other"</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_bar</span>(<span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">space=</span><span class="st">'free'</span>) <span class="sc">+</span> </span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Set3"</span>) <span class="co"># change colors of bars</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Original function was deprecated. So we keep a backup here:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>aggregate_top_taxa2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, top, level) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">aggregate_taxa</span>(x, level)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  tops <span class="ot">&lt;-</span> <span class="fu">top_taxa</span>(x, top)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  tax <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(x)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  inds <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">rownames</span>(tax) <span class="sc">%in%</span> tops)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  tax[inds, level] <span class="ot">&lt;-</span> <span class="st">"Other"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tax_table</span>(x) <span class="ot">&lt;-</span> tax</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(x)[, level]</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tax_table</span>(x) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(tt)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(x, level)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>subset.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aggregate_top_taxa2</span>(<span class="at">top =</span> <span class="dv">10</span>, <span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> <span class="co"># Here we used the function from the package microbiome to reduce the number of taxa to the top 10. The rest is lumped into the category "other"</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_bar</span>(<span class="at">x=</span><span class="st">"Sample"</span>, <span class="at">fill=</span>taxonomic_level) <span class="sc">+</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> country, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">space=</span><span class="st">'free'</span>) <span class="sc">+</span> </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Set3"</span>) <span class="co"># change colors of bars</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>It is also recommended to use a different color palette than the standard one. In the plot above we have used a color palette from ColorBrewer with the function scale_fill_brewer(palette=“Set3”)</p>
@@ -427,17 +441,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="90011995" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK, if you have spare time:</strong> The color palettes shown can only be used with a maximum of 13 values shown. Find out if you can create your own color palette that you can use to visualize results with more values. Remember that your color palette must also be suitable for colorblind people.</p>
 <div id="cc289641" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK: Try with other levels!</strong></p>
@@ -445,17 +459,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="2b8e6830" class="cell" data-scrolled="true" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The options in our phyloseq objects are:</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tax_table</span>(subset.ps)<span class="sc">@</span>.Data <span class="sc">%&gt;%</span> <span class="fu">colnames</span>()</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># #Phyloseq function, returning the taxonomic ranks in a phyloseq object:</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#rank_names(subset.ps)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The options in our phyloseq objects are:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tax_table</span>(subset.ps)<span class="sc">@</span>.Data <span class="sc">%&gt;%</span> <span class="fu">colnames</span>()</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># #Phyloseq function, returning the taxonomic ranks in a phyloseq object:</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#rank_names(subset.ps)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="302a964a" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your own code here:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>But how do we know whether it is this significant?</strong></p>
@@ -471,42 +485,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="bd5100d8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>glom.ps <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(subset.ps, <span class="st">"Species"</span>) <span class="co"># Agglomerate taxa of the same type, this might take a moment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>glom.ps <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(subset.ps, <span class="st">"Species"</span>) <span class="co"># Agglomerate taxa of the same type, this might take a moment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We also set new taxa names:</p>
 <div id="59d653f8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>full_tax_names <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">tax_table</span>(glom.ps), <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">paste</span>(x, <span class="at">collapse =</span> <span class="st">";"</span>))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(full_tax_names)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">taxa_names</span>(glom.ps) <span class="ot">&lt;-</span> full_tax_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>full_tax_names <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">tax_table</span>(glom.ps), <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">paste</span>(x, <span class="at">collapse =</span> <span class="st">";"</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(full_tax_names)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">taxa_names</span>(glom.ps) <span class="ot">&lt;-</span> full_tax_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Then we will take another look at the newly created phyloseq object:</p>
 <div id="da564d26" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>glom.ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>glom.ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We also look at how many taxa we have when we aggretgate our phyloseq object to our chosen taxonomic level:</p>
 <div id="6d7cbad2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Depending on the level selected, we will certainly have a number of taxa that are very rare. These can subsequently be disruptive, as we can only perform meaningful statistics to a limited extent in rare taxa and there is always the possibility that these could also be artifacts. For the sake of simplicity, we will remove these from our dataset using the following functions. In this case, our filter is that we want to have at least 5 counts in at least 20 percent of the available samples. But this is of course highly customizable to the given study design and dataset.</p>
 <div id="d9ea5426" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>filter <span class="ot">&lt;-</span> glom.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                 phyloseq<span class="sc">::</span><span class="fu">genefilter_sample</span>(., <span class="fu">filterfun_sample</span>(<span class="cf">function</span>(x) x <span class="sc">&gt;=</span> <span class="dv">5</span>), </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">A =</span> <span class="fl">0.2</span><span class="sc">*</span><span class="fu">nsamples</span>(glom.ps))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(filter, glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level))</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>ps_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>filter <span class="ot">&lt;-</span> glom.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                 phyloseq<span class="sc">::</span><span class="fu">genefilter_sample</span>(., <span class="fu">filterfun_sample</span>(<span class="cf">function</span>(x) x <span class="sc">&gt;=</span> <span class="dv">5</span>), </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">A =</span> <span class="fl">0.2</span><span class="sc">*</span><span class="fu">nsamples</span>(glom.ps))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(filter, glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>ps_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Could you think of a more suitable filter, as the individual samples in our dataset might have different sums of abundance counts?</p>
@@ -514,13 +528,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="04b8fc51" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>better_filter <span class="ot">&lt;-</span> glom.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">transform_sample_counts</span>(., <span class="cf">function</span>(x) x <span class="sc">/</span> <span class="fu">sum</span>(x) ) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    phyloseq<span class="sc">::</span><span class="fu">genefilter_sample</span>(., <span class="fu">filterfun_sample</span>(<span class="cf">function</span>(x) x <span class="sc">&gt;=</span> <span class="dv">5</span>), </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">A =</span> <span class="fl">0.2</span><span class="sc">*</span><span class="fu">nsamples</span>(glom.ps))</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(better_filter, glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>better_filter <span class="ot">&lt;-</span> glom.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">transform_sample_counts</span>(., <span class="cf">function</span>(x) x <span class="sc">/</span> <span class="fu">sum</span>(x) ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    phyloseq<span class="sc">::</span><span class="fu">genefilter_sample</span>(., <span class="fu">filterfun_sample</span>(<span class="cf">function</span>(x) x <span class="sc">&gt;=</span> <span class="dv">5</span>), </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">A =</span> <span class="fl">0.2</span><span class="sc">*</span><span class="fu">nsamples</span>(glom.ps))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(better_filter, glom.ps <span class="sc">%&gt;%</span> <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="clr-transformation" class="level3">
@@ -530,20 +544,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="f67f1449" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How our counttable looks currently:</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply a transformation on the counttable, in this case centered log ratio transformation:</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>transf.ps <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>                microbiome<span class="sc">::</span><span class="fu">transform</span>(., <span class="at">transform=</span><span class="st">'clr'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">otu_table</span>()</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># How our counttable looks after applied transformation:</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>transf.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How our counttable looks currently:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply a transformation on the counttable, in this case centered log ratio transformation:</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>transf.ps <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                microbiome<span class="sc">::</span><span class="fu">transform</span>(., <span class="at">transform=</span><span class="st">'clr'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">otu_table</span>()</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># How our counttable looks after applied transformation:</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>transf.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>If we plot the distributions in the raw state compared to the CLR transformation, we can see how outliers are now less far from the rest of the distribution.</p>
@@ -551,26 +565,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="880f8110" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>taxa_to_inspect <span class="ot">&lt;-</span> <span class="fu">rownames</span>(ps_filtered <span class="sc">%&gt;%</span> <span class="fu">otu_table</span>())[<span class="dv">3</span>] <span class="co"># Select a single taxa</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> <span class="co"># extract otu table</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="co"># make it a data frame</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"taxa"</span>) <span class="sc">%&gt;%</span> <span class="co"># rownames are added as column named taxa</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>taxa), <span class="at">names_to =</span> <span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span> <span class="co"># make the table to a long three column table, containing the columns taxa, sample_id  and value</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type=</span><span class="st">"rawreads"</span>) <span class="sc">%&gt;%</span> <span class="co"># add a column labeling all rows as "rawreads"</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>( transf.ps <span class="sc">%&gt;%</span>  <span class="co"># bind to that the clr transformed dataset, we repeat all the previous functions on this, too</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rownames_to_column</span>(<span class="st">"taxa"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>taxa), <span class="at">names_to =</span> <span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mutate</span>(<span class="at">type=</span><span class="st">"clr"</span>) ) <span class="sc">%&gt;%</span> <span class="co"># add a column labeling all rows of this dataset as "clr"</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(taxa <span class="sc">==</span> taxa_to_inspect) <span class="sc">%&gt;%</span> <span class="co"># we filter the data to only contain our chosen taxa</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> value), <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span> <span class="co">#plot a histogram</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Counts for "</span>,taxa_to_inspect ))<span class="sc">+</span></span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>( <span class="sc">~</span>type, <span class="at">scales=</span><span class="st">"free"</span>) <span class="sc">+</span> <span class="co"># split the plot by the column type</span></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>)) <span class="co"># increase textsize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>taxa_to_inspect <span class="ot">&lt;-</span> <span class="fu">rownames</span>(ps_filtered <span class="sc">%&gt;%</span> <span class="fu">otu_table</span>())[<span class="dv">3</span>] <span class="co"># Select a single taxa</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> <span class="co"># extract otu table</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="co"># make it a data frame</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"taxa"</span>) <span class="sc">%&gt;%</span> <span class="co"># rownames are added as column named taxa</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>taxa), <span class="at">names_to =</span> <span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span> <span class="co"># make the table to a long three column table, containing the columns taxa, sample_id  and value</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type=</span><span class="st">"rawreads"</span>) <span class="sc">%&gt;%</span> <span class="co"># add a column labeling all rows as "rawreads"</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>( transf.ps <span class="sc">%&gt;%</span>  <span class="co"># bind to that the clr transformed dataset, we repeat all the previous functions on this, too</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rownames_to_column</span>(<span class="st">"taxa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>taxa), <span class="at">names_to =</span> <span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mutate</span>(<span class="at">type=</span><span class="st">"clr"</span>) ) <span class="sc">%&gt;%</span> <span class="co"># add a column labeling all rows of this dataset as "clr"</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(taxa <span class="sc">==</span> taxa_to_inspect) <span class="sc">%&gt;%</span> <span class="co"># we filter the data to only contain our chosen taxa</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> value), <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span> <span class="co">#plot a histogram</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Counts for "</span>,taxa_to_inspect ))<span class="sc">+</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>( <span class="sc">~</span>type, <span class="at">scales=</span><span class="st">"free"</span>) <span class="sc">+</span> <span class="co"># split the plot by the column type</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>)) <span class="co"># increase textsize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Try to plot some other taxa by changing the number in the first line!</p>
@@ -583,54 +597,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="7c35b567" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>transf.df <span class="ot">&lt;-</span> transf.ps <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>transf.df <span class="ot">&lt;-</span> transf.ps <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Add the metadata column to the table for which to test</p>
 <div id="3835c0c5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="ot">&lt;-</span> transf.df <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="ot">&lt;-</span> transf.df <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="b542e66b" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve countries</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>chosen_countries <span class="ot">&lt;-</span> tansf.df<span class="sc">$</span>grouping <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>chosen_countries</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#apply wilcox test to clr transformed table</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>wilcox_clr <span class="ot">&lt;-</span> tansf.df <span class="sc">%&gt;%</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="st">"sample_id"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>sample_id,<span class="sc">-</span>grouping), <span class="at">names_to =</span> <span class="st">"taxa"</span>, <span class="at">values_to =</span> <span class="st">"abundance"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(taxa) <span class="sc">%&gt;%</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">wilcox.test</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]], </span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>                              abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])<span class="sc">$</span>p.value,</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">countryone_mean=</span><span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]]),</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">countrytwo_mean=</span><span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adjust p-values with Bonferroni correction</span></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_adj =</span> <span class="fu">p.adjust</span>(p_value, <span class="at">method =</span> <span class="st">"bonferroni"</span>), <span class="at">.before =</span> countryone_mean)</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>wilcox_clr <span class="sc">%&gt;%</span> </span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(p_adj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve countries</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>chosen_countries <span class="ot">&lt;-</span> tansf.df<span class="sc">$</span>grouping <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>chosen_countries</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#apply wilcox test to clr transformed table</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>wilcox_clr <span class="ot">&lt;-</span> tansf.df <span class="sc">%&gt;%</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="st">"sample_id"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>sample_id,<span class="sc">-</span>grouping), <span class="at">names_to =</span> <span class="st">"taxa"</span>, <span class="at">values_to =</span> <span class="st">"abundance"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(taxa) <span class="sc">%&gt;%</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">wilcox.test</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]], </span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>                              abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])<span class="sc">$</span>p.value,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">countryone_mean=</span><span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]]),</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">countrytwo_mean=</span><span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adjust p-values with Bonferroni correction</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_adj =</span> <span class="fu">p.adjust</span>(p_value, <span class="at">method =</span> <span class="st">"bonferroni"</span>), <span class="at">.before =</span> countryone_mean)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>wilcox_clr <span class="sc">%&gt;%</span> </span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(p_adj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> What would you need to change to test other metadata features? Use lifestyle as phenotype.</p>
 <div id="630d715f" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="ot">&lt;-</span> transf.df <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>lifestyle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="ot">&lt;-</span> transf.df <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>lifestyle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Why do we need to apply p-value adjustment to our results? Search the internet if you don’t know.</p>
@@ -649,50 +663,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="86059828" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ps.to.dseq <span class="ot">&lt;-</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  ps_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ps.to.dseq <span class="ot">&lt;-</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  ps_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now, let us do the DESeq2 routine. Luckily the phyloseq package contains functions to create the necessary DESeq object directly from the phyloseq object.</p>
 <div id="670515ec" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DESeq2 object from </span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>dseq <span class="ot">&lt;-</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  ps.to.dseq <span class="sc">%&gt;%</span> </span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">phyloseq_to_deseq2</span>(<span class="at">design =</span> <span class="sc">~</span> sex <span class="sc">+</span> lifestyle)</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform test. There is a lot going under the hood here, including: estimation of size factors, estimation of dispersion, and Negative Binomial GLM fitting and Wald statistics.</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">DESeq</span>(dseq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DESeq2 object from </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>dseq <span class="ot">&lt;-</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  ps.to.dseq <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">phyloseq_to_deseq2</span>(<span class="at">design =</span> <span class="sc">~</span> sex <span class="sc">+</span> lifestyle)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform test. There is a lot going under the hood here, including: estimation of size factors, estimation of dispersion, and Negative Binomial GLM fitting and Wald statistics.</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">DESeq</span>(dseq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>With DESeq2, it should be said that the design is only tested for the last variable. All the variables mentioned before in the design formula are used as covariates. The variable to be tested must be categorical. In R this is referred to as a factor. The last level as a factor is compared with the reference level by default. For other comparisons, the contrast must be specified in the “contrast” parameter of the “result” function.</p>
 <div id="7b5c997a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the result table</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>res.df <span class="ot">&lt;-</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">%&gt;%</span> </span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">results</span>(<span class="at">tidy =</span> T, <span class="at">contrast =</span> <span class="fu">c</span>(<span class="st">"lifestyle"</span>,<span class="st">"lifestyle_non_industrialized"</span>,<span class="st">"lifestyle_industrialized"</span>))</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualize what we got out of it</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>res.df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the result table</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>res.df <span class="ot">&lt;-</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">results</span>(<span class="at">tidy =</span> T, <span class="at">contrast =</span> <span class="fu">c</span>(<span class="st">"lifestyle"</span>,<span class="st">"lifestyle_non_industrialized"</span>,<span class="st">"lifestyle_industrialized"</span>))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualize what we got out of it</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>res.df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>That’s it! You can have a look at the <code>res.df</code> table and you will find the results of all the taxa tested. Depending on your question, you can perform similar analysis to all levels, from phylum to ASV (species level).</p>
 <div id="a5a1ec57" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and format to plot</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>res.df.to.plot <span class="ot">&lt;-</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  res.df <span class="sc">%&gt;%</span> </span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(padj <span class="sc">&lt;</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="co"># keep only results with adjusted P value less than 0.05</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Taxa =</span> row) <span class="sc">%&gt;%</span> <span class="co"># Create Taxa column</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#left_join(tax_table(ps.to.dseq )@.Data %&gt;% data.frame()), by = "Taxa")# %&gt;% # Add taxonomy information from the phyloseq object.</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Arrange the data for a prettier plot</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(log2FoldChange) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Taxa =</span> <span class="fu">factor</span>(Taxa, <span class="at">levels =</span> Taxa <span class="sc">%&gt;%</span> <span class="fu">unique</span>()))</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res.df.to.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and format to plot</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>res.df.to.plot <span class="ot">&lt;-</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  res.df <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(padj <span class="sc">&lt;</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="co"># keep only results with adjusted P value less than 0.05</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Taxa =</span> row) <span class="sc">%&gt;%</span> <span class="co"># Create Taxa column</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#left_join(tax_table(ps.to.dseq )@.Data %&gt;% data.frame()), by = "Taxa")# %&gt;% # Add taxonomy information from the phyloseq object.</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Arrange the data for a prettier plot</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(log2FoldChange) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Taxa =</span> <span class="fu">factor</span>(Taxa, <span class="at">levels =</span> Taxa <span class="sc">%&gt;%</span> <span class="fu">unique</span>()))</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res.df.to.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We will later format this table and visualize the data using ggplot2. But before we do that, let’s take a look at another tool.</p>
@@ -714,49 +728,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="e62c47b4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ps.to.maaslin <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df_input_data <span class="ot">&lt;-</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    ps.to.maaslin <span class="sc">%&gt;%</span> </span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as</span>(<span class="st">"matrix"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">0</span>)</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>df_input_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>df_input_metadata <span class="ot">&lt;-</span> </span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    ps.to.maaslin <span class="sc">%&gt;%</span> </span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>()</span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>df_input_metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ps.to.maaslin <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate_taxa</span>(<span class="at">level =</span> taxonomic_level)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>df_input_data <span class="ot">&lt;-</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    ps.to.maaslin <span class="sc">%&gt;%</span> </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as</span>(<span class="st">"matrix"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>df_input_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>df_input_metadata <span class="ot">&lt;-</span> </span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    ps.to.maaslin <span class="sc">%&gt;%</span> </span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_data</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>()</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>df_input_metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In the parameter fixed_effects you can pass all variables you want to test. The tool is ordering the categories in alphabetical order, where the first category is treated as the reference, a second option is to make it a factor with specified level order. We are using a third option here and declare the reference directly in the parameter ‘reference’. Covariates can be passed along to the parameter ‘random_effects’ that you want to control for.</p>
 <div id="a1dcb566" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fit_data <span class="ot">=</span> <span class="fu">Maaslin2</span>(</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_data =</span> df_input_data, </span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_metadata =</span> df_input_metadata, </span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output =</span> <span class="st">"../maaslin2_output"</span>, </span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_effects =</span> <span class="fu">c</span>(<span class="st">"lifestyle"</span>), <span class="co"># The phenotypes that you want to analyse</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">random_effects =</span> <span class="fu">c</span>(), <span class="co"># Include random effects that you want to adjust for, e.g. sample IDs when you have longitudinal study</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform =</span> <span class="st">"NONE"</span>, <span class="co"># Possible transformation choices:  LOG, LOGIT, AST, NONE </span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">normalization=</span> <span class="st">'TSS'</span>, <span class="co"># Choices: TSS, CLR, CSS, NONE, TMM</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">reference =</span> <span class="st">'lifestyle,lifestyle_non_industrialized'</span>,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">standardize =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_heatmap =</span> F, </span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_scatter =</span> T</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fit_data <span class="ot">=</span> <span class="fu">Maaslin2</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_data =</span> df_input_data, </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_metadata =</span> df_input_metadata, </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output =</span> <span class="st">"../maaslin2_output"</span>, </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_effects =</span> <span class="fu">c</span>(<span class="st">"lifestyle"</span>), <span class="co"># The phenotypes that you want to analyse</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">random_effects =</span> <span class="fu">c</span>(), <span class="co"># Include random effects that you want to adjust for, e.g. sample IDs when you have longitudinal study</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform =</span> <span class="st">"NONE"</span>, <span class="co"># Possible transformation choices:  LOG, LOGIT, AST, NONE </span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">normalization=</span> <span class="st">'TSS'</span>, <span class="co"># Choices: TSS, CLR, CSS, NONE, TMM</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">reference =</span> <span class="st">'lifestyle,lifestyle_non_industrialized'</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">standardize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_heatmap =</span> F, </span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_scatter =</span> T</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="1377b321" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit_data<span class="sc">$</span>results  <span class="ot">&lt;-</span> fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">feature =</span> <span class="fu">gsub</span>(<span class="st">"^X."</span>,<span class="st">""</span>,feature)) <span class="co"># Remove some artifacts from the column feature</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fit_data<span class="sc">$</span>results  <span class="ot">&lt;-</span> fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">feature =</span> <span class="fu">gsub</span>(<span class="st">"^X."</span>,<span class="st">""</span>,feature)) <span class="co"># Remove some artifacts from the column feature</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The column qval is synonymous with p_adj. It is the output column for multiple testing corrected p-values.</p>
@@ -771,30 +785,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="04530af5" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>mostsign_clr <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(p_adj) <span class="sc">%&gt;%</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(taxa) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="co"># Take the first value</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>mostsign_clr</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country) <span class="sc">%&gt;%</span> <span class="co">#add country column to our dataframe</span></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_clr), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_rare with a taxa you would like to plot</span></span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts, <span class="at">fill=</span>grouping))<span class="sc">+</span></span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span> <span class="co"># increase text size</span></span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_clr )) <span class="sc">+</span> <span class="co">#Add y axis label</span></span>
-<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())<span class="sc">+</span> <span class="co">#Keep x axis label blank</span></span>
-<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="cn">Inf</span>, <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">7</span>,</span>
-<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>              <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"Wilcoxon p-adj="</span>,<span class="fu">format</span>(wilcox_clr[wilcox_clr<span class="sc">$</span>taxa<span class="sc">==</span>mostsign_clr,]<span class="sc">$</span>p_adj, <span class="at">scientific=</span>T)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">12</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>mostsign_clr <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(p_adj) <span class="sc">%&gt;%</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(taxa) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="co"># Take the first value</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>mostsign_clr</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country) <span class="sc">%&gt;%</span> <span class="co">#add country column to our dataframe</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_clr), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_rare with a taxa you would like to plot</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts, <span class="at">fill=</span>grouping))<span class="sc">+</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span> <span class="co"># increase text size</span></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_clr )) <span class="sc">+</span> <span class="co">#Add y axis label</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())<span class="sc">+</span> <span class="co">#Keep x axis label blank</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="cn">Inf</span>, <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">7</span>,</span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>              <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"Wilcoxon p-adj="</span>,<span class="fu">format</span>(wilcox_clr[wilcox_clr<span class="sc">$</span>taxa<span class="sc">==</span>mostsign_clr,]<span class="sc">$</span>p_adj, <span class="at">scientific=</span>T)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -804,25 +818,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="28b646d4" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">8</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res.df.to.plot, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> Taxa, <span class="at">col =</span> padj<span class="sc">&lt;=</span><span class="fl">0.01</span>)) <span class="sc">+</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> baseMean))  <span class="sc">+</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">8</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res.df.to.plot, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> Taxa, <span class="at">col =</span> padj<span class="sc">&lt;=</span><span class="fl">0.01</span>)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> baseMean))  <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>However, there are other ways to visualize such a foldchange in the RNAseq field. One method is the volcano plot. When many variables are tested, the shape of a volcano is usually created by this visualisation style, hence the name of the plot. The plot shows the foldchange on one axis and the p-value on the other. DESeq2 results can also be visualized like this quite easily.</p>
 <div id="76355d76" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>EnhancedVolcano<span class="sc">::</span><span class="fu">EnhancedVolcano</span>(res.df,</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">lab =</span> res.df<span class="sc">$</span>row,</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">'log2FoldChange'</span>,</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'pvalue'</span>,</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">FCcutoff =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>EnhancedVolcano<span class="sc">::</span><span class="fu">EnhancedVolcano</span>(res.df,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">lab =</span> res.df<span class="sc">$</span>row,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">'log2FoldChange'</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'pvalue'</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">FCcutoff =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -831,10 +845,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="b18e8b44" class="cell" data-scrolled="true" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sig_res_fit <span class="ot">&lt;-</span> fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(qval <span class="sc">&lt;=</span> <span class="fl">0.25</span>)  <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feature=</span><span class="fu">factor</span>(feature, <span class="at">levels=</span>feature))</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>sig_res_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sig_res_fit <span class="ot">&lt;-</span> fit_data<span class="sc">$</span>results <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(qval <span class="sc">&lt;=</span> <span class="fl">0.25</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feature=</span><span class="fu">factor</span>(feature, <span class="at">levels=</span>feature))</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>sig_res_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>Task</strong> All that’s missing now is some visualization for Maaslin2. You should now be capable of making your own ggplot. Can you think of the best way to display such results?</p>
@@ -843,29 +857,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="7f7ecfd3" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mostsign_maaslin <span class="ot">&lt;-</span> sig_res_fit <span class="sc">%&gt;%</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(qval) <span class="sc">%&gt;%</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(feature) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="co"># Take the first value</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">as.character</span>()</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>mostsign_maaslin</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>lifestyle) <span class="sc">%&gt;%</span> <span class="co">#add feature column to our dataframe</span></span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_maaslin <span class="sc">%&gt;%</span> <span class="fu">as.character</span>()), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_rare with a taxa you would like to plot</span></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts, <span class="at">fill=</span>grouping))<span class="sc">+</span></span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span> <span class="co"># increase text size</span></span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_maaslin )) <span class="sc">+</span> <span class="co">#Add y axis label</span></span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())<span class="sc">+</span> <span class="co">#Keep x axis label blank</span></span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="cn">Inf</span>, <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">7</span>,</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"qval="</span>,<span class="fu">format</span>(sig_res_fit[sig_res_fit<span class="sc">$</span>feature<span class="sc">==</span>mostsign_maaslin,]<span class="sc">$</span>qval, <span class="at">scientific=</span>T)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>mostsign_maaslin <span class="ot">&lt;-</span> sig_res_fit <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(qval) <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(feature) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="co"># Take the first value</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">as.character</span>()</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>mostsign_maaslin</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>ps_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>lifestyle) <span class="sc">%&gt;%</span> <span class="co">#add feature column to our dataframe</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_maaslin <span class="sc">%&gt;%</span> <span class="fu">as.character</span>()), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_rare with a taxa you would like to plot</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts, <span class="at">fill=</span>grouping))<span class="sc">+</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span> <span class="co"># increase text size</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_maaslin )) <span class="sc">+</span> <span class="co">#Add y axis label</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())<span class="sc">+</span> <span class="co">#Keep x axis label blank</span></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="cn">Inf</span>, <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">7</span>,</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"qval="</span>,<span class="fu">format</span>(sig_res_fit[sig_res_fit<span class="sc">$</span>feature<span class="sc">==</span>mostsign_maaslin,]<span class="sc">$</span>qval, <span class="at">scientific=</span>T)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -876,63 +890,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="78dc5723" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pvalue_df <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span> <span class="fu">select</span>(taxa, <span class="at">wilcox_padj=</span>p_adj) <span class="sc">%&gt;%</span> <span class="co">#Wilcoxon table</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">merge</span>(.,</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>        res.df.to.plot <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">taxa=</span>row, <span class="at">deseq_padj=</span>padj), <span class="co"># DESeq2 Results table</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by=</span><span class="st">"taxa"</span>, <span class="at">all.x=</span>T, <span class="at">all.y=</span>T) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">taxa=</span><span class="fu">str_trim</span>(taxa)) <span class="sc">%&gt;%</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">merge</span>(.,</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>        sig_res_fit <span class="sc">%&gt;%</span> <span class="co"># Maaslin2 table</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(<span class="at">taxa=</span>feature, <span class="at">maaslin_padj=</span>qval) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">taxa=</span><span class="fu">as.character</span>(taxa)), </span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">by=</span><span class="st">"taxa"</span>, <span class="at">all.x=</span>T, <span class="at">all.y=</span>T) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replace</span>(<span class="fu">is.na</span>(.), <span class="dv">1</span>) <span class="co"># Fill NA values with 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pvalue_df <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span> <span class="fu">select</span>(taxa, <span class="at">wilcox_padj=</span>p_adj) <span class="sc">%&gt;%</span> <span class="co">#Wilcoxon table</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">merge</span>(.,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>        res.df.to.plot <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">taxa=</span>row, <span class="at">deseq_padj=</span>padj), <span class="co"># DESeq2 Results table</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by=</span><span class="st">"taxa"</span>, <span class="at">all.x=</span>T, <span class="at">all.y=</span>T) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">taxa=</span><span class="fu">str_trim</span>(taxa)) <span class="sc">%&gt;%</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">merge</span>(.,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>        sig_res_fit <span class="sc">%&gt;%</span> <span class="co"># Maaslin2 table</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(<span class="at">taxa=</span>feature, <span class="at">maaslin_padj=</span>qval) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">taxa=</span><span class="fu">as.character</span>(taxa)), </span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">by=</span><span class="st">"taxa"</span>, <span class="at">all.x=</span>T, <span class="at">all.y=</span>T) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replace</span>(<span class="fu">is.na</span>(.), <span class="dv">1</span>) <span class="co"># Fill NA values with 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="a52d12e0" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pvalue_df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pvalue_df <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can now create two plots and simply plot the p-values.</p>
 <div id="f5fd0ce5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>compare_plot_one <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pvalue_df, <span class="fu">aes</span>(<span class="at">x =</span> deseq_padj, <span class="at">y =</span> wilcox_padj)) <span class="sc">+</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"DESeq2 adjusted p-value"</span>, <span class="at">y =</span> <span class="st">"Wilcoxon test adjusted p-value"</span>) <span class="sc">+</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_count</span>() <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>compare_plot_one</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>compare_plot_one <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pvalue_df, <span class="fu">aes</span>(<span class="at">x =</span> deseq_padj, <span class="at">y =</span> wilcox_padj)) <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"DESeq2 adjusted p-value"</span>, <span class="at">y =</span> <span class="st">"Wilcoxon test adjusted p-value"</span>) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_count</span>() <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>compare_plot_one</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="eb1325f8" class="cell" data-scrolled="false" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>compare_plot_two <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pvalue_df, <span class="fu">aes</span>(<span class="at">x =</span> deseq_padj, <span class="at">y =</span> maaslin_padj)) <span class="sc">+</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"DESeq2 adjusted p-value"</span>, <span class="at">y =</span> <span class="st">"MaAsLin2 adjusted p-value"</span>) <span class="sc">+</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_count</span>() <span class="sc">+</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>compare_plot_two</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>compare_plot_two <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pvalue_df, <span class="fu">aes</span>(<span class="at">x =</span> deseq_padj, <span class="at">y =</span> maaslin_padj)) <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"DESeq2 adjusted p-value"</span>, <span class="at">y =</span> <span class="st">"MaAsLin2 adjusted p-value"</span>) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_count</span>() <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>))</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>compare_plot_two</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Could you improve the above plots by applying logarithmic scaling?</p>
 <div id="304a1399" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>compare_plot_two <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>compare_plot_two <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="c63690a2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Wilcoxon test p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>wilcox_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>wilcox_padj)))</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"DESeq2 p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>deseq_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>deseq_padj)))</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"MaAsLin2 p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>maaslin_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>maaslin_padj)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Wilcoxon test p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>wilcox_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>wilcox_padj)))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"DESeq2 p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>deseq_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>deseq_padj)))</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"MaAsLin2 p-values under 0.05: "</span>, <span class="fu">sum</span>(pvalue_df<span class="sc">$</span>maaslin_padj<span class="sc">&lt;</span><span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"/"</span>, <span class="fu">length</span>(pvalue_df<span class="sc">$</span>maaslin_padj)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK</strong> Which method provides the most significant taxa and which tool would you prefer?</p>
@@ -940,49 +954,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="df4483d9" class="cell" data-scrolled="false" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rare_members(subset.ps)</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>wilcox_rare <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> <span class="co"># Perform rarefication</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country)    <span class="sc">%&gt;%</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>sample_id,<span class="sc">-</span>grouping), <span class="at">names_to =</span> <span class="st">"taxa"</span>, <span class="at">values_to =</span> <span class="st">"abundance"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(taxa) <span class="sc">%&gt;%</span></span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">wilcox.test</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]], abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])<span class="sc">$</span>p.value,</span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">countryone_mean=</span>(<span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]])),</span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">countrytwo_mean=</span>(<span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]]))</span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust p-values with Bonferroni correction</span></span>
-<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">p_adj =</span> <span class="fu">p.adjust</span>(p_value, <span class="at">method =</span> <span class="st">"bonferroni"</span>), <span class="at">.before =</span> countryone_mean) <span class="sc">%&gt;%</span></span>
-<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(p_adj)</span>
-<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a>wilcox_rare</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rare_members(subset.ps)</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>wilcox_rare <span class="ot">&lt;-</span> ps_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rarefy_even_depth</span>(<span class="at">rngseed =</span> <span class="dv">123</span>) <span class="sc">%&gt;%</span> <span class="co"># Perform rarefication</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">otu_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="co"># transpose the otu_table</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">grouping=</span><span class="fu">sample_data</span>(ps_filtered)<span class="sc">$</span>country)    <span class="sc">%&gt;%</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="st">"sample_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span>sample_id,<span class="sc">-</span>grouping), <span class="at">names_to =</span> <span class="st">"taxa"</span>, <span class="at">values_to =</span> <span class="st">"abundance"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(taxa) <span class="sc">%&gt;%</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">wilcox.test</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]], abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]])<span class="sc">$</span>p.value,</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">countryone_mean=</span>(<span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">1</span>]])),</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">countrytwo_mean=</span>(<span class="fu">mean</span>(abundance[grouping <span class="sc">==</span> chosen_countries[<span class="dv">2</span>]]))</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust p-values with Bonferroni correction</span></span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">p_adj =</span> <span class="fu">p.adjust</span>(p_value, <span class="at">method =</span> <span class="st">"bonferroni"</span>), <span class="at">.before =</span> countryone_mean) <span class="sc">%&gt;%</span></span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(p_adj)</span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>wilcox_rare</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>TASK for when you have time:</strong> Can you plot the Wilcoxon test results based on rarefied count data?</p>
 <div id="fba1759e" class="cell" data-solution2="hidden" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">8</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>mostsign_rare <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(p_adj) <span class="sc">%&gt;%</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(taxa) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="co"># Take the first value</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>mostsign_rare</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="sc">%&gt;%</span> </span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_clr), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_clr with a taxa you would like to plot</span></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts))<span class="sc">+</span></span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span></span>
-<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_clr )) <span class="sc">+</span></span>
-<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">12</span>, <span class="at">repr.plot.height =</span> <span class="dv">8</span>, <span class="at">repr.plot.res =</span> <span class="dv">100</span>) <span class="co">#Set the plot size</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>mostsign_rare <span class="ot">&lt;-</span> wilcox_clr <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(p_adj) <span class="sc">%&gt;%</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">pull</span>(taxa) <span class="sc">%&gt;%</span> <span class="co"># Store the name of most significant taxa</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>                    .[<span class="dv">1</span>] <span class="co"># Take the first value</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>mostsign_rare</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>tansf.df <span class="sc">%&gt;%</span> </span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">counts=</span><span class="fu">matches</span>(mostsign_clr), <span class="st">"grouping"</span>) <span class="sc">%&gt;%</span> <span class="co">#replace mostsign_clr with a taxa you would like to plot</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>grouping, <span class="at">y=</span>counts))<span class="sc">+</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span> <span class="co">#make a simple boxplot</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>()<span class="sc">+</span> <span class="co">#add jittered points to the plots</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#stat_compare_means(method = "wilcox.test")+</span></span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">28</span>))<span class="sc">+</span></span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">"Abundance of "</span>, mostsign_clr )) <span class="sc">+</span></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>What difference can you observe between the different statistical results based on the rarefied and CLR transformed data?</p>
