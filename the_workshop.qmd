@@ -37,11 +37,10 @@ To run the tutorial, it is assumed that you are working on a mac or a linux-base
 
 To run the tutorials, you will need files from the [`inputs` folder](https://github.com/ikmb/nfdi4microbiota_kmc_microbiome_workshop/tree/main/inputs) with 16S dataset. This dataset has been reduced in size and randomly shuffled compared to the original dataset. The files you need are:
 
--   common_significant_features.txt
--   feature-table-gmbc1.tsv
--   metadata_gmbc_bn10_complete_fixed.tsv
--   taxonomy_gmbc1_form.csv
--   tree-gmbc1.nwk
+-   feature-table.tsv
+-   metadata_bn10_complete_fixed.tsv
+-   taxonomy_form.csv
+-   tree.nwk
 
 ### Metagenome Files:
 
